@@ -106,3 +106,49 @@ TikTok muss deinen frischen Account erst als „echten Menschen in der Duft-Nisc
 ---
 
 *Quellen (verifiziert, mit Datum): TikTok Seller University Creator-Eligibility (2026); online-marketing-woman.de „Tipp 56" (DE-Anforderungen: 1.000 Follower + 50 Views/28 Tage); Hootsuite „TikTok Algorithm" (01.06.2026, Signal-Hierarchie); Socialinsider Video-Länge-Studie (10.07.2026, 6 Mio. Videos); Sprout Social TikTok-SEO (2026); Metricool Best-Time-Studie (11.06.2026); socialmediapiraten.de „Algorithmus 2026" (Follower-First); The Nod Mag zu @perfumesguy (04.2026); deutsche IP-Kanzleien zu § 6 UWG / EuGH L'Oréal-Bellure. Als Hype/erfunden verworfen: exakte „Cold-Start-Pool"-Größen, „70 %-Completion-Schwelle", „Caption 40%/Text 30%/Hashtag 20%"-Gewichtung, „Photo-Mode 5× Reichweite". Der @perfumesguy-3-Tage-auf-1k-Wert ist Einzelquelle — bester verfügbarer Beleg, keine Garantie.*
+
+---
+
+# REVIEW-UPDATE (20.07.2026): 8 Verbesserungen nach kritischer Selbstprüfung
+
+## 1. Hybrid statt Voll-Synthetik: echte Flaschen als Basis (wichtigste Änderung)
+
+Die Original-Idee war die voll KI-generierte Flasche. Besser: **die 3–5 Hero-Düfte real kaufen (~100–150 €, Lattafa gibt's bei dm/Rossmann ab 24 €)** und den Charakter-Layer (Gesicht, Mimik, Stimme) per KI **auf echtes Flaschen-Footage** legen bzw. die Animation aus echten Produktfotos referenzieren. Das löst vier Probleme gleichzeitig:
+- **Originalität:** echtes Eigen-Footage entkommt der Unoriginal-Content-Klassifizierung, die reine KI-Pipelines drosselt.
+- **Genauigkeit:** keine halluzinierte Flasche/kein verfälschtes Label → kein „Produkt nicht wie beschrieben"-Risiko.
+- **Premium-Optik:** reale Flasche in Makro + Cartoon-Gesicht wirkt hochwertiger als Voll-Cartoon — wichtig gegen das „Mascot verbilligt Luxus"-Problem.
+- **Echtheit der Aussagen:** Noten von der echten Verpackung ablesbar; du kannst ehrlich sagen, dass der Duft im Haus ist.
+Das ist die 95/5-Pipeline aus der Hauptanalyse, fusioniert mit der Charakter-Idee — statt zwei konkurrierender Ansätze einer, der beide Stärken hat.
+
+## 2. Doppelte Monetarisierung von Anfang an mitdenken (hebt die Einkommens-Decke)
+
+Die Provisions-Mathematik (~4–5 €/Verkauf) deckelt das Affiliate-Einkommen — 10 k € hieße 2.000+ Verkäufe/Monat. Aber der Account produziert nebenbei ein **B2B-Portfolio**: Die deutschen TikTok-Shop-Seller (LSQ24, Hanadis & Co.) sind zu 90 %+ affiliate-abhängig und brauchen strukturell Content. Ein etablierter Charakter-Account kann Sellern **Character-Videos als Dienstleistung** verkaufen (Paket-/Retainer-Preise wie im Fiverr-KI-UGC-Modell: 75–600 € pro Paket statt 4 € pro Verkauf). Konsequenz für jetzt: Jedes gute Video zusätzlich als Portfolio-Stück archivieren; ab ~5.000 Followern ist der Account gleichzeitig Bewerbungsmappe. Zwei Einnahmepfade aus einem Asset.
+
+## 3. Instagram Reels gleichwertig fahren, nicht als Beiwerk
+
+Der einzige belegte Vergleichsfall des Formats (@perfumesguy) läuft **auf Instagram Reels, nicht auf TikTok**. Cross-Posting ist damit nicht „Gratis-Bonus", sondern zweiter Hauptkanal: watermark-frei, eigene Caption, gleiche Frequenz. Zusätzlich ist es die Absicherung gegen das größte Einzelrisiko (TikTok-Account-Sperre = Reset auf null).
+
+## 4. Viral-Protokoll statt starrem Kalender
+
+Der 14-Tage-Kalender ist ein Default, kein Gesetz. Regel: **Sobald ein Video >10× deiner Baseline läuft, Kalender fallen lassen** und innerhalb von 24–48 h 2–3 Folge-Videos desselben Musters nachschieben (gleicher Charakter, gleicher Hook-Typ). Das Algorithmus-Fenster ist kurz; @perfumesguys 3-Tage-Start kam genau aus diesem Nachfassen.
+
+## 5. Kadenz realistisch: Batch-Produktion + billige Füller-Formate
+
+2–3 aufwendige KI-Animationen pro Tag sind solo nicht durchhaltbar (@perfumesguy selbst: „unerwartet zeitaufwendig"). Lösung: **Batch-Tage** (10–14 Videos an einem Wochenende vorproduzieren, Charakter-Templates wiederverwenden) + die Tages-Kadenz mit **billigen Formaten auffüllen**: Foto-Karussells, Ranked-Lists über B-Roll, Text-auf-Bild (Cent-Kosten). Nebeneffekt: Das löst auch den Sound-Konflikt — Talking-Bottle-Videos brauchen ihr eigenes Voiceover, **Trending-Sounds laufen auf den Füller-Formaten**.
+
+## 6. Harte Entscheidungs-Gates für die Warm-up-Phase
+
+- **Gate Woche 2–3:** Wenn die einfachen Formate (Lists/Carousels) die Talking-Bottle-Videos in Completion UND Follows klar schlagen → Anker-Format wechseln, nicht am Konzept festhalten. Die Daten wählen das Format, nicht die Vorliebe.
+- **Gate Woche 4:** <300 Follower und kein Video >20k Views → Nischen-Winkel/Hook-Systematik ändern.
+- **Gate Woche 8:** <1.000 Follower → Strategie-Review statt Weiter-so.
+
+## 7. Kleinkram, der teuer werden kann
+
+- **Gewerbeanmeldung in Woche 1** erledigen (nicht erst bei Monetarisierung — kommerzielle Absicht besteht ab Start; 15–65 €).
+- **Kein „Lattafa" im Handle/Namen** (Marken-/Impersonation-Risiko; Account wirkt sonst wie offizieller Brand-Account). Generischer Serien-Name.
+- **Eine feste Stimme pro Charakter** (Wiedererkennung = Follow-Trigger; Stimmen-Wechsel zerstört die Serie). Vorab 2–3 deutsche ElevenLabs-Stimmen testen, dann einfrieren.
+- **Alles dokumentieren** (Charakter-Prompts, Skripte, Hook-Bibliothek, Rohdateien lokal): Bei Account-Verlust ist der Neustart dann Re-Upload statt Neuaufbau.
+
+## 8. Strategische Ehrlichkeit: Parfüm ist die Leidenschafts-Wette, nicht die Daten-Wette
+
+Die Zahlen sprachen für Haushalt/Küche als Hauptmodell (größte Affiliate-Nische, Demo-stark); Parfüm war in der eigenen Analyse „Test-Zweitaccount". Dass wir jetzt Parfüm als Hauptweg bauen, ist vertretbar — **Motivation treibt die tägliche Kadenz, und Kadenz ist der wichtigste Erfolgsfaktor** — aber es sollte eine bewusste Entscheidung sein, keine schleichende. Falls Parfüm an Gate Woche 8 scheitert: Die aufgebauten Skills (Charakter-Pipeline, Hooks, Schnitt) übertragen sich 1:1 auf Haushalt/Küche — das bleibt der daten-stärkste Plan B.
