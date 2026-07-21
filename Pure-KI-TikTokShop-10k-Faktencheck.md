@@ -43,3 +43,25 @@ Der eine Weg, den du eigentlich wolltest — *nur generieren, nie ein Produkt an
 Der nächstgelegene Weg, der deinem Wunsch *am ehesten* entspricht: **reiner KI-Content → eigenes digitales Produkt über Link-in-Bio (Stan Store), nicht über TikTok Shop.** Das ist ein legitimes Voll-KI-Modell — hängt aber weiter an organischer Reichweite (wo die KI-Strafe greift) und ist damit auch kein Selbstläufer.
 
 *Quellen: OMR/Kalodata TikTok-Shop-Fazit (Juli 2025); AdExchanger/Affiverse zu SharkNinja (16.07.2026); Kapwing AI Slop Report (Mai 2026); brandneo.de/Gartner (2026); eva.guru/seller-us.tiktok.com zu Virtual Goods (Mai 2026, US-only); coacheck.de zu „TikFluencer" (08.07.2026, Kurs ohne Erfahrungsberichte); Rest of World LatAm (2025); shortformnation zu Creator-Rewards-KI-Verbot (2026). Kurs-/Tool-Marketing-Zahlen ausdrücklich als unverifiziert markiert.*
+
+---
+
+## US-Nachprüfung (21.07.2026) — zwei weitere Rechercheure, Fokus USA
+
+Der Einwand „im größten, KI-fortschrittlichsten Markt muss es doch jemanden geben" wurde separat und tiefer als jede Bestenliste geprüft (Tool-Fallstudien + unabhängige/journalistische Ebene). **Ergebnis: auch die USA liefern keinen Gegenbeweis.**
+
+- **Stärkster benannter Kandidat: Daria Simhony („Spicy Mama")** — vom WSJ (~17.07.2026) bestätigt, produziert täglich voll-KI-Avatar-Videos für TikTok Shop. Scheitert aber: keine Einkommenszahl verifiziert; gemischte Ströme (Affiliate + Markendeals + **Kurs**); sie betreibt eine Skool-Community (27 $/Monat), die *die Methode lehrt* — das nachweisbare Einkommen kommt aus dem Verkauf des Kurses über die Methode, nicht aus der Methode. Beauty-Produkte erzwingen zudem echtes Produktbild (Kategorie b).
+- **Kiya Chanel:** KI-Zwilling einer *echten* Person, Einmal-Kampagne, Rare Beauty distanzierte sich. Scheitert an allem.
+- **Tool-Fallstudien (Creatify, Topview, HeyGen, Arcads, Icon):** alle bezahlte Ads / Kostenmetriken, oder echte menschliche Creator (Icon). Kein verifizierter Affiliate-Einkommensfall.
+- **Alle 10k+-Zahlen** zerfallen in GMV-statt-Einkommen (Kalodata-Schätzung „77,7k $"), Marketing (tabcut „56.736 $"), Hybrid-mit-3-Einnahmequellen („8.247 $ in 30 Tagen"), oder 10k pro *Jahr*.
+- **Der EINE verifizierte pure-KI-Dauerverdiener** (Adavia Davis, von Fortune Dez 2025 bestätigt) verdient über **YouTube-AdSense — NICHT TikTok Shop.**
+
+### Die Kern-Erkenntnis: warum Shop scheitert, YouTube aber gehen kann
+
+Der strukturelle Unterschied erklärt alles: **TikTok Shop monetarisiert eine Kauf-Entscheidung (Vertrauens-Barriere), YouTube monetarisiert Aufmerksamkeit (der Werbetreibende zahlt pro View, egal ob Vertrauen).** Reine KI stolpert überall dort, wo ein Mensch aufgrund synthetischen Contents ein *physisches Produkt kaufen* soll — Plattform-Regeln, Marken-Provisions-Rückforderung und Konsumenten-Misstrauen greifen genau da. Wo nur Aufmerksamkeit verkauft wird (YouTube AdSense), ist reine KI belegt möglich — *sofern* echte redaktionelle Qualität da ist (nicht „Slop", der demonetarisiert wird).
+
+**Basisraten-Realität (USA):** medianer TikTok-Shop-Seller ~1.150 $/Monat brutto, Durchschnitt ~690 $ netto; 10k+ netto = obere ~2–3 % ALLER Seller — vor der KI-Einschränkung. „Kein Verbot" ≠ „profitabel"; die meisten *echten Menschen* schaffen es auch nicht.
+
+**Ehrliche Grenze:** Abwesenheit öffentlichen Beweises ist kein Unmöglichkeitsbeweis — ein privater Portfolio-Betreiber könnte existieren und nie Dashboards zeigen. Die These „kein *verifizierter* Fall" hält über general/DE/US/alle-Nischen sauber; sie ist keine mathematische Unmöglichkeit. Aber die 2026er-Entwicklungen bewegen sich *gegen* reine Synthetik, nicht dafür.
+
+*US-Quellen: WSJ „AI videos flooding TikTok Shop" (~17.07.2026, via Shopifreaks/AI Weekly/Affiverse); Fortune zu Adavia Davis (Dez 2025); PYMNTS/TechTimes zu Livestream-KI-Verbot (15.07.2026); GreyJournal Seller-Basisraten (2026); shortformnation 70/30-Framework; FameViso/ListerRank zu Faceless-Bans. Tool-/Kurs-Zahlen als unverifiziert markiert.*
