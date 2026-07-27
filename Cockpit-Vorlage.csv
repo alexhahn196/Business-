@@ -1,0 +1,37 @@
+BLOCK 1 - WOCHENERFASSUNG (eine Zeile pro Woche; Zeile 3 enthaelt Beispielformeln zum Herunterziehen)
+Woche,Datum_Montag,Std_A,Std_B,Std_C,Std_D,Std_Gesamt,Umsatz_A,Umsatz_B,Umsatz_C,Umsatz_Gesamt,Kosten_Tools,Kosten_Werbung,Deckungsbeitrag,Anfragen_A,Auftraege_A,Retainerumsatz_A,MRR_B,Besucher_B,Zahlende_B,Churn_B_Proz,Veroeff_C,Qualitaetssignal_C,Kontostand,Runway_Monate,Notiz
+KW01,2026-08-03,12,0,6,3,"=SUM(C3:F3)",0,0,0,"=SUM(H3:J3)",44,0,"=K3-L3-M3",0,0,0,0,0,0,0,1,0,3000,"=X3/((L3+M3)*4.33)",Phase 0: Spec-Portfolio (Kosten wochenweise eintragen)
+KW02,2026-08-10,,,,,,,,,,,,,,,,,,,,,,,,
+KW03,2026-08-17,,,,,,,,,,,,,,,,,,,,,,,,
+KW04,2026-08-24,,,,,,,,,,,,,,,,,,,,,,,,
+
+BLOCK 2 - MONATSAUSWERTUNG (Leitkennzahl: Euro pro Stunde je Schicht, rollierend 90 Tage)
+Monat,Umsatz_gesamt,Deckungsbeitrag,Std_A,Std_B,Std_C,Std_D,EuroProStd_A_90T,EuroProStd_B_90T,EuroProStd_C_90T,Retaineranteil_A_Proz,MRR_B,Runway_Monate,Groesster_Strom_Anteil_Proz,Entscheidung_Stundenverteilung
+2026-08,,,,,,,,,,,,,,
+2026-09,,,,,,,,,,,,,,
+2026-10,,,,,,,,,,,,,,
+
+BLOCK 3 - GATE-LOG (der wichtigste Block: hier steht nach 12 Monaten, ob du dein eigenes System befolgt hast)
+Datum,Gate,Bedingung,Ist_Wert,Ergebnis,Beschlossene_Handlung,Frist_naechste_Pruefung
+2026-08-31,A1,1000 EUR/Monat aus Schicht A + 5 Bewertungen,,offen,,2026-09-30
+,A2,3000 EUR/Monat aus A + mind. 1 Retainer,,,,
+,A3,5000 EUR/Monat aus A + Retaineranteil >=50 Prozent,,,,
+,B1,20 zahlende Kunden binnen 90 Tagen nach Launch,,,,
+,B2,2000 EUR MRR + Churn <=7 Prozent,,,,
+,C1,Qualitaetssignal 8 Wochen steigend + Monetarisierung erreicht,,,,
+,Z,10000 EUR/Monat + kein Strom ueber 60 Prozent,,,,
+
+BLOCK 4 - SPRINT-LOG (Sterbequote an Tag 2 sollte ueber 40 Prozent liegen)
+Sprint_Nr,Start,Idee,Schicht,Gestorben_an_Tag,Grund,Live_seit,Erfolgsmetrik,Wert_nach_30_Tagen,Gate_Ergebnis
+1,,,,,,,,,
+2,,,,,,,,,
+
+LEGENDE
+Ergebnis-Werte im Gate-Log,erfuellt | 1. Durchgang verfehlt | 2. Durchgang verfehlt | offen
+Handlung bei erfuellt,skalieren gemaess Gate-Tabelle
+Handlung bei 1. Durchgang verfehlt,genau EINE Sache aendern (Angebot ODER Preis ODER Zielgruppe) + 90 Tage neu
+Handlung bei 2. Durchgang verfehlt,Stunden halbieren; frei werdende Stunden in die Schicht mit bester Leitkennzahl
+Skalier-Regel,Strom liefert dreifaches Ziel -> alle freien Stunden sofort dorthin (ohne 20-Prozent-Wochengrenze)
+Abbruchbedingung Gesamtsystem,Runway unter 3 Monate -> zurueck in bezahlte Arbeit, System auf 2 h/Woche Schicht C
+Stundendeckel Schicht C,6 h/Woche bis Gate C1, danach 8 h/Woche
+Steuerruecklage,40 Prozent jeder Einnahme sofort auf separates Konto
