@@ -1,0 +1,128 @@
+{
+  "erhoben_am": "2026-07-28",
+  "EVIDENZSTUFE": "INDIZ - NICHT GOOGLE",
+  "methodenhinweis": [
+    "Erhoben ueber das WebSearch-Werkzeug dieser Umgebung, NICHT ueber Google.",
+    "Die Trefferzahl je Abfrage liegt bei 7-10 statt bei Googles Top-10,",
+    "die Reihenfolge ist nicht Googles Ranking, und es gab keine Moeglichkeit,",
+    "Anzeigen von organischen Treffern zu trennen.",
+    "Fuer eine belastbare SERP-Analyse waere ein SERP-API-Zugang noetig",
+    "(DataForSEO, Sistrix, Ahrefs). In dieser Umgebung nicht vorhanden.",
+    "Die Klassifikation der Domains erfolgte manuell anhand der URL-Struktur",
+    "und des Seitentyps."
+  ],
+  "klassifikationsschema": {
+    "TRAEGER": "Bildungsanbieter, der eigene Kurse verkauft",
+    "AGGREGATOR": "Portal, das Kurse mehrerer Anbieter listet",
+    "BEHOERDE": "Amt, Kammer, Kommune",
+    "REDAKTION": "redaktioneller Ratgeber ohne eigenes Kursangebot"
+  },
+  "abfragen": [
+    {
+      "keyword": "Umschulung Fachinformatiker Dortmund Bildungsgutschein",
+      "stadtklasse": "GROSS",
+      "treffer": [
+        {"domain": "wbstraining.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/kurse/lokal/umschulung/dortmund-city/<beruf>/", "anzahl": 2},
+        {"domain": "kursweg.de", "typ": "AGGREGATOR", "programmatisch": true,
+         "url_muster": "/umschulung/<beruf>/<stadt>", "anzahl": 1},
+        {"domain": "bfw.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/angebot/umschulung/<stadt>/<beruf>/", "anzahl": 3},
+        {"domain": "daa-nrw.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/standorte/<stadt>/umschulungen", "anzahl": 1},
+        {"domain": "qa-rheinruhr.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1}
+      ]
+    },
+    {
+      "keyword": "Umschulung Kaufmann Bueromanagement Leipzig gefoerderte Weiterbildung",
+      "stadtklasse": "GROSS",
+      "treffer": [
+        {"domain": "bfw-leipzig.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 3},
+        {"domain": "ibb.com", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/weiterbildung/<kurs>/ibb-<stadt>", "anzahl": 1},
+        {"domain": "wbstraining.de", "typ": "TRAEGER", "programmatisch": true, "anzahl": 1},
+        {"domain": "cit-leipzig.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 2},
+        {"domain": "robotron-online.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1}
+      ]
+    },
+    {
+      "keyword": "Weiterbildung Pflegefachkraft Stralsund Bildungsgutschein AZAV",
+      "stadtklasse": "MITTEL",
+      "treffer": [
+        {"domain": "weiterbildung-mv.de", "typ": "AGGREGATOR", "programmatisch": true,
+         "url_muster": "/kurs/<kurs>-<stadt>/<thema>/id:<id>", "anzahl": 3,
+         "anmerkung": "Landesportal Mecklenburg-Vorpommern"},
+        {"domain": "apm.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "bfw.de", "typ": "TRAEGER", "programmatisch": true, "anzahl": 1},
+        {"domain": "sgd.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "geld-wegweiser.de", "typ": "REDAKTION", "programmatisch": false, "anzahl": 1},
+        {"domain": "srh-bildungsakademie.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1}
+      ]
+    },
+    {
+      "keyword": "Umschulung Fachinformatiker Nordhorn Bildungsgutschein",
+      "stadtklasse": "KLEIN",
+      "treffer": [
+        {"domain": "wbstraining.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/kurse/lokal/weiterbildung/<stadt>/<kurs>/", "anzahl": 2},
+        {"domain": "akademie-ueberlingen.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/kurs/<stadt>/<kurs>/", "anzahl": 1},
+        {"domain": "it-akademie.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "ibb.com", "typ": "TRAEGER", "programmatisch": true, "anzahl": 3},
+        {"domain": "ausbildungsstellen.de", "typ": "AGGREGATOR", "programmatisch": true,
+         "anzahl": 1, "anmerkung": "Ausbildungsboerse, nicht Weiterbildung"}
+      ]
+    },
+    {
+      "keyword": "AZAV Weiterbildung Logistik Bottrop gefoerdert",
+      "stadtklasse": "MITTEL",
+      "treffer": [
+        {"domain": "comcave.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/standorte/<stadt>", "anzahl": 1},
+        {"domain": "hco.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 2},
+        {"domain": "bbw-seminare.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "koeln-bonner-akademie.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "weiterbildung-foerderung.de", "typ": "REDAKTION", "programmatisch": false, "anzahl": 1},
+        {"domain": "delst.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1}
+      ],
+      "anmerkung": "Lokale Intention loeste kaum auf - fast nur generische AZAV-Seiten ohne Ortsbezug."
+    },
+    {
+      "keyword": "Umschulung Steuerfachangestellte Nuernberg Bildungsgutschein",
+      "stadtklasse": "GROSS",
+      "treffer": [
+        {"domain": "fortbildung24.com", "typ": "AGGREGATOR", "programmatisch": true,
+         "url_muster": "/umschulung-jobwechsel/umschulung-<beruf>-<stadt>/", "anzahl": 1},
+        {"domain": "eckert-schulen.de", "typ": "TRAEGER", "programmatisch": true, "anzahl": 1},
+        {"domain": "swa.de", "typ": "TRAEGER", "programmatisch": true,
+         "url_muster": "/standorte/umschulungen-<beruf>-<stadt>/", "anzahl": 1},
+        {"domain": "stbk-nuernberg.de", "typ": "BEHOERDE", "programmatisch": false, "anzahl": 1},
+        {"domain": "integrationdurchbildung.nuernberg.de", "typ": "BEHOERDE", "programmatisch": false, "anzahl": 1},
+        {"domain": "kursweg.de", "typ": "AGGREGATOR", "programmatisch": true, "anzahl": 1},
+        {"domain": "steuerakademie-nuernberg.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "ps-akademie.de", "typ": "TRAEGER", "programmatisch": false, "anzahl": 1},
+        {"domain": "kurse.tuv.com", "typ": "TRAEGER", "programmatisch": true, "anzahl": 2}
+      ]
+    }
+  ],
+  "auswertung": {
+    "treffer_gesamt": 49,
+    "TRAEGER": 38,
+    "AGGREGATOR": 7,
+    "BEHOERDE": 2,
+    "REDAKTION": 2,
+    "anteil_aggregator_pct": 14.3,
+    "anteil_traeger_pct": 77.6,
+    "arbeitsagentur_de_oder_mein_now_de_in_treffern": 0,
+    "kernbefund": [
+      "Bildungstraeger dominieren die Ergebnisse und betreiben SELBST",
+      "programmatische Beruf-x-Ort-Seiten (wbstraining.de, bfw.de, ibb.com,",
+      "comcave.de, swa.de, akademie-ueberlingen.de). Die geplante Achse ist",
+      "also bereits von den Anbietern besetzt, an die vermittelt werden soll.",
+      "Aggregatoren halten 14,3 Prozent - unter der 20-Prozent-Schwelle.",
+      "GEGENBEFUND: arbeitsagentur.de und mein-now.de tauchten in KEINER der",
+      "sechs Abfragen auf. Die Behoerde rankt auf diesen Keywords nicht -",
+      "der befuerchtete strukturelle Nachteil durch die Behoerde besteht nicht."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "staedte_die_google_ueberhaupt_vorschlaegt": [
+    "Berlin",
+    "Dortmund",
+    "Essen",
+    "Hamburg",
+    "Köln",
+    "Leipzig",
+    "Nürnberg"
+  ],
+  "davon_klassen": {
+    "Berlin": "GROSS",
+    "Dortmund": "GROSS",
+    "Essen": "GROSS",
+    "Hamburg": "GROSS",
+    "Köln": "GROSS",
+    "Leipzig": "GROSS",
+    "Nürnberg": "GROSS"
+  },
+  "longtail_abdeckung_je_stadtklasse": {
+    "fachinformatiker": {
+      "GROSS": {
+        "staedte_mit_vorschlag": 11,
+        "staedte_gesamt": 12,
+        "anteil_pct": 91.7
+      },
+      "MITTEL": {
+        "staedte_mit_vorschlag": 3,
+        "staedte_gesamt": 8,
+        "anteil_pct": 37.5
+      },
+      "KLEIN": {
+        "staedte_mit_vorschlag": 0,
+        "staedte_gesamt": 4,
+        "anteil_pct": 0.0
+      }
+    },
+    "pflegefachkraft": {
+      "GROSS": {
+        "staedte_mit_vorschlag": 8,
+        "staedte_gesamt": 12,
+        "anteil_pct": 66.7
+      },
+      "MITTEL": {
+        "staedte_mit_vorschlag": 0,
+        "staedte_gesamt": 8,
+        "anteil_pct": 0.0
+      },
+      "KLEIN": {
+        "staedte_mit_vorschlag": 0,
+        "staedte_gesamt": 4,
+        "anteil_pct": 0.0
+      }
+    }
+  }
+}

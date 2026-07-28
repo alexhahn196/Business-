@@ -1,0 +1,658 @@
+{
+  "erhoben_am": "2026-07-28T16:05:35Z",
+  "hinweis": "Autocomplete ist kein Suchvolumen. Schwaechere Evidenzstufe als ein Keyword-Tool.",
+  "berufsachse": {
+    "Fachinformatiker": {
+      "query": "umschulung fachinformatiker ",
+      "vorschlaege": [
+        "umschulung fachinformatiker systemintegration",
+        "umschulung fachinformatiker anwendungsentwicklung",
+        "umschulung fachinformatiker daten und prozessanalyse",
+        "umschulung fachinformatiker agentur für arbeit",
+        "umschulung fachinformatiker berlin",
+        "umschulung fachinformatiker anwendungsentwicklung online",
+        "umschulung fachinformatiker systemintegration hamburg",
+        "umschulung fachinformatiker leipzig",
+        "umschulung fachinformatiker systemintegration gehalt",
+        "umschulung fachinformatiker systemintegration nürnberg"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Büromanagement": {
+      "query": "umschulung kaufmann für büromanagement ",
+      "vorschlaege": [
+        "umschulung kaufmann für büromanagement teilzeit",
+        "umschulung kaufmann für büromanagement online",
+        "umschulung kaufmann für büromanagement kosten",
+        "umschulung kaufmann für büromanagement voraussetzungen",
+        "umschulung kaufmann für büromanagement",
+        "umschulung kaufmann für büromanagement berlin",
+        "umschulung kaufmann für büromanagement ihk",
+        "umschulung kaufmann für büromanagement in der nähe",
+        "umschulung kaufmann für büromanagement hannover",
+        "umschulung kaufmann für büromanagement köln"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Köln"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Pflegefachkraft": {
+      "query": "umschulung pflegefachkraft ",
+      "vorschlaege": [
+        "umschulung pflegefachkraft hamburg",
+        "umschulung pflegefachkraft dauer",
+        "umschulung pflegefachkraft arbeitsagentur",
+        "umschulung pflegefachkraft berlin",
+        "umschulung pflegefachkraft gehalt",
+        "umschulung pflegefachkraft voraussetzungen",
+        "umschulung pflegefachkraft online",
+        "umschulung pflegefachkraft verkürzen",
+        "umschulung pflegefachkraft teilzeit",
+        "umschulung pflegefachkraft jobcenter"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Hamburg",
+        "Berlin"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Erzieher": {
+      "query": "umschulung erzieher ",
+      "vorschlaege": [
+        "umschulung erzieher arbeitsamt",
+        "umschulung erzieher gehalt",
+        "umschulung erzieher niedersachsen",
+        "umschulung erzieher hamburg",
+        "umschulung erzieher hessen",
+        "umschulung erzieher saarland",
+        "umschulung erzieher rlp",
+        "umschulung erzieher teilzeit",
+        "umschulung erzieher nrw",
+        "umschulung erzieher dauer"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Hamburg",
+        "Essen"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Berufskraftfahrer": {
+      "query": "umschulung berufskraftfahrer ",
+      "vorschlaege": [
+        "umschulung berufskraftfahrer gehalt",
+        "umschulung berufskraftfahrer dauer",
+        "umschulung berufskraftfahrer jobcenter",
+        "umschulung berufskraftfahrer arbeitsagentur",
+        "umschulung berufskraftfahrer",
+        "umschulung berufskraftfahrer ihk",
+        "umschulung berufskraftfahrer jobs",
+        "umschulung berufskraftfahrer berlin",
+        "umschulung berufskraftfahrer kosten",
+        "umschulung berufskraftfahrer dekra"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Elektroniker": {
+      "query": "umschulung elektroniker ",
+      "vorschlaege": [
+        "umschulung elektroniker für energie und gebäudetechnik",
+        "umschulung elektroniker für betriebstechnik",
+        "umschulung elektroniker abendschule",
+        "umschulung elektroniker für automatisierungstechnik",
+        "umschulung elektroniker für geräte und systeme",
+        "umschulung elektroniker ihk",
+        "umschulung elektroniker berlin",
+        "umschulung elektroniker gehalt",
+        "umschulung elektroniker nebenberuflich",
+        "umschulung elektroniker köln"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Köln"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Finanzbuchhaltung": {
+      "query": "umschulung finanzbuchhaltung ",
+      "vorschlaege": [
+        "umschulung finanzbuchhaltung"
+      ],
+      "staedte_aus_unserer_liste": [],
+      "n_vorschlaege": 1
+    },
+    "Lagerlogistik": {
+      "query": "umschulung fachkraft für lagerlogistik ",
+      "vorschlaege": [
+        "umschulung fachkraft für lagerlogistik 6 monate",
+        "umschulung fachkraft für lagerlogistik teilzeit",
+        "umschulung fachkraft für lagerlogistik gehalt",
+        "umschulung fachkraft für lagerlogistik",
+        "umschulung fachkraft für lagerlogistik kosten",
+        "umschulung fachkraft für lagerlogistik online",
+        "umschulung fachkraft für lagerlogistik berlin",
+        "umschulung fachkraft für lagerlogistik arbeitsagentur",
+        "umschulung fachkraft für lagerlogistik berufsbegleitend",
+        "umschulung fachkraft für lagerlogistik ihk"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Mechatroniker": {
+      "query": "umschulung mechatroniker ",
+      "vorschlaege": [
+        "umschulung mechatroniker für kältetechnik",
+        "umschulung mechatroniker berlin",
+        "umschulung mechatroniker köln",
+        "umschulung mechatroniker voraussetzungen",
+        "umschulung mechatroniker ihk",
+        "umschulung mechatroniker zum elektriker",
+        "umschulung mechatroniker zu kfz mechatroniker",
+        "umschulung mechatroniker",
+        "umschulung mechatroniker deutsche bahn",
+        "umschulung mechatroniker arbeitsamt"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Köln"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Steuerfachangestellte": {
+      "query": "umschulung steuerfachangestellte ",
+      "vorschlaege": [
+        "umschulung steuerfachangestellte online",
+        "umschulung steuerfachangestellte ihk",
+        "umschulung steuerfachangestellte in der nähe",
+        "umschulung steuerfachangestellte arbeitsamt",
+        "umschulung steuerfachangestellte berlin",
+        "umschulung steuerfachangestellte kosten",
+        "umschulung steuerfachangestellte hamburg",
+        "umschulung steuerfachangestellte teilzeit",
+        "umschulung steuerfachangestellte dortmund",
+        "umschulung steuerfachangestellte düsseldorf"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Hamburg",
+        "Dortmund"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Einzelhandel": {
+      "query": "umschulung kaufmann im einzelhandel ",
+      "vorschlaege": [
+        "umschulung kaufmann im einzelhandel",
+        "umschulung vom kaufmann im einzelhandel zum bankkaufmann",
+        "umschulung vom kaufmann im einzelhandel zum automobilkaufmann",
+        "umschulung vom kaufmann im einzelhandel zum immobilienkaufmann",
+        "kaufmann im einzelhandel umschulung bürokaufmann",
+        "kaufmann im einzelhandel umschulung industriekaufmann"
+      ],
+      "staedte_aus_unserer_liste": [],
+      "n_vorschlaege": 6
+    },
+    "Immobilienkaufmann": {
+      "query": "umschulung immobilienkaufmann ",
+      "vorschlaege": [
+        "umschulung immobilienkaufmann ihk",
+        "umschulung immobilienkaufmann berlin",
+        "umschulung immobilienkaufmann online",
+        "umschulung immobilienkaufmann agentur für arbeit",
+        "umschulung immobilienkaufmann jobcenter",
+        "umschulung immobilienkaufmann voraussetzungen",
+        "umschulung immobilienkaufmann hamburg",
+        "umschulung immobilienkaufmann kosten",
+        "umschulung immobilienkaufmann",
+        "umschulung immobilienkaufmann gehalt"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Hamburg"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Sozialassistent": {
+      "query": "umschulung sozialassistent ",
+      "vorschlaege": [
+        "umschulung sozialassistent online",
+        "umschulung sozialassistent niedersachsen",
+        "umschulung sozialassistent berlin",
+        "umschulung sozialassistent bremerhaven",
+        "umschulung sozialassistent bremen",
+        "umschulung sozialassistent rostock",
+        "umschulung sozialassistent gehalt",
+        "umschulung sozialassistent hannover",
+        "umschulung sozialassistent agentur für arbeit",
+        "umschulung sozialassistent nrw"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Anlagenmechaniker": {
+      "query": "umschulung anlagenmechaniker ",
+      "vorschlaege": [
+        "umschulung anlagenmechaniker shk",
+        "umschulung anlagenmechaniker für sanitär- heizungs- und klimatechnik",
+        "umschulung anlagenmechaniker berlin",
+        "umschulung anlagenmechaniker für sanitär- heizungs- und klimatechnik gelsenkirchen",
+        "umschulung anlagenmechaniker",
+        "umschulung anlagenmechaniker für sanitär heizungs und klimatechnik hamburg",
+        "umschulung anlagenmechaniker für sanitär heizungs und klimatechnik berlin",
+        "umschulung anlagenmechaniker shk berlin",
+        "umschulung anlagenmechaniker hamburg",
+        "umschulung anlagenmechaniker industriemechaniker"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Berlin",
+        "Hamburg"
+      ],
+      "n_vorschlaege": 10
+    },
+    "Webentwickler": {
+      "query": "umschulung webentwickler ",
+      "vorschlaege": [
+        "umschulung webentwickler"
+      ],
+      "staedte_aus_unserer_liste": [],
+      "n_vorschlaege": 1
+    },
+    "Mediengestalter": {
+      "query": "umschulung mediengestalter ",
+      "vorschlaege": [
+        "umschulung mediengestalter digital und print",
+        "umschulung mediengestalter bild und ton",
+        "umschulung mediengestalter teilzeit",
+        "umschulung mediengestalter hamburg",
+        "umschulung mediengestalter bremen",
+        "umschulung mediengestalter bild und ton hamburg",
+        "umschulung mediengestalter agentur für arbeit",
+        "umschulung mediengestalter",
+        "umschulung mediengestalter online",
+        "umschulung mediengestalter berlin"
+      ],
+      "staedte_aus_unserer_liste": [
+        "Hamburg",
+        "Berlin"
+      ],
+      "n_vorschlaege": 10
+    }
+  },
+  "stadtachse": {
+    "fachinformatiker": {
+      "Berlin": {
+        "query": "umschulung fachinformatiker berlin",
+        "klasse": "GROSS",
+        "n_vorschlaege": 4,
+        "vorschlaege": [
+          "umschulung fachinformatiker berlin",
+          "umschulung fachinformatiker systemintegration berlin",
+          "umschulung fachinformatiker anwendungsentwicklung berlin",
+          "umschulung fachinformatiker daten und prozessanalyse berlin"
+        ]
+      },
+      "Hamburg": {
+        "query": "umschulung fachinformatiker hamburg",
+        "klasse": "GROSS",
+        "n_vorschlaege": 6,
+        "vorschlaege": [
+          "umschulung fachinformatiker hamburg",
+          "umschulung fachinformatiker systemintegration hamburg",
+          "umschulung fachinformatiker anwendungsentwicklung hamburg",
+          "praktikum umschulung fachinformatiker systemintegration hamburg",
+          "praktikum umschulung fachinformatiker anwendungsentwicklung hamburg",
+          "umschulung fachinformatiker daten und prozessanalyse hamburg"
+        ]
+      },
+      "München": {
+        "query": "umschulung fachinformatiker münchen",
+        "klasse": "GROSS",
+        "n_vorschlaege": 3,
+        "vorschlaege": [
+          "umschulung fachinformatiker münchen",
+          "umschulung fachinformatiker systemintegration münchen",
+          "umschulung fachinformatiker anwendungsentwicklung münchen"
+        ]
+      },
+      "Köln": {
+        "query": "umschulung fachinformatiker köln",
+        "klasse": "GROSS",
+        "n_vorschlaege": 3,
+        "vorschlaege": [
+          "umschulung fachinformatiker köln",
+          "umschulung fachinformatiker systemintegration köln",
+          "umschulung fachinformatiker anwendungsentwicklung köln"
+        ]
+      },
+      "Frankfurt am Main": {
+        "query": "umschulung fachinformatiker frankfurt am main",
+        "klasse": "GROSS",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Stuttgart": {
+        "query": "umschulung fachinformatiker stuttgart",
+        "klasse": "GROSS",
+        "n_vorschlaege": 3,
+        "vorschlaege": [
+          "umschulung fachinformatiker stuttgart",
+          "umschulung fachinformatiker systemintegration stuttgart",
+          "umschulung fachinformatiker anwendungsentwicklung stuttgart"
+        ]
+      },
+      "Leipzig": {
+        "query": "umschulung fachinformatiker leipzig",
+        "klasse": "GROSS",
+        "n_vorschlaege": 3,
+        "vorschlaege": [
+          "umschulung fachinformatiker leipzig",
+          "umschulung fachinformatiker systemintegration leipzig",
+          "umschulung fachinformatiker anwendungsentwicklung leipzig"
+        ]
+      },
+      "Dortmund": {
+        "query": "umschulung fachinformatiker dortmund",
+        "klasse": "GROSS",
+        "n_vorschlaege": 3,
+        "vorschlaege": [
+          "umschulung fachinformatiker dortmund",
+          "umschulung fachinformatiker anwendungsentwicklung dortmund",
+          "umschulung fachinformatiker systemintegration dortmund"
+        ]
+      },
+      "Essen": {
+        "query": "umschulung fachinformatiker essen",
+        "klasse": "GROSS",
+        "n_vorschlaege": 2,
+        "vorschlaege": [
+          "umschulung fachinformatiker essen",
+          "umschulung fachinformatiker systemintegration essen"
+        ]
+      },
+      "Bochum": {
+        "query": "umschulung fachinformatiker bochum",
+        "klasse": "GROSS",
+        "n_vorschlaege": 2,
+        "vorschlaege": [
+          "umschulung fachinformatiker bochum",
+          "umschulung fachinformatiker systemintegration bochum"
+        ]
+      },
+      "Nürnberg": {
+        "query": "umschulung fachinformatiker nürnberg",
+        "klasse": "GROSS",
+        "n_vorschlaege": 4,
+        "vorschlaege": [
+          "umschulung fachinformatiker nürnberg",
+          "umschulung fachinformatiker systemintegration nürnberg",
+          "umschulung fachinformatiker anwendungsentwicklung nürnberg",
+          "umschulung fachinformatiker daten und prozessanalyse nürnberg"
+        ]
+      },
+      "Kassel": {
+        "query": "umschulung fachinformatiker kassel",
+        "klasse": "GROSS",
+        "n_vorschlaege": 3,
+        "vorschlaege": [
+          "umschulung fachinformatiker kassel",
+          "umschulung fachinformatiker anwendungsentwicklung kassel",
+          "umschulung fachinformatiker systemintegration kassel"
+        ]
+      },
+      "Bottrop": {
+        "query": "umschulung fachinformatiker bottrop",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Siegen": {
+        "query": "umschulung fachinformatiker siegen",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung fachinformatiker siegen"
+        ]
+      },
+      "Jena": {
+        "query": "umschulung fachinformatiker jena",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung fachinformatiker jena"
+        ]
+      },
+      "Gera": {
+        "query": "umschulung fachinformatiker gera",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Landshut": {
+        "query": "umschulung fachinformatiker landshut",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung fachinformatiker landshut"
+        ]
+      },
+      "Zwickau": {
+        "query": "umschulung fachinformatiker zwickau",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Stralsund": {
+        "query": "umschulung fachinformatiker stralsund",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Pirmasens": {
+        "query": "umschulung fachinformatiker pirmasens",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Nordhorn": {
+        "query": "umschulung fachinformatiker nordhorn",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Coesfeld": {
+        "query": "umschulung fachinformatiker coesfeld",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Prenzlau": {
+        "query": "umschulung fachinformatiker prenzlau",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Zeitz": {
+        "query": "umschulung fachinformatiker zeitz",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      }
+    },
+    "pflegefachkraft": {
+      "Berlin": {
+        "query": "umschulung pflegefachkraft berlin",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft berlin"
+        ]
+      },
+      "Hamburg": {
+        "query": "umschulung pflegefachkraft hamburg",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft hamburg"
+        ]
+      },
+      "München": {
+        "query": "umschulung pflegefachkraft münchen",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft münchen"
+        ]
+      },
+      "Köln": {
+        "query": "umschulung pflegefachkraft köln",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft köln"
+        ]
+      },
+      "Frankfurt am Main": {
+        "query": "umschulung pflegefachkraft frankfurt am main",
+        "klasse": "GROSS",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Stuttgart": {
+        "query": "umschulung pflegefachkraft stuttgart",
+        "klasse": "GROSS",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Leipzig": {
+        "query": "umschulung pflegefachkraft leipzig",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft leipzig"
+        ]
+      },
+      "Dortmund": {
+        "query": "umschulung pflegefachkraft dortmund",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft dortmund"
+        ]
+      },
+      "Essen": {
+        "query": "umschulung pflegefachkraft essen",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft essen"
+        ]
+      },
+      "Bochum": {
+        "query": "umschulung pflegefachkraft bochum",
+        "klasse": "GROSS",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Nürnberg": {
+        "query": "umschulung pflegefachkraft nürnberg",
+        "klasse": "GROSS",
+        "n_vorschlaege": 1,
+        "vorschlaege": [
+          "umschulung pflegefachkraft nürnberg"
+        ]
+      },
+      "Kassel": {
+        "query": "umschulung pflegefachkraft kassel",
+        "klasse": "GROSS",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Bottrop": {
+        "query": "umschulung pflegefachkraft bottrop",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Siegen": {
+        "query": "umschulung pflegefachkraft siegen",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Jena": {
+        "query": "umschulung pflegefachkraft jena",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Gera": {
+        "query": "umschulung pflegefachkraft gera",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Landshut": {
+        "query": "umschulung pflegefachkraft landshut",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Zwickau": {
+        "query": "umschulung pflegefachkraft zwickau",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Stralsund": {
+        "query": "umschulung pflegefachkraft stralsund",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Pirmasens": {
+        "query": "umschulung pflegefachkraft pirmasens",
+        "klasse": "MITTEL",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Nordhorn": {
+        "query": "umschulung pflegefachkraft nordhorn",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Coesfeld": {
+        "query": "umschulung pflegefachkraft coesfeld",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Prenzlau": {
+        "query": "umschulung pflegefachkraft prenzlau",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      },
+      "Zeitz": {
+        "query": "umschulung pflegefachkraft zeitz",
+        "klasse": "KLEIN",
+        "n_vorschlaege": 0,
+        "vorschlaege": []
+      }
+    }
+  }
+}

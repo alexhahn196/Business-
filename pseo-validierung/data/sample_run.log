@@ -33,3 +33,26 @@ C) Reichweite fertig -> /home/user/Business-/pseo-validierung/scripts/../data/re
   ueberlappung Lagerlogistik/Nürnberg: 200/268 vollst=False (kum. 1306)
   ueberlappung Lagerlogistik/Leipzig: 200/253 vollst=False (kum. 1506)
   ueberlappung Lagerlogistik/Hamburg: 200/263 vollst=False (kum. 1706)
+  ueberlappung Lagerlogistik/Stralsund: 161/161 vollst=True (kum. 1867)
+  ueberlappung Einzelhandel/Dortmund: 74/74 vollst=True (kum. 1941)
+  ueberlappung Einzelhandel/Bochum: 34/34 vollst=True (kum. 1975)
+MAX_RECORDS erreicht.
+  ueberlappung Einzelhandel/Nürnberg: 40/78 vollst=False (kum. 2015)
+MAX_RECORDS erreicht.
+  ueberlappung Einzelhandel/Leipzig: 0/None vollst=False (kum. 2015)
+MAX_RECORDS erreicht.
+  ueberlappung Einzelhandel/Hamburg: 0/None vollst=False (kum. 2015)
+MAX_RECORDS erreicht.
+  ueberlappung Einzelhandel/Stralsund: 0/None vollst=False (kum. 2015)
+B) Ueberlappung fertig -> /home/user/Business-/pseo-validierung/scripts/../data/ueberlappung.jsonl
+  grid 40/384
+  grid 80/384
+  grid 120/384
+  grid 160/384
+  grid 200/384
+  grid 240/384
+  grid 280/384
+  grid 320/384
+  grid 360/384
+A) Grid fertig: 384 Requests -> /home/user/Business-/pseo-validierung/scripts/../data/grid_facetten.jsonl
+Ende 16:11:06 | Datensaetze gesamt: 2015

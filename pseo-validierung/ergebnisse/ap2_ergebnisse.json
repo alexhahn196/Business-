@@ -1,97 +1,847 @@
 {
   "stichprobe": {
-    "grid_requests": 312,
-    "datensaetze_gezogen": 0,
-    "berufe": 16,
-    "orte": 30
+    "grid_zeilen": 384,
+    "ueberlappungs_kombinationen": 24,
+    "reichweite_angebote": 624
   },
   "1_verteilung": {
-    "kombinationen_gemessen": 312,
+    "kombinationen_gemessen": 384,
     "requests_fehlerhaft": 0,
-    "anteil_0_angebote_pct": 40.1,
-    "anteil_1_2_angebote_pct": 2.9,
-    "anteil_3plus_angebote_pct": 57.1,
-    "anteil_10plus_angebote_pct": 40.7,
-    "ABBRUCHKRITERIUM_unter_2_angebote_pct": 42.9,
+    "anteil_0_pct": 18.5,
+    "anteil_1_2_pct": 5.2,
+    "anteil_3plus_pct": 76.3,
+    "ABBRUCH_anteil_unter_2_pct": 23.7,
+    "median_angebote": 23.0,
     "je_stadtklasse": {
       "GROSS": {
-        "n": 224,
-        "0": 98,
-        "1-2": 2,
-        "3+": 124,
-        "summe_angebote": 16958,
-        "anteil_unter_2_pct": 44.6,
-        "median_hinweis": "siehe summe_angebote/n"
+        "n": 192,
+        "median": 74.5,
+        "anteil_unter_2_pct": 12.0
       },
       "MITTEL": {
-        "n": 88,
-        "0": 27,
-        "1-2": 7,
-        "3+": 54,
-        "summe_angebote": 2967,
-        "anteil_unter_2_pct": 38.6,
-        "median_hinweis": "siehe summe_angebote/n"
+        "n": 128,
+        "median": 18.5,
+        "anteil_unter_2_pct": 24.2
+      },
+      "KLEIN": {
+        "n": 64,
+        "median": 3.5,
+        "anteil_unter_2_pct": 45.3
       }
     }
   },
   "2_varianz": {
-    "basis_kombinationen_mit_angeboten": 187,
-    "distinkte_dauerklassen": {
-      "mittel": 4.36,
-      "median": 4,
-      "max": 9
+    "basis_kombinationen_mit_angeboten": 313,
+    "dauerklassen": {
+      "mittel": 4.936,
+      "median": 5
     },
-    "distinkte_kostenklassen": {
-      "mittel": 3.13,
-      "median": 3
+    "kostenklassen": {
+      "mittel": 3.473,
+      "median": 4
     },
-    "distinkte_foerderarten": {
-      "mittel": 2.02,
+    "foerderarten": {
+      "mittel": 2.115,
       "median": 2,
-      "max": 7
+      "max": 8
     },
-    "distinkte_lernformen": {
-      "mittel": 2.62,
+    "lernformen": {
+      "mittel": 2.649,
       "median": 2
-    },
-    "traeger_je_kombination_stichprobe": {
-      "n_kombinationen": 0,
-      "mittel": null,
-      "median": null,
-      "max": null,
-      "anteil_mit_1_traeger_pct": null
     }
   },
-  "3_duplikate_nachbarstaedte": {
-    "hinweis": "keine vergleichbaren Paare in der Stichprobe"
-  },
-  "4_seitenzahl": {
-    "schwelle_angebote": 3,
-    "annahmen": {
-      "n_orte_gesamt": 2056,
-      "n_berufe_gesamt": 250,
-      "theoretisch_moegliche_seiten": 514000
-    },
-    "anteil_tragfaehig_ungewichtet": 0.571,
-    "anteil_tragfaehig_einwohnergewichtet": 0.207,
-    "klassen_detail": {
-      "GROSS": {
-        "anteil_>=3_in_stichprobe": 0.554,
-        "staedte_real": 80,
-        "stichprobe_n": 224
-      },
-      "MITTEL": {
-        "anteil_>=3_in_stichprobe": 0.614,
-        "staedte_real": 620,
-        "stichprobe_n": 88
-      },
-      "KLEIN": {
-        "anteil_>=3_in_stichprobe": 0.0,
-        "staedte_real": 1356,
-        "stichprobe_n": 0
+  "3_ueberlappung": {
+    "hinweis_boilerplate": "B = Anteil der Seite, der bei einem Standard-Template zwischen zwei Stadtseiten konstruktionsbedingt gleich ist (Intro, Foerder-Erklaerung, FAQ, Navigation, CTA). B ist eine ANNAHME, keine Messung. Gemessen ist nur token_ueberschneidung.",
+    "kombinationen_unvollstaendig_paginiert": [
+      "Lagerlogistik/Dortmund",
+      "Lagerlogistik/Nürnberg",
+      "Lagerlogistik/Leipzig",
+      "Lagerlogistik/Hamburg",
+      "Einzelhandel/Nürnberg",
+      "Einzelhandel/Leipzig",
+      "Einzelhandel/Hamburg",
+      "Einzelhandel/Stralsund"
+    ],
+    "nachbarstaedte": {
+      "n_vergleiche": 3,
+      "jaccard_ids": 0.384,
+      "containment": 0.961,
+      "token_ueberschneidung": 0.557,
+      "traeger_jaccard": 0.478,
+      "beruecksichtigte_berufe": [
+        "Einzelhandel",
+        "Immobilienkaufmann",
+        "Steuerfachangestellte"
+      ],
+      "ausgeschlossen_unvollstaendig": 1,
+      "template_szenarien": {
+        "boilerplate_40pct": {
+          "formel": "identisch = B + (1-B) * token_ueberschneidung",
+          "B": 0.4,
+          "anteil_identischer_seiteninhalt_pct": 73.4
+        },
+        "boilerplate_60pct": {
+          "formel": "identisch = B + (1-B) * token_ueberschneidung",
+          "B": 0.6,
+          "anteil_identischer_seiteninhalt_pct": 82.3
+        }
       }
     },
-    "seiten_ungewichtet": 293243,
-    "seiten_einwohnergewichtet": 106185
+    "fernstaedte_kontrolle": {
+      "n_vergleiche": 29,
+      "jaccard_ids": 0.426,
+      "containment": 0.777,
+      "token_ueberschneidung": 0.628,
+      "traeger_jaccard": 0.454,
+      "beruecksichtigte_berufe": [
+        "Immobilienkaufmann",
+        "Lagerlogistik",
+        "Steuerfachangestellte"
+      ],
+      "ausgeschlossen_unvollstaendig": 15,
+      "template_szenarien": {
+        "boilerplate_40pct": {
+          "formel": "identisch = B + (1-B) * token_ueberschneidung",
+          "B": 0.4,
+          "anteil_identischer_seiteninhalt_pct": 77.7
+        },
+        "boilerplate_60pct": {
+          "formel": "identisch = B + (1-B) * token_ueberschneidung",
+          "B": 0.6,
+          "anteil_identischer_seiteninhalt_pct": 85.1
+        }
+      }
+    },
+    "einzelvergleiche": [
+      {
+        "typ": "nachbar",
+        "paar": "Bochum/Dortmund",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 2,
+        "n_b": 12,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.167,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.207,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "nachbar",
+        "paar": "Bochum/Dortmund",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 3,
+        "n_b": 5,
+        "identische_angebote": 3,
+        "jaccard_ids": 0.6,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 1.0,
+        "traeger_jaccard": 0.6,
+        "vollstaendig": true
+      },
+      {
+        "typ": "nachbar",
+        "paar": "Bochum/Dortmund",
+        "beruf": "Lagerlogistik",
+        "n_a": 197,
+        "n_b": 200,
+        "identische_angebote": 149,
+        "jaccard_ids": 0.601,
+        "containment_kleinere_in_groessere": 0.756,
+        "token_ueberschneidung": 0.555,
+        "traeger_jaccard": 0.421,
+        "vollstaendig": false
+      },
+      {
+        "typ": "nachbar",
+        "paar": "Bochum/Dortmund",
+        "beruf": "Einzelhandel",
+        "n_a": 34,
+        "n_b": 74,
+        "identische_angebote": 30,
+        "jaccard_ids": 0.385,
+        "containment_kleinere_in_groessere": 0.882,
+        "token_ueberschneidung": 0.465,
+        "traeger_jaccard": 0.333,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Hamburg",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 2,
+        "n_b": 9,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.222,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.223,
+        "traeger_jaccard": 0.4,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Hamburg",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 3,
+        "n_b": 7,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.25,
+        "containment_kleinere_in_groessere": 0.667,
+        "token_ueberschneidung": 0.757,
+        "traeger_jaccard": 0.25,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Hamburg",
+        "beruf": "Lagerlogistik",
+        "n_a": 197,
+        "n_b": 200,
+        "identische_angebote": 121,
+        "jaccard_ids": 0.438,
+        "containment_kleinere_in_groessere": 0.614,
+        "token_ueberschneidung": 0.483,
+        "traeger_jaccard": 0.333,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Leipzig",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 2,
+        "n_b": 13,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.154,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.188,
+        "traeger_jaccard": 0.4,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Leipzig",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 3,
+        "n_b": 9,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.2,
+        "containment_kleinere_in_groessere": 0.667,
+        "token_ueberschneidung": 0.517,
+        "traeger_jaccard": 0.2,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Leipzig",
+        "beruf": "Lagerlogistik",
+        "n_a": 197,
+        "n_b": 200,
+        "identische_angebote": 135,
+        "jaccard_ids": 0.515,
+        "containment_kleinere_in_groessere": 0.685,
+        "token_ueberschneidung": 0.556,
+        "traeger_jaccard": 0.292,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Nürnberg",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 2,
+        "n_b": 8,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.25,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.239,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Nürnberg",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 3,
+        "n_b": 6,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.286,
+        "containment_kleinere_in_groessere": 0.667,
+        "token_ueberschneidung": 0.898,
+        "traeger_jaccard": 0.286,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Nürnberg",
+        "beruf": "Lagerlogistik",
+        "n_a": 197,
+        "n_b": 200,
+        "identische_angebote": 136,
+        "jaccard_ids": 0.521,
+        "containment_kleinere_in_groessere": 0.69,
+        "token_ueberschneidung": 0.562,
+        "traeger_jaccard": 0.348,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Nürnberg",
+        "beruf": "Einzelhandel",
+        "n_a": 34,
+        "n_b": 40,
+        "identische_angebote": 10,
+        "jaccard_ids": 0.156,
+        "containment_kleinere_in_groessere": 0.294,
+        "token_ueberschneidung": 0.316,
+        "traeger_jaccard": 0.263,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Stralsund",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 2,
+        "n_b": 6,
+        "identische_angebote": 1,
+        "jaccard_ids": 0.143,
+        "containment_kleinere_in_groessere": 0.5,
+        "token_ueberschneidung": 0.202,
+        "traeger_jaccard": 0.333,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Stralsund",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 3,
+        "n_b": 5,
+        "identische_angebote": 2,
+        "jaccard_ids": 0.333,
+        "containment_kleinere_in_groessere": 0.667,
+        "token_ueberschneidung": 0.898,
+        "traeger_jaccard": 0.333,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Bochum/Stralsund",
+        "beruf": "Lagerlogistik",
+        "n_a": 197,
+        "n_b": 161,
+        "identische_angebote": 139,
+        "jaccard_ids": 0.635,
+        "containment_kleinere_in_groessere": 0.863,
+        "token_ueberschneidung": 0.693,
+        "traeger_jaccard": 0.294,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Hamburg",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 12,
+        "n_b": 9,
+        "identische_angebote": 7,
+        "jaccard_ids": 0.5,
+        "containment_kleinere_in_groessere": 0.778,
+        "token_ueberschneidung": 0.669,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Hamburg",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 5,
+        "n_b": 7,
+        "identische_angebote": 4,
+        "jaccard_ids": 0.5,
+        "containment_kleinere_in_groessere": 0.8,
+        "token_ueberschneidung": 0.757,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Hamburg",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 200,
+        "identische_angebote": 144,
+        "jaccard_ids": 0.562,
+        "containment_kleinere_in_groessere": 0.72,
+        "token_ueberschneidung": 0.823,
+        "traeger_jaccard": 0.522,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Leipzig",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 12,
+        "n_b": 13,
+        "identische_angebote": 12,
+        "jaccard_ids": 0.923,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.911,
+        "traeger_jaccard": 0.8,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Leipzig",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 5,
+        "n_b": 9,
+        "identische_angebote": 4,
+        "jaccard_ids": 0.4,
+        "containment_kleinere_in_groessere": 0.8,
+        "token_ueberschneidung": 0.517,
+        "traeger_jaccard": 0.4,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Leipzig",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 200,
+        "identische_angebote": 152,
+        "jaccard_ids": 0.613,
+        "containment_kleinere_in_groessere": 0.76,
+        "token_ueberschneidung": 0.855,
+        "traeger_jaccard": 0.545,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Nürnberg",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 12,
+        "n_b": 8,
+        "identische_angebote": 7,
+        "jaccard_ids": 0.538,
+        "containment_kleinere_in_groessere": 0.875,
+        "token_ueberschneidung": 0.699,
+        "traeger_jaccard": 0.6,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Nürnberg",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 5,
+        "n_b": 6,
+        "identische_angebote": 3,
+        "jaccard_ids": 0.375,
+        "containment_kleinere_in_groessere": 0.6,
+        "token_ueberschneidung": 0.898,
+        "traeger_jaccard": 0.375,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Nürnberg",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 200,
+        "identische_angebote": 143,
+        "jaccard_ids": 0.556,
+        "containment_kleinere_in_groessere": 0.715,
+        "token_ueberschneidung": 0.867,
+        "traeger_jaccard": 0.545,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Nürnberg",
+        "beruf": "Einzelhandel",
+        "n_a": 74,
+        "n_b": 40,
+        "identische_angebote": 36,
+        "jaccard_ids": 0.462,
+        "containment_kleinere_in_groessere": 0.9,
+        "token_ueberschneidung": 0.606,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Stralsund",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 12,
+        "n_b": 6,
+        "identische_angebote": 6,
+        "jaccard_ids": 0.5,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.491,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Stralsund",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 5,
+        "n_b": 5,
+        "identische_angebote": 3,
+        "jaccard_ids": 0.429,
+        "containment_kleinere_in_groessere": 0.6,
+        "token_ueberschneidung": 0.898,
+        "traeger_jaccard": 0.429,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Dortmund/Stralsund",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 161,
+        "identische_angebote": 120,
+        "jaccard_ids": 0.498,
+        "containment_kleinere_in_groessere": 0.745,
+        "token_ueberschneidung": 0.477,
+        "traeger_jaccard": 0.25,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Leipzig",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 9,
+        "n_b": 13,
+        "identische_angebote": 8,
+        "jaccard_ids": 0.571,
+        "containment_kleinere_in_groessere": 0.889,
+        "token_ueberschneidung": 0.753,
+        "traeger_jaccard": 0.667,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Leipzig",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 7,
+        "n_b": 9,
+        "identische_angebote": 5,
+        "jaccard_ids": 0.455,
+        "containment_kleinere_in_groessere": 0.714,
+        "token_ueberschneidung": 0.524,
+        "traeger_jaccard": 0.455,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Leipzig",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 200,
+        "identische_angebote": 138,
+        "jaccard_ids": 0.527,
+        "containment_kleinere_in_groessere": 0.69,
+        "token_ueberschneidung": 0.819,
+        "traeger_jaccard": 0.444,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Nürnberg",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 9,
+        "n_b": 8,
+        "identische_angebote": 8,
+        "jaccard_ids": 0.889,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.933,
+        "traeger_jaccard": 0.8,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Nürnberg",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 7,
+        "n_b": 6,
+        "identische_angebote": 4,
+        "jaccard_ids": 0.444,
+        "containment_kleinere_in_groessere": 0.667,
+        "token_ueberschneidung": 0.843,
+        "traeger_jaccard": 0.444,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Nürnberg",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 200,
+        "identische_angebote": 134,
+        "jaccard_ids": 0.504,
+        "containment_kleinere_in_groessere": 0.67,
+        "token_ueberschneidung": 0.863,
+        "traeger_jaccard": 0.444,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Stralsund",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 9,
+        "n_b": 6,
+        "identische_angebote": 1,
+        "jaccard_ids": 0.071,
+        "containment_kleinere_in_groessere": 0.167,
+        "token_ueberschneidung": 0.228,
+        "traeger_jaccard": 0.167,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Stralsund",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 7,
+        "n_b": 5,
+        "identische_angebote": 4,
+        "jaccard_ids": 0.5,
+        "containment_kleinere_in_groessere": 0.8,
+        "token_ueberschneidung": 0.843,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Hamburg/Stralsund",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 161,
+        "identische_angebote": 114,
+        "jaccard_ids": 0.462,
+        "containment_kleinere_in_groessere": 0.708,
+        "token_ueberschneidung": 0.428,
+        "traeger_jaccard": 0.304,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Leipzig/Nürnberg",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 13,
+        "n_b": 8,
+        "identische_angebote": 8,
+        "jaccard_ids": 0.615,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.789,
+        "traeger_jaccard": 0.8,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Leipzig/Nürnberg",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 9,
+        "n_b": 6,
+        "identische_angebote": 5,
+        "jaccard_ids": 0.5,
+        "containment_kleinere_in_groessere": 0.833,
+        "token_ueberschneidung": 0.576,
+        "traeger_jaccard": 0.5,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Leipzig/Nürnberg",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 200,
+        "identische_angebote": 142,
+        "jaccard_ids": 0.55,
+        "containment_kleinere_in_groessere": 0.71,
+        "token_ueberschneidung": 0.847,
+        "traeger_jaccard": 0.52,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Leipzig/Stralsund",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 13,
+        "n_b": 6,
+        "identische_angebote": 6,
+        "jaccard_ids": 0.462,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.447,
+        "traeger_jaccard": 0.4,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Leipzig/Stralsund",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 9,
+        "n_b": 5,
+        "identische_angebote": 5,
+        "jaccard_ids": 0.556,
+        "containment_kleinere_in_groessere": 1.0,
+        "token_ueberschneidung": 0.576,
+        "traeger_jaccard": 0.556,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Leipzig/Stralsund",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 161,
+        "identische_angebote": 120,
+        "jaccard_ids": 0.498,
+        "containment_kleinere_in_groessere": 0.745,
+        "token_ueberschneidung": 0.516,
+        "traeger_jaccard": 0.381,
+        "vollstaendig": false
+      },
+      {
+        "typ": "fern",
+        "paar": "Nürnberg/Stralsund",
+        "beruf": "Steuerfachangestellte",
+        "n_a": 8,
+        "n_b": 6,
+        "identische_angebote": 1,
+        "jaccard_ids": 0.077,
+        "containment_kleinere_in_groessere": 0.167,
+        "token_ueberschneidung": 0.236,
+        "traeger_jaccard": 0.2,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Nürnberg/Stralsund",
+        "beruf": "Immobilienkaufmann",
+        "n_a": 6,
+        "n_b": 5,
+        "identische_angebote": 4,
+        "jaccard_ids": 0.571,
+        "containment_kleinere_in_groessere": 0.8,
+        "token_ueberschneidung": 1.0,
+        "traeger_jaccard": 0.571,
+        "vollstaendig": true
+      },
+      {
+        "typ": "fern",
+        "paar": "Nürnberg/Stralsund",
+        "beruf": "Lagerlogistik",
+        "n_a": 200,
+        "n_b": 161,
+        "identische_angebote": 106,
+        "jaccard_ids": 0.416,
+        "containment_kleinere_in_groessere": 0.658,
+        "token_ueberschneidung": 0.49,
+        "traeger_jaccard": 0.261,
+        "vollstaendig": false
+      }
+    ]
+  },
+  "4_reichweite": {
+    "angebote_in_stichprobe": 624,
+    "anzahlTermine": {
+      "median": 6.0,
+      "mittel": 75.527,
+      "max": 2594,
+      "anteil_ueber_10_termine_pct": 44.1,
+      "anteil_ueber_50_termine_pct": 32.5,
+      "anteil_genau_1_termin_pct": 25.3
+    },
+    "bundesweite_treffer_je_beruf": {
+      "Fachinformatiker": 661,
+      "Büromanagement": 2190,
+      "Pflegefachkraft": 102,
+      "Erzieher": 1106,
+      "Berufskraftfahrer": 2319,
+      "Elektroniker": 1181,
+      "Finanzbuchhaltung": 3327,
+      "Lagerlogistik": 991,
+      "Mechatroniker": 744,
+      "Steuerfachangestellte": 52,
+      "Einzelhandel": 395,
+      "Immobilienkaufmann": 65,
+      "Sozialassistent": 25,
+      "Anlagenmechaniker": 39,
+      "Webentwickler": 431,
+      "Mediengestalter": 2199
+    },
+    "berufe_mit_query_verzerrung": [],
+    "traeger": {
+      "distinkt": 238,
+      "top10_anteil_pct": 23.4,
+      "top10": [
+        {
+          "name": "Werkskolleg GmbH",
+          "angebote": 20
+        },
+        {
+          "name": "Handwerkskammer für Schwaben",
+          "angebote": 19
+        },
+        {
+          "name": "Syntax GmbH für Aus- und Weiterbildung",
+          "angebote": 18
+        },
+        {
+          "name": "SIS Social Impact School GmbH",
+          "angebote": 17
+        },
+        {
+          "name": "GrandEdu GmbH",
+          "angebote": 14
+        },
+        {
+          "name": "WBS TRAINING SE",
+          "angebote": 13
+        },
+        {
+          "name": "Karriere Tutor GmbH",
+          "angebote": 13
+        },
+        {
+          "name": "OneCareer",
+          "angebote": 12
+        },
+        {
+          "name": "Smart Future Campus GmbH",
+          "angebote": 10
+        },
+        {
+          "name": "TFA-Akademie GmbH",
+          "angebote": 10
+        }
+      ]
+    }
+  },
+  "5_seitenzahl": {
+    "schwelle": 3,
+    "annahmen": {
+      "n_orte": 2056,
+      "n_berufe": 250,
+      "theoretisch": 514000
+    },
+    "anteil_tragfaehig_ungewichtet": 0.763,
+    "anteil_tragfaehig_gewichtet": 0.593,
+    "seiten_ungewichtet": 392192,
+    "seiten_gewichtet": 304809,
+    "klassen": {
+      "GROSS": {
+        "anteil": 0.87,
+        "stichprobe_n": 192,
+        "staedte_real": 80
+      },
+      "MITTEL": {
+        "anteil": 0.727,
+        "stichprobe_n": 128,
+        "staedte_real": 620
+      },
+      "KLEIN": {
+        "anteil": 0.516,
+        "stichprobe_n": 64,
+        "staedte_real": 1356
+      }
+    }
   }
 }

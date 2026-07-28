@@ -1,0 +1,82 @@
+1) Staedtevorschlaege je Beruf
+   Fachinformatiker       10 Vorschlaege, Staedte: ['Berlin', 'Hamburg', 'Leipzig', 'Nürnberg']
+   Büromanagement         10 Vorschlaege, Staedte: ['Berlin', 'Köln']
+   Pflegefachkraft        10 Vorschlaege, Staedte: ['Hamburg', 'Berlin']
+   Erzieher               10 Vorschlaege, Staedte: ['Hamburg', 'Essen']
+   Berufskraftfahrer      10 Vorschlaege, Staedte: ['Berlin']
+   Elektroniker           10 Vorschlaege, Staedte: ['Berlin', 'Köln']
+   Finanzbuchhaltung       1 Vorschlaege, Staedte: []
+   Lagerlogistik          10 Vorschlaege, Staedte: ['Berlin']
+   Mechatroniker          10 Vorschlaege, Staedte: ['Berlin', 'Köln']
+   Steuerfachangestellte  10 Vorschlaege, Staedte: ['Berlin', 'Hamburg', 'Dortmund']
+   Einzelhandel            6 Vorschlaege, Staedte: []
+   Immobilienkaufmann     10 Vorschlaege, Staedte: ['Berlin', 'Hamburg']
+   Sozialassistent        10 Vorschlaege, Staedte: ['Berlin']
+   Anlagenmechaniker      10 Vorschlaege, Staedte: ['Berlin', 'Hamburg']
+   Webentwickler           1 Vorschlaege, Staedte: []
+   Mediengestalter        10 Vorschlaege, Staedte: ['Hamburg', 'Berlin']
+
+2) Longtail-Test je Stadt (Beruf: fachinformatiker, pflegefachkraft)
+   fachinformatiker Berlin               GROSS  -> 4 Vorschlaege
+   fachinformatiker Hamburg              GROSS  -> 6 Vorschlaege
+   fachinformatiker München              GROSS  -> 3 Vorschlaege
+   fachinformatiker Köln                 GROSS  -> 3 Vorschlaege
+   fachinformatiker Frankfurt am Main    GROSS  -> 0 Vorschlaege
+   fachinformatiker Stuttgart            GROSS  -> 3 Vorschlaege
+   fachinformatiker Leipzig              GROSS  -> 3 Vorschlaege
+   fachinformatiker Dortmund             GROSS  -> 3 Vorschlaege
+   fachinformatiker Essen                GROSS  -> 2 Vorschlaege
+   fachinformatiker Bochum               GROSS  -> 2 Vorschlaege
+   fachinformatiker Nürnberg             GROSS  -> 4 Vorschlaege
+   fachinformatiker Kassel               GROSS  -> 3 Vorschlaege
+   fachinformatiker Bottrop              MITTEL -> 0 Vorschlaege
+   fachinformatiker Siegen               MITTEL -> 1 Vorschlaege
+   fachinformatiker Jena                 MITTEL -> 1 Vorschlaege
+   fachinformatiker Gera                 MITTEL -> 0 Vorschlaege
+   fachinformatiker Landshut             MITTEL -> 1 Vorschlaege
+   fachinformatiker Zwickau              MITTEL -> 0 Vorschlaege
+   fachinformatiker Stralsund            MITTEL -> 0 Vorschlaege
+   fachinformatiker Pirmasens            MITTEL -> 0 Vorschlaege
+   fachinformatiker Nordhorn             KLEIN  -> 0 Vorschlaege
+   fachinformatiker Coesfeld             KLEIN  -> 0 Vorschlaege
+   fachinformatiker Prenzlau             KLEIN  -> 0 Vorschlaege
+   fachinformatiker Zeitz                KLEIN  -> 0 Vorschlaege
+   pflegefachkraft  Berlin               GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Hamburg              GROSS  -> 1 Vorschlaege
+   pflegefachkraft  München              GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Köln                 GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Frankfurt am Main    GROSS  -> 0 Vorschlaege
+   pflegefachkraft  Stuttgart            GROSS  -> 0 Vorschlaege
+   pflegefachkraft  Leipzig              GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Dortmund             GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Essen                GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Bochum               GROSS  -> 0 Vorschlaege
+   pflegefachkraft  Nürnberg             GROSS  -> 1 Vorschlaege
+   pflegefachkraft  Kassel               GROSS  -> 0 Vorschlaege
+   pflegefachkraft  Bottrop              MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Siegen               MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Jena                 MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Gera                 MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Landshut             MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Zwickau              MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Stralsund            MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Pirmasens            MITTEL -> 0 Vorschlaege
+   pflegefachkraft  Nordhorn             KLEIN  -> 0 Vorschlaege
+   pflegefachkraft  Coesfeld             KLEIN  -> 0 Vorschlaege
+   pflegefachkraft  Prenzlau             KLEIN  -> 0 Vorschlaege
+   pflegefachkraft  Zeitz                KLEIN  -> 0 Vorschlaege
+
+============================================================
+Staedte, die Google ueberhaupt vorschlaegt: ['Berlin', 'Dortmund', 'Essen', 'Hamburg', 'Köln', 'Leipzig', 'Nürnberg']
+
+fachinformatiker:
+   GROSS   11/12 = 91.7 % der Staedte mit Vorschlag
+   MITTEL  3/8 = 37.5 % der Staedte mit Vorschlag
+   KLEIN   0/4 = 0.0 % der Staedte mit Vorschlag
+
+pflegefachkraft:
+   GROSS   8/12 = 66.7 % der Staedte mit Vorschlag
+   MITTEL  0/8 = 0.0 % der Staedte mit Vorschlag
+   KLEIN   0/4 = 0.0 % der Staedte mit Vorschlag
+
+geschrieben: /home/user/Business-/pseo-validierung/scripts/../ergebnisse/ap4_autocomplete.json

@@ -1,0 +1,58 @@
+{
+  "erhoben_am": "2026-07-28T16:08:38Z",
+  "quelle": "https://www.tmdn.org/tmview/api/search/results",
+  "territorium": "DE",
+  "hinweis": "Nur Wortidentitaets-Vorabpruefung. Keine Pruefung von Aehnlichkeit, Nizza-Klassenkollision oder Verkehrsgeltung. Ersetzt keine Freigaberecherche.",
+  "ergebnisse": {
+    "Fördercampus": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Kursgutschein": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Bildungsgutschein24": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Weiterbildungsradar": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Umschulungsfinder": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Förderkurs": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Kursnavi": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Bildungsnavigator": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Umschulungsradar": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    },
+    "Weiterbildungskompass": {
+      "treffer_gesamt": null,
+      "treffer": [],
+      "fehler": "RemoteDisconnected('Remote end closed connection without response')"
+    }
+  }
+}

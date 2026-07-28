@@ -130,6 +130,7 @@ def ueberlappung(ueb, boilerplate=(0.40, 0.60)):
     idx = {(r["beruf"], r["ort"]): r for r in ueb}
     unvollstaendig = [f'{r["beruf"]}/{r["ort"]}' for r in ueb
                       if not r.get("vollstaendig")]
+    nachbar_set = {frozenset(p) for p in NACHBARPAARE}
 
     def vergleich(a, b, typ):
         raus = []
@@ -169,11 +170,15 @@ def ueberlappung(ueb, boilerplate=(0.40, 0.60)):
             })
         return raus
 
+    # Alle Stadtpaare, fuer die vollstaendige Listen vorliegen, werden
+    # verglichen - nicht nur die vorab definierten Paare. Das erhoeht die
+    # Zahl exakter Vergleiche erheblich.
+    staedte = sorted({o for (_, o) in idx})
     alle = []
-    for a, b in NACHBARPAARE:
-        alle += vergleich(a, b, "nachbar")
-    for a, b in FERNPAARE:
-        alle += vergleich(a, b, "fern")
+    for i, a in enumerate(staedte):
+        for b in staedte[i + 1:]:
+            typ = "nachbar" if frozenset((a, b)) in nachbar_set else "fern"
+            alle += vergleich(a, b, typ)
 
     if not alle:
         return {"hinweis": "keine vergleichbaren Paare"}

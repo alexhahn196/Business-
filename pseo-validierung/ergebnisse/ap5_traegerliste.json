@@ -1,0 +1,507 @@
+{
+  "traeger_distinkt_gesamt": 252,
+  "top30": [
+    {
+      "traeger": "DAA - Deutsche Angestellten- Akademie gGmbH",
+      "sitz_laut_daten": "Hamburg",
+      "angebote_in_stichprobe": 675,
+      "termine_bundesweit_summe": 3026,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Mechatroniker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Smart Future Campus GmbH",
+      "sitz_laut_daten": "München",
+      "angebote_in_stichprobe": 133,
+      "termine_bundesweit_summe": 1250,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Fachinformatiker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Berger Bildungsinstitut GmbH",
+      "sitz_laut_daten": "Kassel, Hessen",
+      "angebote_in_stichprobe": 68,
+      "termine_bundesweit_summe": 1062,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Steuerfachangestellte",
+        "Immobilienkaufmann"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "IBB Institut für Berufliche Bildung AG",
+      "sitz_laut_daten": "Buxtehude",
+      "angebote_in_stichprobe": 67,
+      "termine_bundesweit_summe": 2967,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Immobilienkaufmann",
+        "Fachinformatiker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "alfatraining Bildungszentrum GmbH",
+      "sitz_laut_daten": "Karlsruhe, Baden",
+      "angebote_in_stichprobe": 64,
+      "termine_bundesweit_summe": 1476,
+      "fachgebiete_top": [
+        "Lagerlogistik"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "WBS TRAINING SE",
+      "sitz_laut_daten": "Berlin",
+      "angebote_in_stichprobe": 55,
+      "termine_bundesweit_summe": 7164,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Finanzbuchhaltung",
+        "Fachinformatiker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "GrandEdu GmbH",
+      "sitz_laut_daten": "Herford",
+      "angebote_in_stichprobe": 48,
+      "termine_bundesweit_summe": 6494,
+      "fachgebiete_top": [
+        "Steuerfachangestellte",
+        "Einzelhandel",
+        "Finanzbuchhaltung",
+        "Mechatroniker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Fortbildungsakademie der Wirtschaft (FAW) gGmbH",
+      "sitz_laut_daten": "Köln",
+      "angebote_in_stichprobe": 41,
+      "termine_bundesweit_summe": 879,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Immobilienkaufmann",
+        "Büromanagement"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Lecturio GmbH",
+      "sitz_laut_daten": "Leipzig",
+      "angebote_in_stichprobe": 35,
+      "termine_bundesweit_summe": 257,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Immobilienkaufmann",
+        "Büromanagement"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "TÜV Rheinland Akademie GmbH",
+      "sitz_laut_daten": "Berlin",
+      "angebote_in_stichprobe": 31,
+      "termine_bundesweit_summe": 283,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Immobilienkaufmann",
+        "Einzelhandel",
+        "Büromanagement"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Leipzig",
+        "Nürnberg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "OneCareer",
+      "sitz_laut_daten": "Berlin",
+      "angebote_in_stichprobe": 30,
+      "termine_bundesweit_summe": 1242,
+      "fachgebiete_top": [
+        "Steuerfachangestellte",
+        "Einzelhandel",
+        "Büromanagement",
+        "Finanzbuchhaltung"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Leipzig",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Do IT Digital GmbH",
+      "sitz_laut_daten": "Köln",
+      "angebote_in_stichprobe": 30,
+      "termine_bundesweit_summe": 299,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Immobilienkaufmann",
+        "Büromanagement"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Akademie Überlingen",
+      "sitz_laut_daten": "Osnabrück",
+      "angebote_in_stichprobe": 26,
+      "termine_bundesweit_summe": 870,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Fachinformatiker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Talentspring Academy Group",
+      "sitz_laut_daten": "Berlin",
+      "angebote_in_stichprobe": 25,
+      "termine_bundesweit_summe": 297,
+      "fachgebiete_top": [
+        "Einzelhandel",
+        "Finanzbuchhaltung"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "TERTIA Berufsförderung GmbH & Co. KG",
+      "sitz_laut_daten": "Alfter",
+      "angebote_in_stichprobe": 23,
+      "termine_bundesweit_summe": 467,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Büromanagement",
+        "Erzieher",
+        "Mechatroniker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Distart Education GmbH",
+      "sitz_laut_daten": "Leipzig",
+      "angebote_in_stichprobe": 22,
+      "termine_bundesweit_summe": 1048,
+      "fachgebiete_top": [
+        "Einzelhandel",
+        "Mediengestalter"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Werkskolleg GmbH",
+      "sitz_laut_daten": "Hanau",
+      "angebote_in_stichprobe": 20,
+      "termine_bundesweit_summe": 228,
+      "fachgebiete_top": [
+        "Elektroniker"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "its digital akademie GmbH",
+      "sitz_laut_daten": "Duisburg",
+      "angebote_in_stichprobe": 19,
+      "termine_bundesweit_summe": 94,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Büromanagement",
+        "Mechatroniker",
+        "Einzelhandel"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Hamburg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Handwerkskammer für Schwaben",
+      "sitz_laut_daten": "Augsburg, Bayern",
+      "angebote_in_stichprobe": 19,
+      "termine_bundesweit_summe": 19,
+      "fachgebiete_top": [
+        "Anlagenmechaniker"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Syntax GmbH für Aus- und Weiterbildung",
+      "sitz_laut_daten": "Berlin",
+      "angebote_in_stichprobe": 18,
+      "termine_bundesweit_summe": 1607,
+      "fachgebiete_top": [
+        "Webentwickler",
+        "Mediengestalter",
+        "Fachinformatiker"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Karriere Tutor GmbH",
+      "sitz_laut_daten": "München",
+      "angebote_in_stichprobe": 18,
+      "termine_bundesweit_summe": 2335,
+      "fachgebiete_top": [
+        "Steuerfachangestellte",
+        "Webentwickler",
+        "Finanzbuchhaltung",
+        "Büromanagement"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Lernstudio Barbarossa/MegaKids Fortbildungs GmbH",
+      "sitz_laut_daten": "Kaiserslautern",
+      "angebote_in_stichprobe": 17,
+      "termine_bundesweit_summe": 594,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Büromanagement",
+        "Mechatroniker",
+        "Einzelhandel"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "SIS Social Impact School GmbH",
+      "sitz_laut_daten": "Köln",
+      "angebote_in_stichprobe": 17,
+      "termine_bundesweit_summe": 1428,
+      "fachgebiete_top": [
+        "Erzieher",
+        "Sozialassistent",
+        "Pflegefachkraft"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Berufliche Fortbildungszentren der Bayerischen Wirtschaft (bfz) gGmbH",
+      "sitz_laut_daten": "München",
+      "angebote_in_stichprobe": 13,
+      "termine_bundesweit_summe": 615,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Einzelhandel",
+        "Immobilienkaufmann",
+        "Fachinformatiker"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "COMCAVE.COLLEGE GmbH",
+      "sitz_laut_daten": "Dortmund",
+      "angebote_in_stichprobe": 12,
+      "termine_bundesweit_summe": 1336,
+      "fachgebiete_top": [
+        "Immobilienkaufmann",
+        "Steuerfachangestellte",
+        "Lagerlogistik",
+        "Büromanagement"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg",
+        "Stralsund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "TFA-Akademie GmbH",
+      "sitz_laut_daten": "Neubrandenburg",
+      "angebote_in_stichprobe": 10,
+      "termine_bundesweit_summe": 12,
+      "fachgebiete_top": [
+        "Sozialassistent",
+        "Erzieher",
+        "Mechatroniker"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Education partners GmbH",
+      "sitz_laut_daten": "Lippstadt",
+      "angebote_in_stichprobe": 10,
+      "termine_bundesweit_summe": 19,
+      "fachgebiete_top": [
+        "Sozialassistent",
+        "Erzieher"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "IU Akademie IU Internationale Hochschule",
+      "sitz_laut_daten": "Erfurt",
+      "angebote_in_stichprobe": 10,
+      "termine_bundesweit_summe": 2636,
+      "fachgebiete_top": [
+        "Lagerlogistik",
+        "Finanzbuchhaltung"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Bochum",
+        "Dortmund",
+        "Hamburg",
+        "Leipzig",
+        "Nürnberg"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "velpTEC GmbH",
+      "sitz_laut_daten": "Hannover",
+      "angebote_in_stichprobe": 10,
+      "termine_bundesweit_summe": 1840,
+      "fachgebiete_top": [
+        "Finanzbuchhaltung",
+        "Webentwickler"
+      ],
+      "in_staedten_der_stichprobe": [],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    },
+    {
+      "traeger": "Masters of Digital GmbH",
+      "sitz_laut_daten": "München",
+      "angebote_in_stichprobe": 10,
+      "termine_bundesweit_summe": 807,
+      "fachgebiete_top": [
+        "Mediengestalter",
+        "Einzelhandel"
+      ],
+      "in_staedten_der_stichprobe": [
+        "Dortmund"
+      ],
+      "kontakt": "nicht erhoben - je Traeger einzeln zu recherchieren"
+    }
+  ]
+}

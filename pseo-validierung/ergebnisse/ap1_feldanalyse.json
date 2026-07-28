@@ -1,0 +1,161 @@
+{
+  "stichprobe": {
+    "angebote": 200,
+    "termine_im_listing": 738,
+    "hinweis": "Die Listen-Antwort liefert je Angebot maximal 5 Termine, waehrend anzahlTermine den wahren Wert nennt. Terminfeld-Quoten beziehen sich auf diese 5er-Teilmenge."
+  },
+  "feldvollstaendigkeit_angebot_pct": {
+    "anzahlTermine": 100.0,
+    "bildungsanbieter": 100.0,
+    "id": 100.0,
+    "inhalt": 100.0,
+    "termine": 100.0,
+    "titel": 100.0,
+    "weiterbildungsart": 97.0,
+    "bildungsanbieter.name": 100.0,
+    "bildungsanbieter.logo": 96.0,
+    "bildungsanbieter.adresse": 100.0,
+    "bildungsanbieter.adresse.ort": 100.0,
+    "bildungsanbieter.adresse.plz": 100.0
+  },
+  "feldvollstaendigkeit_termin_pct": {
+    "adresse": 91.2,
+    "beginn": 59.9,
+    "dauer": 100.0,
+    "dauerId": 100.0,
+    "ende": 59.9,
+    "id": 100.0,
+    "kostenWaehrung": 100.0,
+    "kostenWert": 100.0,
+    "quelle": 100.0,
+    "unterrichtsform": 99.6,
+    "unterrichtszeit": 100.0
+  },
+  "inhalt_laenge_zeichen": {
+    "median": 1254,
+    "min": 55,
+    "max": 7423,
+    "anteil_unter_500_zeichen_pct": 16.5
+  },
+  "aktualitaet": {
+    "stichtag": "2026-07-28",
+    "termine_mit_beginn": 442,
+    "frueheste": "2024-07-15",
+    "spaeteste": "2027-10-24",
+    "anteil_beginn_vergangen_pct": 4.5
+  },
+  "traeger": {
+    "distinkt": 105,
+    "top10_anteil_pct": 32.0,
+    "top15": [
+      {
+        "name": "GrandEdu GmbH",
+        "angebote": 11
+      },
+      {
+        "name": "Smart Future Campus GmbH",
+        "angebote": 10
+      },
+      {
+        "name": "SIS Social Impact School GmbH",
+        "angebote": 8
+      },
+      {
+        "name": "OneCareer",
+        "angebote": 6
+      },
+      {
+        "name": "Werkskolleg GmbH",
+        "angebote": 6
+      },
+      {
+        "name": "Karriere Tutor GmbH",
+        "angebote": 5
+      },
+      {
+        "name": "Berger Bildungsinstitut GmbH",
+        "angebote": 5
+      },
+      {
+        "name": "Bildungs-Werkstatt Chemnitz gemeinnützige GmbH",
+        "angebote": 5
+      },
+      {
+        "name": "SGD",
+        "angebote": 4
+      },
+      {
+        "name": "IBB Institut für Berufliche Bildung AG",
+        "angebote": 4
+      },
+      {
+        "name": "TERTIA Berufsförderung GmbH & Co. KG",
+        "angebote": 4
+      },
+      {
+        "name": "apm",
+        "angebote": 4
+      },
+      {
+        "name": "Education partners GmbH",
+        "angebote": 4
+      },
+      {
+        "name": "Fahrschule Kaiser GmbH",
+        "angebote": 4
+      },
+      {
+        "name": "alfatraining Bildungszentrum GmbH",
+        "angebote": 4
+      }
+    ]
+  },
+  "geografie": {
+    "distinkte_traegersitze": 66,
+    "distinkte_termin_orte_in_stichprobe": 190,
+    "traegersitz_ungleich_kursort_pct": 42.4,
+    "pruefbar_n": 177,
+    "top10_traegersitze": [
+      {
+        "ort": "Berlin",
+        "angebote": 22
+      },
+      {
+        "ort": "München",
+        "angebote": 19
+      },
+      {
+        "ort": "Köln",
+        "angebote": 14
+      },
+      {
+        "ort": "Herford",
+        "angebote": 11
+      },
+      {
+        "ort": "Hamburg",
+        "angebote": 8
+      },
+      {
+        "ort": "Kassel, Hessen",
+        "angebote": 7
+      },
+      {
+        "ort": "Darmstadt",
+        "angebote": 6
+      },
+      {
+        "ort": "Hanau",
+        "angebote": 6
+      },
+      {
+        "ort": "Osnabrück",
+        "angebote": 5
+      },
+      {
+        "ort": "Hannover",
+        "angebote": 5
+      }
+    ]
+  }
+}

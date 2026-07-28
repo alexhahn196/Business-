@@ -1,0 +1,46 @@
+ziehe Rohdaten ...
+  gezogen 20/200
+  gezogen 40/200
+  gezogen 60/200
+  gezogen 80/200
+  gezogen 100/200
+  gezogen 120/200
+  gezogen 140/200
+  gezogen 160/200
+  gezogen 180/200
+  gezogen 200/200
+======================================================================
+AP1 - FELDANALYSE  (200 Angebote, 738 Termine)
+======================================================================
+Angebotsfelder (% befuellt):
+  anzahlTermine                          100.0
+  bildungsanbieter                       100.0
+  bildungsanbieter.adresse               100.0
+  bildungsanbieter.adresse.ort           100.0
+  bildungsanbieter.adresse.plz           100.0
+  bildungsanbieter.logo                  96.0
+  bildungsanbieter.name                  100.0
+  id                                     100.0
+  inhalt                                 100.0
+  termine                                100.0
+  titel                                  100.0
+  weiterbildungsart                      97.0
+Terminfelder (% befuellt):
+  adresse                                91.2
+  beginn                                 59.9
+  dauer                                  100.0
+  dauerId                                100.0
+  ende                                   59.9
+  id                                     100.0
+  kostenWaehrung                         100.0
+  kostenWert                             100.0
+  quelle                                 100.0
+  unterrichtsform                        99.6
+  unterrichtszeit                        100.0
+
+Aktualitaet 2024-07-15 .. 2027-10-24  (4.5 % Beginn in Vergangenheit)
+Traeger distinkt: 105, Top10 32.0 %
+Traegersitz != Kursort: 42.4 %
+Beschreibungstext Median 1254 Zeichen
+
+geschrieben: /home/user/Business-/pseo-validierung/scripts/../ergebnisse/ap1_feldanalyse.json
