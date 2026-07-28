@@ -1,0 +1,47 @@
+{
+  "erhoben_am": "2026-07-28T15:36:48Z",
+  "ergebnisse": [
+    {
+      "http_status": 404,
+      "body_prefix": " ",
+      "label": "bundesAPI-Doku v2 (dokumentierter Endpunkt)",
+      "url": "https://rest.arbeitsagentur.de/infosysbub/wbsuche/pc/v2/bildungsangebot?orte=Erlangen_11.005_49.595&uk=Bundesweit&bg=false&page=0",
+      "api_key": "infosysbub-wbsuche"
+    },
+    {
+      "http_status": 404,
+      "body_prefix": " ",
+      "label": "bundesAPI-Doku v1",
+      "url": "https://rest.arbeitsagentur.de/infosysbub/wbsuche/pc/v1/bildungsangebot?orte=Erlangen_11.005_49.595&uk=Bundesweit&bg=false&page=0",
+      "api_key": "infosysbub-wbsuche"
+    },
+    {
+      "http_status": 200,
+      "body_prefix": "{\n  \"stellenangebote\" : [ {\n    \"beruf\" : \"Koch/Köchin\",\n    \"titel\" : \"Koch (m/w/d)\",\n    \"refnr\" : \"10000-1206768104-S\",\n    \"arbeitsort\" : {\n      \"plz\" : \"27726\",\n      \"ort\" : \"Worpswede\",\n      \"strasse\" : \"Bergstr. 22\",\n      \"region\" : \"Niedersachsen\",\n      \"land\" : \"Deutschland\",\n      \"koordinaten\" : {\n        \"lat\" : 53.221284,\n        \"lon\" : 8.92602\n      }\n    },\n    \"arbeitgeber\" :",
+      "label": "Kontrolle: Jobsuche-API der BA (anderer Dienst, gleicher Host)",
+      "url": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs?was=Koch&size=1",
+      "api_key": "jobboerse-jobsuche"
+    },
+    {
+      "http_status": 200,
+      "body_prefix": "{\"_embedded\":{\"bildungsangebotDTOList\":[{\"anzahlTermine\":347,\"bildungsanbieter\":{\"adresse\":{\"ort\":\"Hamburg\",\"plz\":\"22081\"},\"logo\":\"https://rest.arbeitsagentur.de/infosysbub/kursnet-rest/ct/v1/bildungsanbieter/306515/logos/84672\",\"name\":\"DAA - Deutsche Angestellten- Akademie gGmbH\"},\"id\":10379312499,\"inhalt\":\"<p>Lehrgänge zur Vorbereitung auf eine Umschulung richten sich an Interessent*innen, die v",
+      "label": "NOW-Frontend produktiv (aus window.sucheConfig.backendHost)",
+      "url": "https://rest.mein-now.de/now-prod/suche/pc/v1/bildungsangebot?sw=Umschulung&ortsunabhaengig=true&page=0&size=1",
+      "api_key": "infosysbub-nowsuche"
+    },
+    {
+      "http_status": 403,
+      "body_prefix": " ",
+      "label": "NOW-Frontend produktiv, OHNE API-Key",
+      "url": "https://rest.mein-now.de/now-prod/suche/pc/v1/bildungsangebot?sw=Umschulung&ortsunabhaengig=true&page=0&size=1",
+      "api_key": null
+    },
+    {
+      "http_status": 200,
+      "body_prefix": "{\"ANZAHL_AUSGEFILTERT\":{\"COUNT\":0},\"ANZAHL_ANGEBOTE_GESAMT\":{\"COUNT\":1384},\"UNTERRICHTSZEIT\":{\"1\":1340,\"2\":711,\"3\":15},\"WEITERBILDUNGSART\":{\"REHA_ANGEBOTE\":45,\"BERUFLICHE_QUALIFIZIERUNG\":1317,\"AUFSTIEGSWEITERBILDUNG\":2,\"UMSCHULUNG\":1},\"KOSTEN\":{\"UEBER_5000_BIS_10000_EUR\":80,\"UEBER_500_BIS_1000_EUR\":122,\"PREISVERHANDELTE_MASSNAHME\":46,\"UEBER_10000_EUR\":147,\"UEBER_1000_BIS_5000_EUR\":914,\"BIS_500_EUR",
+      "label": "NOW Facetten-Aggregation",
+      "url": "https://rest.mein-now.de/now-prod/suche/pc/v1/facettenaggregations?sw=Umschulung&ortsunabhaengig=true",
+      "api_key": "infosysbub-nowsuche"
+    }
+  ]
+}
