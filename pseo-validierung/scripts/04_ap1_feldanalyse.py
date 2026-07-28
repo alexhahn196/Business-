@@ -2,10 +2,12 @@
 """
 AP1 - Feldstruktur, Vollstaendigkeit, Aktualitaet, Traeger, Geografie.
 
-Liest data/records.jsonl (Stichprobe aus 02_sample.py) und berechnet
-je Feld den Befuellungsgrad sowie Kennzahlen zu Traegern und Aktualitaet.
+Zieht eine kleine Rohdaten-Stichprobe (Default 200 Angebote, 1 req/s) und
+misst je Feld den Befuellungsgrad. Zusaetzlich Aktualitaet der Termine und
+das Verhaeltnis Traegersitz zu Kursort.
 
-Ergebnis: ergebnisse/ap1_feldanalyse.json + Konsolenausgabe
+Rohdaten:  data/rohdaten_felder.jsonl
+Ergebnis:  ergebnisse/ap1_feldanalyse.json
 
 Aufruf: python3 scripts/04_ap1_feldanalyse.py
 """
@@ -13,16 +15,55 @@ import datetime as dt
 import json
 import os
 import sys
-from collections import Counter, defaultdict
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from collections import Counter
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import (BACKEND_HOST, BERUFE, HEADERS, PAGE_SIZE,
+                    RATE_LIMIT_SECONDS)
 
 BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-RECS = os.path.join(BASE, "data", "records.jsonl")
+ROH = os.path.join(BASE, "data", "rohdaten_felder.jsonl")
 OUT = os.path.join(BASE, "ergebnisse", "ap1_feldanalyse.json")
 
+ZIEL_ANGEBOTE = 200
 
-def lade(pfad):
-    with open(pfad, encoding="utf-8") as f:
-        return [json.loads(z) for z in f if z.strip()]
+
+def get(params):
+    url = f"{BACKEND_HOST}/pc/v1/bildungsangebot?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers=HEADERS)
+    try:
+        with urllib.request.urlopen(req, timeout=45) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except (urllib.error.HTTPError, Exception):               # noqa: BLE001
+        return None
+
+
+def ziehe():
+    """Ein Angebot je Beruf ueber mehrere Seiten, bis ZIEL_ANGEBOTE erreicht."""
+    gesehen, raus = set(), []
+    seite = 0
+    while len(raus) < ZIEL_ANGEBOTE and seite < 4:
+        for beruf in BERUFE:
+            if len(raus) >= ZIEL_ANGEBOTE:
+                break
+            d = get({"sw": beruf, "page": seite, "size": PAGE_SIZE})
+            time.sleep(RATE_LIMIT_SECONDS)
+            if not isinstance(d, dict):
+                continue
+            for a in (d.get("_embedded", {})
+                      .get("bildungsangebotDTOList", []) or []):
+                if a.get("id") in gesehen or len(raus) >= ZIEL_ANGEBOTE:
+                    continue
+                gesehen.add(a.get("id"))
+                a["_beruf_query"] = beruf
+                raus.append(a)
+            print(f"  gezogen {len(raus)}/{ZIEL_ANGEBOTE}", flush=True)
+        seite += 1
+    return raus
 
 
 def befuellt(v):
@@ -36,47 +77,45 @@ def befuellt(v):
 
 
 def main():
-    rows = lade(RECS)
-    angebote = [r["angebot"] for r in rows]
-    # Deduplizierung auf Angebots-ID: dieselbe ID kann in mehreren
-    # Beruf/Ort-Abfragen auftauchen.
-    uniq = {}
-    for a in angebote:
-        uniq[a.get("id")] = a
-    uniq_list = list(uniq.values())
+    if os.path.exists(ROH):
+        angebote = [json.loads(z) for z in open(ROH, encoding="utf-8")
+                    if z.strip()]
+        print(f"nutze vorhandene Rohdaten: {len(angebote)} Angebote")
+    else:
+        print("ziehe Rohdaten ...")
+        angebote = ziehe()
+        os.makedirs(os.path.dirname(ROH), exist_ok=True)
+        with open(ROH, "w", encoding="utf-8") as f:
+            for a in angebote:
+                f.write(json.dumps(a, ensure_ascii=False) + "\n")
 
     n = len(angebote)
-    nu = len(uniq_list)
+    if not n:
+        print("keine Daten")
+        return
 
-    # --- Feld-Vollstaendigkeit auf Angebotsebene -------------------------
-    ANGEBOT_FELDER = ["id", "titel", "inhalt", "weiterbildungsart",
-                      "anzahlTermine", "bildungsanbieter", "termine"]
-    feld_pct = {}
-    for f in ANGEBOT_FELDER:
-        c = sum(1 for a in uniq_list if befuellt(a.get(f)))
-        feld_pct[f] = round(100 * c / nu, 1) if nu else None
+    # --- Feld-Vollstaendigkeit Angebotsebene ----------------------------
+    alle_felder = sorted({k for a in angebote for k in a
+                          if not k.startswith("_")})
+    feld_pct = {f: round(100 * sum(1 for a in angebote if befuellt(a.get(f)))
+                         / n, 1) for f in alle_felder}
+    for f in ("name", "logo", "adresse"):
+        feld_pct[f"bildungsanbieter.{f}"] = round(
+            100 * sum(1 for a in angebote
+                      if befuellt((a.get("bildungsanbieter") or {}).get(f)))
+            / n, 1)
+    for f in ("ort", "plz"):
+        feld_pct[f"bildungsanbieter.adresse.{f}"] = round(
+            100 * sum(1 for a in angebote
+                      if befuellt(((a.get("bildungsanbieter") or {})
+                                   .get("adresse") or {}).get(f))) / n, 1)
 
-    # verschachtelt: bildungsanbieter
-    ba_felder = ["name", "logo", "adresse"]
-    for f in ba_felder:
-        c = sum(1 for a in uniq_list
-                if befuellt((a.get("bildungsanbieter") or {}).get(f)))
-        feld_pct[f"bildungsanbieter.{f}"] = round(100 * c / nu, 1) if nu else None
-    c = sum(1 for a in uniq_list
-            if befuellt(((a.get("bildungsanbieter") or {}).get("adresse")
-                         or {}).get("ort")))
-    feld_pct["bildungsanbieter.adresse.ort"] = round(100 * c / nu, 1) if nu else None
-
-    # --- Feld-Vollstaendigkeit auf Terminebene ---------------------------
-    termine = [t for a in uniq_list for t in (a.get("termine") or [])]
+    # --- Terminebene -----------------------------------------------------
+    termine = [t for a in angebote for t in (a.get("termine") or [])]
     nt = len(termine)
-    TERMIN_FELDER = ["id", "beginn", "ende", "dauer", "dauerId", "kostenWert",
-                     "kostenWaehrung", "unterrichtsform", "unterrichtszeit",
-                     "adresse", "quelle"]
-    termin_pct = {}
-    for f in TERMIN_FELDER:
-        c = sum(1 for t in termine if befuellt(t.get(f)))
-        termin_pct[f] = round(100 * c / nt, 1) if nt else None
+    t_felder = sorted({k for t in termine for k in t})
+    termin_pct = {f: round(100 * sum(1 for t in termine if befuellt(t.get(f)))
+                           / nt, 1) for f in t_felder} if nt else {}
 
     # --- Aktualitaet -----------------------------------------------------
     heute = dt.date.today()
@@ -89,123 +128,88 @@ def main():
             except (OSError, ValueError, OverflowError):
                 pass
     vergangen = sum(1 for d in beginne if d < heute)
-    aktualitaet = {
-        "termine_mit_beginndatum": len(beginne),
-        "termine_gesamt": nt,
-        "frueheste": min(beginne).isoformat() if beginne else None,
-        "spaeteste": max(beginne).isoformat() if beginne else None,
-        "anteil_beginn_in_vergangenheit_pct":
-            round(100 * vergangen / len(beginne), 1) if beginne else None,
-        "stichtag": heute.isoformat(),
-    }
 
-    # --- Traeger ---------------------------------------------------------
-    traeger = Counter()
-    traeger_ort = Counter()
-    for a in uniq_list:
-        ba = a.get("bildungsanbieter") or {}
-        if ba.get("name"):
-            traeger[ba["name"]] += 1
-        o = (ba.get("adresse") or {}).get("ort")
-        if o:
-            traeger_ort[o] += 1
-    top = traeger.most_common(15)
-    summe = sum(traeger.values())
-    top10_anteil = (round(100 * sum(c for _, c in traeger.most_common(10))
-                          / summe, 1) if summe else None)
+    # --- Traeger und Geografie ------------------------------------------
+    traeger = Counter(a["bildungsanbieter"]["name"] for a in angebote
+                      if (a.get("bildungsanbieter") or {}).get("name"))
+    sitze = Counter(((a.get("bildungsanbieter") or {}).get("adresse") or {})
+                    .get("ort") for a in angebote
+                    if ((a.get("bildungsanbieter") or {}).get("adresse")
+                        or {}).get("ort"))
+    termin_orte = Counter((t.get("adresse") or {}).get("ort") for t in termine
+                          if (t.get("adresse") or {}).get("ort"))
 
-    # --- Geografie: Termin-Orte -----------------------------------------
-    termin_orte = Counter()
-    for t in termine:
-        o = (t.get("adresse") or {}).get("ort")
-        if o:
-            termin_orte[o] += 1
-
-    # --- Traegersitz vs. Kursort ----------------------------------------
-    auswaertig = 0
-    pruefbar = 0
-    for a in uniq_list:
-        sitz = ((a.get("bildungsanbieter") or {}).get("adresse")
-                or {}).get("ort")
-        orte_t = {(t.get("adresse") or {}).get("ort")
-                  for t in (a.get("termine") or [])} - {None}
-        if sitz and orte_t:
+    auswaertig = pruefbar = 0
+    for a in angebote:
+        sitz = ((a.get("bildungsanbieter") or {}).get("adresse") or {}).get("ort")
+        orte = {(t.get("adresse") or {}).get("ort")
+                for t in (a.get("termine") or [])} - {None}
+        if sitz and orte:
             pruefbar += 1
-            if sitz not in orte_t:
+            if sitz not in orte:
                 auswaertig += 1
 
-    # --- Angebotsreichweite: wie viele Termine hat ein Angebot? ----------
-    at = [a.get("anzahlTermine") or 0 for a in uniq_list]
-    at_sorted = sorted(at)
+    inhalt_len = [len(a.get("inhalt") or "") for a in angebote]
+    inhalt_len_s = sorted(inhalt_len)
+
     erg = {
-        "stichprobe": {
-            "datensaetze_gezogen": n,
-            "distinkte_angebote": nu,
-            "termine_in_stichprobe": nt,
-            "abfragen_beruf_ort": len({(r["beruf"], r["ort"]) for r in rows}),
-        },
+        "stichprobe": {"angebote": n, "termine_im_listing": nt,
+                       "hinweis": ("Die Listen-Antwort liefert je Angebot "
+                                   "maximal 5 Termine, waehrend anzahlTermine "
+                                   "den wahren Wert nennt. Terminfeld-Quoten "
+                                   "beziehen sich auf diese 5er-Teilmenge.")},
         "feldvollstaendigkeit_angebot_pct": feld_pct,
         "feldvollstaendigkeit_termin_pct": termin_pct,
-        "aktualitaet": aktualitaet,
+        "inhalt_laenge_zeichen": {
+            "median": inhalt_len_s[len(inhalt_len_s) // 2],
+            "min": min(inhalt_len), "max": max(inhalt_len),
+            "anteil_unter_500_zeichen_pct":
+                round(100 * sum(1 for x in inhalt_len if x < 500) / n, 1)},
+        "aktualitaet": {
+            "stichtag": heute.isoformat(),
+            "termine_mit_beginn": len(beginne),
+            "frueheste": min(beginne).isoformat() if beginne else None,
+            "spaeteste": max(beginne).isoformat() if beginne else None,
+            "anteil_beginn_vergangen_pct":
+                round(100 * vergangen / len(beginne), 1) if beginne else None},
         "traeger": {
-            "distinkte_traeger": len(traeger),
-            "angebote_pro_traeger_mittel":
-                round(summe / len(traeger), 2) if traeger else None,
-            "top10_anteil_an_angeboten_pct": top10_anteil,
-            "top15": [{"name": k, "angebote": v} for k, v in top],
-        },
+            "distinkt": len(traeger),
+            "top10_anteil_pct":
+                round(100 * sum(c for _, c in traeger.most_common(10))
+                      / sum(traeger.values()), 1) if traeger else None,
+            "top15": [{"name": k, "angebote": v}
+                      for k, v in traeger.most_common(15)]},
         "geografie": {
-            "distinkte_termin_orte": len(termin_orte),
-            "top15_termin_orte": [{"ort": k, "termine": v}
-                                  for k, v in termin_orte.most_common(15)],
-            "distinkte_traegersitze": len(traeger_ort),
+            "distinkte_traegersitze": len(sitze),
+            "distinkte_termin_orte_in_stichprobe": len(termin_orte),
             "traegersitz_ungleich_kursort_pct":
                 round(100 * auswaertig / pruefbar, 1) if pruefbar else None,
-            "traegersitz_pruefbar_n": pruefbar,
-        },
-        "angebotsreichweite": {
-            "anzahlTermine_median":
-                at_sorted[len(at_sorted) // 2] if at_sorted else None,
-            "anzahlTermine_mittel":
-                round(sum(at) / len(at), 1) if at else None,
-            "anzahlTermine_max": max(at) if at else None,
-            "anteil_angebote_mit_ueber_10_terminen_pct":
-                round(100 * sum(1 for x in at if x > 10) / len(at), 1)
-                if at else None,
-        },
-        "hinweis_felder": (
-            "Die Listen-Antwort /pc/v1/bildungsangebot liefert einen "
-            "reduzierten Feldsatz. Foerderart, Abschluss und Zertifizierer "
-            "sind nur ueber die Detail-Ressource /pc/v1/bildungsangebot/{id} "
-            "bzw. die Facetten-Aggregation verfuegbar."
-        ),
+            "pruefbar_n": pruefbar,
+            "top10_traegersitze": [{"ort": k, "angebote": v}
+                                   for k, v in sitze.most_common(10)]},
     }
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(erg, f, ensure_ascii=False, indent=2)
 
-    print("=" * 68)
-    print("AP1 - FELDSTRUKTUR UND VOLLSTAENDIGKEIT")
-    print("=" * 68)
-    print(f"Datensaetze {n}, distinkte Angebote {nu}, Termine {nt}")
-    print("\nAngebotsfelder (% befuellt):")
-    for k, v in feld_pct.items():
-        print(f"  {k:36s} {v}")
-    print("\nTerminfelder (% befuellt):")
-    for k, v in termin_pct.items():
-        print(f"  {k:36s} {v}")
-    print(f"\nAktualitaet: {aktualitaet['frueheste']} .. "
-          f"{aktualitaet['spaeteste']}, "
-          f"{aktualitaet['anteil_beginn_in_vergangenheit_pct']} % vergangen")
-    print(f"\nTraeger: {erg['traeger']['distinkte_traeger']} distinkt, "
-          f"Top10 halten {top10_anteil} % der Angebote")
-    for t in top[:8]:
-        print(f"  {t[1]:4d}  {t[0][:60]}")
-    print(f"\nTraegersitz != Kursort: "
+    print("=" * 70)
+    print(f"AP1 - FELDANALYSE  ({n} Angebote, {nt} Termine)")
+    print("=" * 70)
+    print("Angebotsfelder (% befuellt):")
+    for k, v in sorted(feld_pct.items()):
+        print(f"  {k:38s} {v}")
+    print("Terminfelder (% befuellt):")
+    for k, v in sorted(termin_pct.items()):
+        print(f"  {k:38s} {v}")
+    a = erg["aktualitaet"]
+    print(f"\nAktualitaet {a['frueheste']} .. {a['spaeteste']}  "
+          f"({a['anteil_beginn_vergangen_pct']} % Beginn in Vergangenheit)")
+    print(f"Traeger distinkt: {erg['traeger']['distinkt']}, "
+          f"Top10 {erg['traeger']['top10_anteil_pct']} %")
+    print(f"Traegersitz != Kursort: "
           f"{erg['geografie']['traegersitz_ungleich_kursort_pct']} %")
-    print(f"Angebote mit >10 Terminen bundesweit: "
-          f"{erg['angebotsreichweite']['anteil_angebote_mit_ueber_10_terminen_pct']} %")
+    print(f"Beschreibungstext Median {erg['inhalt_laenge_zeichen']['median']} Zeichen")
     print(f"\ngeschrieben: {OUT}")
 
 

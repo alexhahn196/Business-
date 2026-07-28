@@ -1,0 +1,97 @@
+{
+  "stichprobe": {
+    "grid_requests": 312,
+    "datensaetze_gezogen": 0,
+    "berufe": 16,
+    "orte": 30
+  },
+  "1_verteilung": {
+    "kombinationen_gemessen": 312,
+    "requests_fehlerhaft": 0,
+    "anteil_0_angebote_pct": 40.1,
+    "anteil_1_2_angebote_pct": 2.9,
+    "anteil_3plus_angebote_pct": 57.1,
+    "anteil_10plus_angebote_pct": 40.7,
+    "ABBRUCHKRITERIUM_unter_2_angebote_pct": 42.9,
+    "je_stadtklasse": {
+      "GROSS": {
+        "n": 224,
+        "0": 98,
+        "1-2": 2,
+        "3+": 124,
+        "summe_angebote": 16958,
+        "anteil_unter_2_pct": 44.6,
+        "median_hinweis": "siehe summe_angebote/n"
+      },
+      "MITTEL": {
+        "n": 88,
+        "0": 27,
+        "1-2": 7,
+        "3+": 54,
+        "summe_angebote": 2967,
+        "anteil_unter_2_pct": 38.6,
+        "median_hinweis": "siehe summe_angebote/n"
+      }
+    }
+  },
+  "2_varianz": {
+    "basis_kombinationen_mit_angeboten": 187,
+    "distinkte_dauerklassen": {
+      "mittel": 4.36,
+      "median": 4,
+      "max": 9
+    },
+    "distinkte_kostenklassen": {
+      "mittel": 3.13,
+      "median": 3
+    },
+    "distinkte_foerderarten": {
+      "mittel": 2.02,
+      "median": 2,
+      "max": 7
+    },
+    "distinkte_lernformen": {
+      "mittel": 2.62,
+      "median": 2
+    },
+    "traeger_je_kombination_stichprobe": {
+      "n_kombinationen": 0,
+      "mittel": null,
+      "median": null,
+      "max": null,
+      "anteil_mit_1_traeger_pct": null
+    }
+  },
+  "3_duplikate_nachbarstaedte": {
+    "hinweis": "keine vergleichbaren Paare in der Stichprobe"
+  },
+  "4_seitenzahl": {
+    "schwelle_angebote": 3,
+    "annahmen": {
+      "n_orte_gesamt": 2056,
+      "n_berufe_gesamt": 250,
+      "theoretisch_moegliche_seiten": 514000
+    },
+    "anteil_tragfaehig_ungewichtet": 0.571,
+    "anteil_tragfaehig_einwohnergewichtet": 0.207,
+    "klassen_detail": {
+      "GROSS": {
+        "anteil_>=3_in_stichprobe": 0.554,
+        "staedte_real": 80,
+        "stichprobe_n": 224
+      },
+      "MITTEL": {
+        "anteil_>=3_in_stichprobe": 0.614,
+        "staedte_real": 620,
+        "stichprobe_n": 88
+      },
+      "KLEIN": {
+        "anteil_>=3_in_stichprobe": 0.0,
+        "staedte_real": 1356,
+        "stichprobe_n": 0
+      }
+    },
+    "seiten_ungewichtet": 293243,
+    "seiten_einwohnergewichtet": 106185
+  }
+}
