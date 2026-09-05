@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manti & Pelmeni</title>
+<meta name="description" content="Handgemachte usbekische Manti und Pelmeni – jeden Morgen frisch gefaltet, gedämpft geliefert oder tiefgekühlt zum Mitnehmen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --steel:#0e1116; --steamer:#161b23; --steamer-2:#1f2733;
+    --dough:#f4e7cf; --ash:#98a2ad; --line:rgba(244,231,207,.11);
+    --glaze:#3ccfd0; --glaze-deep:#1a8f95; --chili:#ff4d3a;
+    --display:'Bricolage Grotesque',ui-sans-serif,system-ui,'Helvetica Neue',Arial,sans-serif;
+    --body:'Instrument Sans',ui-sans-serif,system-ui,'Helvetica Neue',Arial,sans-serif;
+    --mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --max:1280px; --gutter:clamp(18px,4.5vw,64px);
+    --ease:cubic-bezier(.22,1,.36,1);
+    color-scheme:dark;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+  body{margin:0;background:var(--steel);color:var(--dough);font-family:var(--body);font-size:clamp(15px,.45vw + 13px,18px);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  a{color:inherit}
+  ::selection{background:var(--glaze);color:var(--steel)}
+  :focus-visible{outline:2px solid var(--glaze);outline-offset:3px;border-radius:4px}
+  img,svg,canvas{display:block;max-width:100%}
+
+  /* ---------- Layers: atmosphere, WebGL stage, grain, progress ---------- */
+  .bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#151b25 0%,var(--steel) 58%)}
+  .blob{position:absolute;border-radius:50%;filter:blur(80px);will-change:transform;animation:drift 28s var(--ease) infinite alternate}
+  .blob.a{width:70vmax;height:70vmax;left:-26vmax;top:-32vmax;background:radial-gradient(circle,rgba(60,207,208,.26),transparent 62%)}
+  .blob.b{width:60vmax;height:60vmax;right:-22vmax;top:18vh;background:radial-gradient(circle,rgba(255,150,80,.18),transparent 60%);animation-delay:-13s}
+  @keyframes drift{to{transform:translate3d(6vw,7vh,0) scale(1.08)}}
+  .glow{position:absolute;left:60vw;top:40vh;width:62vmin;height:62vmin;border-radius:50%;background:radial-gradient(circle,rgba(60,207,208,.12),transparent 62%);transform:translate(-50%,-50%);will-change:transform}
+  #gl{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+  .grain{position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.07;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
+  .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:40;pointer-events:none}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--glaze),var(--dough));transform-origin:0 50%;transform:scaleX(var(--p,0))}
+  main{position:relative;z-index:2}
+
+  /* ---------- Navigation ---------- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:20px var(--gutter);border-bottom:1px solid transparent;transition:padding .45s var(--ease),background .4s,border-color .4s}
+  .nav.scrolled{padding-block:12px;background:rgba(14,17,22,.64);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-color:var(--line)}
+  .logo{font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:-.04em;text-decoration:none;display:inline-flex;align-items:baseline;gap:3px;line-height:1}
+  .logo i{width:.4em;height:.4em;border-radius:50%;background:var(--glaze);box-shadow:0 0 16px var(--glaze)}
+  .nav nav{display:flex;gap:2.2rem}
+  .nav nav a{font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);text-decoration:none;transition:color .2s}
+  .nav nav a:hover{color:var(--dough)}
+  @media (max-width:860px){.nav nav{display:none}}
+
+  /* ---------- Buttons ---------- */
+  .btn{--bg:var(--dough);--fg:var(--steel);position:relative;display:inline-flex;align-items:center;gap:.7rem;padding:1rem 1.5rem;border-radius:999px;background:var(--bg);color:var(--fg);font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .5s var(--ease),background .25s,color .25s,border-color .25s;will-change:transform}
+  .btn .dot{width:8px;height:8px;border-radius:50%;background:var(--glaze);transition:transform .45s var(--ease)}
+  .btn:hover .dot{transform:scale(1.7)}
+  .btn.glaze{--bg:var(--glaze);--fg:var(--steel)}
+  .btn.glaze .dot{background:var(--steel)}
+  .btn.ghost{--bg:transparent;--fg:var(--dough);border-color:rgba(244,231,207,.22)}
+  .btn.ghost:hover{border-color:rgba(244,231,207,.5)}
+  .btn.sm{padding:.7rem 1.05rem;font-size:.72rem}
+
+  /* ---------- Shared type ---------- */
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+  .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--glaze);display:inline-flex;align-items:center;gap:.7rem;margin:0}
+  .eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+  .eyebrow.center{display:flex;justify-content:center}
+  h1,h2{font-family:var(--display);font-weight:800;font-stretch:88%;letter-spacing:-.045em;line-height:.93;text-wrap:balance;margin:0}
+  h1{font-size:clamp(2.9rem,7vw,5.6rem);margin:1.1rem 0 1.5rem}
+  h2{font-size:clamp(2.4rem,5.4vw,4.6rem);margin:.9rem 0 1.3rem}
+  .outline{color:transparent;-webkit-text-stroke:1.5px var(--glaze);paint-order:stroke fill}
+  h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.05em .06em .14em .04em;margin:-.05em 0 -.14em -.04em}
+  h1 .w>span{display:inline-block;transform:translateY(118%);animation:rise 1.15s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + 100ms)}
+  @keyframes rise{to{transform:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:92svh;max-width:var(--max);margin:0 auto;padding:calc(84px + 5vh) var(--gutter) 7vh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:2rem}
+  .lead{font-size:clamp(1.05rem,1.1vw + .55rem,1.28rem);color:var(--ash);max-width:44ch;margin:0}
+  .lead b{color:var(--dough);font-weight:500}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.2rem}
+  .facts{display:flex;flex-wrap:wrap;gap:2.4rem;margin-top:3.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+  .fact{display:grid;gap:.25rem}
+  .fact b{font-family:var(--display);font-weight:800;font-size:1.75rem;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+  .fact b em{font-style:normal;color:var(--glaze)}
+  .fact span{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash)}
+  .hero-stage{position:relative;aspect-ratio:1;max-height:76vh;min-height:320px}
+  .spot{position:absolute}
+  .hero .spot.m{left:20%;top:3%;width:74%;height:74%}
+  .hero .spot.p{left:-6%;top:50%;width:48%;height:48%}
+  .scroll-hint{position:absolute;left:var(--gutter);bottom:2.5vh;display:flex;align-items:center;gap:.9rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+  .scroll-hint i{width:1px;height:44px;background:linear-gradient(var(--glaze),transparent);animation:hint 1.9s var(--ease) infinite}
+  @keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:92px;min-height:auto;gap:1rem}
+    .hero-stage{order:-1;aspect-ratio:auto;height:min(54vh,440px);max-height:none;min-height:280px}
+    .hero .spot.m{left:24%;top:0;width:64%;height:78%}
+    .hero .spot.p{left:-2%;top:44%;width:44%;height:52%}
+    .scroll-hint{display:none}
+  }
+
+  /* ---------- Ticker ---------- */
+  .ticker{position:relative;z-index:2;border-block:1px solid var(--line);background:rgba(22,27,35,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow:hidden;padding:.85rem 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+  .ticker .track{display:flex;width:max-content;animation:marquee 36s linear infinite}
+  .ticker .set{display:flex;gap:2.6rem;padding-right:2.6rem;white-space:nowrap;align-items:center}
+  .ticker .set i{width:5px;height:5px;background:var(--glaze);border-radius:50%;display:inline-block}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ---------- Chapters (Manti / Pelmeni) ---------- */
+  .chapter{padding-block:clamp(72px,11vw,160px)}
+  .chapter .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,7rem);align-items:center}
+  .chapter.rev .stage{order:2}
+  .stage{position:relative;aspect-ratio:1;max-height:72vh;min-height:300px}
+  .stage .ring{position:absolute;inset:7%;border-radius:50%;border:1px dashed rgba(60,207,208,.28);animation:spin 70s linear infinite}
+  .stage .ring::after{content:"";position:absolute;inset:14%;border-radius:50%;border:1px solid rgba(244,231,207,.06)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .stage .caption{position:absolute;left:0;bottom:-.4rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+  html.no-gl [data-actor]::after{content:attr(data-actor);position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(2rem,6vw,5rem);letter-spacing:-.04em;text-transform:capitalize;color:transparent;-webkit-text-stroke:1.5px var(--glaze)}
+  .chapter .copy>p:not(.eyebrow){color:var(--ash);max-width:54ch;margin:0}
+  .feat{list-style:none;margin:1.8rem 0 0;padding:0}
+  .feat li{display:grid;grid-template-columns:7.5rem 1fr auto;gap:1rem;align-items:baseline;padding:.8rem 0;border-top:1px solid var(--line)}
+  .feat li:last-child{border-bottom:1px solid var(--line)}
+  .feat .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--glaze)}
+  .feat .v{font-family:var(--mono);font-size:.76rem;color:var(--ash);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .pricing{display:flex;align-items:center;gap:1.6rem;margin-top:1.9rem;flex-wrap:wrap}
+  .pricing .from{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash)}
+  .pricing .from b{display:block;font-family:var(--display);font-weight:800;font-size:2.1rem;letter-spacing:-.03em;color:var(--dough);line-height:1;margin-top:.3rem;font-variant-numeric:tabular-nums}
+  @media (max-width:900px){
+    .chapter .grid{grid-template-columns:1fr}
+    .chapter.rev .stage{order:0}
+    .stage{aspect-ratio:auto;height:min(52vh,420px);max-height:none}
+    .feat li{grid-template-columns:5.5rem 1fr}
+    .feat .v{grid-column:2}
+  }
+
+  /* ---------- Speisekarte ---------- */
+  .menu{padding-block:clamp(72px,11vw,160px);border-top:1px solid var(--line)}
+  .menu .head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;margin-bottom:3rem}
+  .menu .head p:not(.eyebrow){color:var(--ash);max-width:36ch;margin:0 0 .6rem}
+  .menu-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:2.5rem clamp(2rem,5vw,5.5rem);align-items:start}
+  .group + .group{margin-top:2.6rem}
+  .group h3{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--glaze);margin:0 0 .4rem}
+  .item{padding:.95rem 0;border-top:1px solid var(--line);transition:transform .4s var(--ease)}
+  .group .item:last-child{border-bottom:1px solid var(--line)}
+  .item:hover{transform:translateX(.45rem)}
+  .item .top{display:flex;align-items:baseline;gap:.75rem}
+  .item .name{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);background:var(--glaze);padding:.22rem .45rem .16rem;border-radius:3px;white-space:nowrap;line-height:1}
+  .tag.hot{background:var(--chili);color:#fff}
+  .tag.cold{background:transparent;color:var(--glaze);border:1px solid rgba(60,207,208,.5)}
+  .item .leader{flex:1;min-width:1.5rem;border-bottom:1px dotted rgba(244,231,207,.3);transform:translateY(-.32em)}
+  .item .price{font-family:var(--mono);font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .item .price::after{content:" €";color:var(--ash)}
+  .item .desc{margin:.35rem 0 0;color:var(--ash);font-size:.92rem;max-width:52ch}
+  .box{position:sticky;top:104px;border-radius:28px;padding:2.2rem;background:linear-gradient(160deg,var(--steamer-2),var(--steamer) 62%);border:1px solid var(--line);box-shadow:0 50px 90px -50px rgba(0,0,0,.8),inset 0 1px 0 rgba(244,231,207,.08);overflow:hidden}
+  .box::after{content:"";position:absolute;right:-32%;top:-42%;width:82%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(60,207,208,.28),transparent 60%);pointer-events:none}
+  .box>*{position:relative;z-index:1}
+  .box h3{font-family:var(--display);font-weight:800;font-stretch:88%;font-size:2.4rem;letter-spacing:-.04em;line-height:.95;margin:1rem 0 .8rem}
+  .box p{color:var(--ash);margin:0 0 1.4rem}
+  .box ul{list-style:none;padding:0;margin:0 0 1.8rem;display:grid;gap:.55rem;font-size:.95rem}
+  .box li{display:flex;gap:.75rem;align-items:baseline}
+  .box li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--glaze);flex:none;transform:translateY(-.15em)}
+  .box .row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .box .price{font-family:var(--display);font-weight:800;font-size:2.6rem;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .box .price small{font-family:var(--mono);font-size:.66rem;font-weight:400;letter-spacing:.12em;color:var(--ash);display:block;margin-top:.4rem;text-transform:uppercase}
+  @media (max-width:900px){
+    .menu .head{grid-template-columns:1fr}
+    .menu-grid{grid-template-columns:1fr}
+    .box{position:static}
+  }
+
+  /* ---------- So geht's ---------- */
+  .steps-sec{padding-block:clamp(72px,11vw,160px);border-top:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:3rem;border-top:1px solid var(--line)}
+  .step{padding:2rem 2rem 2.4rem 0}
+  .step + .step{border-left:1px solid var(--line);padding-left:2rem}
+  .step .n{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--glaze)}
+  .step h3{font-family:var(--display);font-weight:800;font-stretch:88%;font-size:2rem;letter-spacing:-.035em;margin:1.3rem 0 .6rem;line-height:1}
+  .step p{color:var(--ash);margin:0;max-width:32ch}
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr}
+    .step{padding:1.6rem 0}
+    .step + .step{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  }
+
+  /* ---------- Stimmen ---------- */
+  .voices{padding-block:clamp(72px,11vw,160px);border-top:1px solid var(--line)}
+  .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:3rem;border-top:1px solid var(--line)}
+  .q{margin:0;padding:2rem 2rem 2.2rem 0;display:grid;gap:1.1rem;align-content:start}
+  .q + .q{border-left:1px solid var(--line);padding-left:2rem}
+  .q .stars{font-family:var(--mono);color:var(--glaze);letter-spacing:.22em;font-size:.78rem}
+  .q blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:1.22rem;letter-spacing:-.015em;line-height:1.32;text-wrap:pretty}
+  .q figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash)}
+  @media (max-width:860px){
+    .quotes{grid-template-columns:1fr}
+    .q{padding:1.6rem 0}
+    .q + .q{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  }
+
+  /* ---------- Bestellen ---------- */
+  .cta{position:relative;text-align:center;padding:clamp(120px,18vw,240px) var(--gutter);border-top:1px solid var(--line);overflow:hidden}
+  .cta h2{font-size:clamp(4.4rem,17vw,16rem);line-height:.85;margin:.6rem 0 1.4rem;letter-spacing:-.06em}
+  .cta p:not(.eyebrow){color:var(--ash);max-width:40ch;margin:0 auto}
+  .cta .cta-row{justify-content:center}
+  .cta .hours{margin-top:2.6rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+  .cta .spot.m{left:3%;top:8%;width:min(30vw,380px);height:min(30vw,380px)}
+  .cta .spot.p{right:4%;bottom:6%;width:min(24vw,300px);height:min(24vw,300px)}
+  @media (max-width:900px){.cta .spot{display:none}}
+
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:2.4rem var(--gutter) 3rem;background:var(--steel);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);display:flex;flex-wrap:wrap;gap:1rem 2.5rem;align-items:center;justify-content:space-between}
+  footer .logo{color:var(--dough)}
+  footer a:not(.logo){text-decoration:none;color:inherit}
+  footer a:not(.logo):hover{color:var(--dough)}
+
+  /* ---------- Scroll reveal (only when JS runs) ---------- */
+  html.js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .95s var(--ease),transform .95s var(--ease);transition-delay:calc(var(--d,0)*1ms)}
+  html.js [data-reveal].in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html.js [data-reveal]{opacity:1;transform:none;transition:none}
+    .ticker .track,.blob,.stage .ring,.scroll-hint i{animation:none}
+    h1 .w>span{animation:none;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="blob a"></div><div class="blob b"></div><div class="glow"></div></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <a class="logo" href="#top" aria-label="Manti – zum Seitenanfang">MANTI<i></i></a>
+  <nav aria-label="Seiten-Navigation">
+    <a href="#manti">Manti</a>
+    <a href="#pelmeni">Pelmeni</a>
+    <a href="#speisekarte">Speisekarte</a>
+    <a href="#so-gehts">So geht's</a>
+  </nav>
+  <a class="btn sm" href="#bestellen"><span class="dot"></span>Bestellen</a>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Usbekische Teigtaschen · handgefaltet</p>
+      <h1>
+        <span class="w" style="--i:0"><span>Manti.</span></span>
+        <span class="w" style="--i:1"><span>Pelmeni.</span></span>
+        <span class="w" style="--i:2"><span class="outline">Handgemacht.</span></span>
+      </h1>
+      <p class="lead">Große, saftige Manti mit Lamm und Zwiebel. Kleine Pelmeni wie bei Oma. <b>Jeden Morgen frisch gefaltet</b>, in 25 Minuten bei dir – oder tiefgekühlt für später.</p>
+      <div class="cta-row">
+        <a class="btn glaze" href="#bestellen"><span class="dot"></span>Jetzt bestellen</a>
+        <a class="btn ghost" href="#speisekarte">Speisekarte</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b><span data-count="4.9" data-decimals="1">4,9</span><em> ★</em></b><span>über 1.200 Bewertungen</span></div>
+        <div class="fact"><b><span data-count="25">25</span> Min</b><span>Ø Lieferzeit</span></div>
+        <div class="fact"><b><span data-count="2800" data-suffix="+">2.800+</span></b><span>Teigtaschen pro Tag</span></div>
+      </div>
+    </div>
+    <div class="hero-stage" aria-hidden="true">
+      <div class="spot m" data-actor="manti"></div>
+      <div class="spot p" data-actor="pelmeni"></div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><i></i>Scrollen</div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <div class="set"><span>Handgefaltet</span><i></i><span>Frisch gedämpft</span><i></i><span>Lamm &amp; Rind</span><i></i><span>Kürbis vegetarisch</span><i></i><span>Tiefgekühlt zum Mitnehmen</span><i></i><span>Smetana &amp; Chili-Öl</span><i></i><span>Lieferung &amp; Abholung</span><i></i></div>
+      <div class="set"><span>Handgefaltet</span><i></i><span>Frisch gedämpft</span><i></i><span>Lamm &amp; Rind</span><i></i><span>Kürbis vegetarisch</span><i></i><span>Tiefgekühlt zum Mitnehmen</span><i></i><span>Smetana &amp; Chili-Öl</span><i></i><span>Lieferung &amp; Abholung</span><i></i></div>
+    </div>
+  </div>
+
+  <section class="chapter" id="manti">
+    <div class="wrap grid">
+      <div class="stage" data-actor="manti" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="caption">Manti · Ø 8 cm · 90 g · 40 Min Dampf</div>
+      </div>
+      <div class="copy" data-reveal>
+        <p class="eyebrow">Manti</p>
+        <h2>Groß. Saftig. <span class="outline">Gedämpft.</span></h2>
+        <p>Manti sind die Königinnen der usbekischen Küche: hauchdünner Teig, gefüllt mit grob gehacktem Lamm, viel Zwiebel und etwas Fettschwanz für den Saft – 40 Minuten schonend im Kaskan gedämpft. Dazu Smetana und unser hausgemachtes Chili-Öl.</p>
+        <ul class="feat">
+          <li><span class="k">Original</span><span>Lamm &amp; Zwiebel, Kreuzkümmel</span><span class="v">4 Stk · 9,90 €</span></li>
+          <li><span class="k">Vegetarisch</span><span>Kürbis &amp; Zwiebel, braune Butter</span><span class="v">4 Stk · 8,90 €</span></li>
+          <li><span class="k">Mild</span><span>Rind &amp; Kartoffel</span><span class="v">4 Stk · 9,90 €</span></li>
+          <li><span class="k">Dazu</span><span>Smetana, Chili-Öl, Achichuk-Salat</span><span class="v">ab 1,00 €</span></li>
+        </ul>
+        <div class="pricing">
+          <div class="from">Portion ab<b>9,90 €</b></div>
+          <a class="btn ghost" href="#bestellen">Manti bestellen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter rev" id="pelmeni">
+    <div class="wrap grid">
+      <div class="stage" data-actor="pelmeni" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="caption">Pelmeni · Ø 3 cm · 12 g · 5 Min in Brühe</div>
+      </div>
+      <div class="copy" data-reveal>
+        <p class="eyebrow">Pelmeni</p>
+        <h2>Klein. Klassisch. <span class="outline">Unendlich.</span></h2>
+        <p>Pelmeni sind das, was Oma sonntags gemacht hat: winzige Teigtaschen, Stück für Stück von Hand geschlossen, mit saftiger Rind-Schwein-Füllung. Wir kochen sie in kräftiger Brühe oder schwenken sie in brauner Butter – mit Smetana, Dill und schwarzem Pfeffer.</p>
+        <ul class="feat">
+          <li><span class="k">Klassik</span><span>Rind &amp; Schwein, Zwiebel, Pfeffer</span><span class="v">250 g · 8,50 €</span></li>
+          <li><span class="k">Leicht</span><span>Hähnchen &amp; Kräuter</span><span class="v">250 g · 8,50 €</span></li>
+          <li><span class="k">Zubereitung</span><span>In Brühe, in brauner Butter oder gebraten</span><span class="v">nach Wahl</span></li>
+          <li><span class="k">Für zu Hause</span><span>1-kg-Beutel tiefgekühlt, 5 Minuten Kochzeit</span><span class="v">1 kg · 16,90 €</span></li>
+        </ul>
+        <div class="pricing">
+          <div class="from">Portion ab<b>8,50 €</b></div>
+          <a class="btn ghost" href="#bestellen">Pelmeni bestellen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="speisekarte">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <div>
+          <p class="eyebrow">Speisekarte</p>
+          <h2>Was auf den Tisch kommt.</h2>
+        </div>
+        <p>Alles wird morgens gefaltet und erst bei Bestellung gedämpft oder gekocht. Preise inkl. MwSt.</p>
+      </div>
+      <div class="menu-grid">
+        <div class="lists" data-reveal>
+          <div class="group">
+            <h3>Manti</h3>
+            <div class="item"><div class="top"><span class="name">Manti Klassik <span class="tag">Lamm</span></span><span class="leader"></span><span class="price">9,90</span></div><p class="desc">Lamm, Zwiebel, Fettschwanz, Kreuzkümmel. 4 Stück mit Smetana.</p></div>
+            <div class="item"><div class="top"><span class="name">Manti Kürbis <span class="tag">Vegetarisch</span></span><span class="leader"></span><span class="price">8,90</span></div><p class="desc">Kürbis, Zwiebel, braune Butter, ein Hauch Zimt. 4 Stück.</p></div>
+            <div class="item"><div class="top"><span class="name">Manti Rind &amp; Kartoffel</span><span class="leader"></span><span class="price">9,90</span></div><p class="desc">Mild und herzhaft – für Kinder und Puristen. 4 Stück.</p></div>
+            <div class="item"><div class="top"><span class="name">Manti scharf <span class="tag hot">Hot</span></span><span class="leader"></span><span class="price">10,40</span></div><p class="desc">Lamm mit Adjika in der Füllung, dazu extra Chili-Öl. 4 Stück.</p></div>
+          </div>
+          <div class="group">
+            <h3>Pelmeni</h3>
+            <div class="item"><div class="top"><span class="name">Pelmeni Klassik <span class="tag">Rind &amp; Schwein</span></span><span class="leader"></span><span class="price">8,50</span></div><p class="desc">250 g in kräftiger Brühe oder mit brauner Butter, Smetana und Dill.</p></div>
+            <div class="item"><div class="top"><span class="name">Pelmeni Hähnchen</span><span class="leader"></span><span class="price">8,50</span></div><p class="desc">Hähnchen, Kräuter, Zwiebel. 250 g mit Smetana.</p></div>
+            <div class="item"><div class="top"><span class="name">Pelmeni gebraten</span><span class="leader"></span><span class="price">9,20</span></div><p class="desc">Erst gekocht, dann knusprig in Butter gebraten. Mit Sauerrahm-Dip.</p></div>
+            <div class="item"><div class="top"><span class="name">Pelmeni 1-kg-Beutel <span class="tag cold">Tiefgekühlt</span></span><span class="leader"></span><span class="price">16,90</span></div><p class="desc">Ca. 80 Stück zum Selberkochen. 5 Minuten, fertig.</p></div>
+          </div>
+          <div class="group">
+            <h3>Dazu</h3>
+            <div class="item"><div class="top"><span class="name">Achichuk-Salat</span><span class="leader"></span><span class="price">4,50</span></div><p class="desc">Tomaten, rote Zwiebel, Basilikum, Chili. Der Klassiker zu Manti.</p></div>
+            <div class="item"><div class="top"><span class="name">Lammbrühe</span><span class="leader"></span><span class="price">2,50</span></div><p class="desc">Klar, mit Dill – zum Trinken oder für die Pelmeni.</p></div>
+            <div class="item"><div class="top"><span class="name">Non – Fladenbrot</span><span class="leader"></span><span class="price">2,00</span></div><p class="desc">Usbekisches Fladenbrot, frisch aus dem Tandyr.</p></div>
+            <div class="item"><div class="top"><span class="name">Smetana · Chili-Öl · Adjika</span><span class="leader"></span><span class="price">ab 1,00</span></div><p class="desc">Hausgemacht. Smetana und Chili-Öl je 1,00 €, Adjika 1,50 €.</p></div>
+          </div>
+        </div>
+        <aside class="box" data-reveal style="--d:120">
+          <span class="tag hot">Bestseller</span>
+          <h3>Family Box</h3>
+          <p>Für 4–6 Personen. Frisch gedämpft zum Sofort-Essen oder tiefgekühlt zum Selberkochen.</p>
+          <ul>
+            <li>20 Manti nach Wahl</li>
+            <li>1 kg Pelmeni tiefgekühlt</li>
+            <li>2× Smetana, 1× Chili-Öl</li>
+            <li>Achichuk-Salat groß</li>
+          </ul>
+          <div class="row">
+            <div class="price">54,90 €<small>statt 75,90 € einzeln</small></div>
+            <a class="btn glaze" href="#bestellen"><span class="dot"></span>Box bestellen</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-sec" id="so-gehts">
+    <div class="wrap">
+      <div data-reveal>
+        <p class="eyebrow">So geht's</p>
+        <h2>In drei Schritten <span class="outline">satt.</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step" data-reveal><span class="n">Schritt 01</span><h3>Auswählen</h3><p>Manti, Pelmeni oder die Family Box – frisch gedämpft oder tiefgekühlt zum Selberkochen.</p></div>
+        <div class="step" data-reveal style="--d:110"><span class="n">Schritt 02</span><h3>Bestellen</h3><p>Online oder per Telefon in unter einer Minute. Bezahlen bei Abholung oder direkt online.</p></div>
+        <div class="step" data-reveal style="--d:220"><span class="n">Schritt 03</span><h3>Genießen</h3><p>Lieferung in Ø 25 Minuten oder Abholung im Laden. Tiefgekühlt hält alles drei Monate.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="voices">
+    <div class="wrap">
+      <div data-reveal>
+        <p class="eyebrow">Stimmen</p>
+        <h2>Was Gäste sagen.</h2>
+      </div>
+      <div class="quotes">
+        <figure class="q" data-reveal><span class="stars">★★★★★</span><blockquote>„Die Manti schmecken wie bei meiner Oma in Taschkent. Saftig, groß, perfekt gedämpft.“</blockquote><figcaption>Dilnoza K. · Stammgast</figcaption></figure>
+        <figure class="q" data-reveal style="--d:110"><span class="stars">★★★★★</span><blockquote>„Family Box bestellt, Freitagabend gerettet. Die Pelmeni aus dem Beutel sind besser als in jedem Restaurant.“</blockquote><figcaption>Markus S. · Familienvater</figcaption></figure>
+        <figure class="q" data-reveal style="--d:220"><span class="stars">★★★★★</span><blockquote>„Das Chili-Öl! Ich hole mir mittlerweile jede Woche eine Flasche mit.“</blockquote><figcaption>Anna P. · Nachbarin</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="bestellen">
+    <div class="spot m" data-actor="manti" aria-hidden="true"></div>
+    <div class="spot p" data-actor="pelmeni" aria-hidden="true"></div>
+    <div data-reveal>
+      <p class="eyebrow center">Bestellen</p>
+      <h2>Hunger?</h2>
+      <p>Lieferung in Ø 25 Minuten, Abholung sofort. Tiefgekühlte Beutel gibt es jederzeit im Laden.</p>
+      <div class="cta-row">
+        <a class="btn glaze" href="#bestellen"><span class="dot"></span>Online bestellen</a>
+        <a class="btn ghost" href="tel:+4930000000">Anrufen</a>
+      </div>
+      <p class="hours">Mo–Sa 11:30–22:00 · So 12:00–21:00 · Musterstraße 12, 10115 Berlin</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="#top">MANTI<i></i></a>
+  <span>© <span id="year">2026</span> Manti &amp; Pelmeni · Handgemacht</span>
+  <nav aria-label="Rechtliches"><a href="#">Impressum</a> · <a href="#">Datenschutz</a></nav>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function () {
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hover = matchMedia('(hover: hover)').matches;
+
+  // Navigation state + reading progress
+  var nav = $('.nav'), prog = $('.progress i');
+  function onScroll() {
+    var y = window.scrollY || 0;
+    nav.classList.toggle('scrolled', y > 24);
+    var max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    $$('[data-reveal]').forEach(function (el) { io.observe(el); });
+  } else {
+    $$('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Counters (German number format)
+  $$('[data-count]').forEach(function (el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var fmt = function (n) { return n.toLocaleString('de-DE', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suffix; };
+    if (reduced || !('IntersectionObserver' in window)) { el.textContent = fmt(target); return; }
+    var o = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      o.disconnect();
+      var t0 = performance.now(), dur = 1500;
+      var tick = function (now) {
+        var p = Math.min(1, (now - t0) / dur), ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * ease);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.5 });
+    o.observe(el);
+  });
+
+  // Cursor glow
+  var glow = $('.glow');
+  if (glow && hover && !reduced) {
+    var tx = innerWidth * 0.6, ty = innerHeight * 0.4, gx = tx, gy = ty;
+    addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    (function loop() {
+      gx += (tx - gx) * 0.08; gy += (ty - gy) * 0.08;
+      glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px) translate(-50%,-50%)';
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  // Magnetic buttons
+  if (hover && !reduced) {
+    $$('.btn').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) / r.width, dy = (e.clientY - r.top - r.height / 2) / r.height;
+        b.style.transform = 'translate(' + (dx * 12) + 'px,' + (dy * 12) + 'px)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" onerror="document.documentElement.classList.add('no-gl')">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const root = document.documentElement;
+const canvas = document.getElementById('gl');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const coarse = matchMedia('(pointer: coarse)').matches;
+const motion = reduced ? 0 : 1;
+
+let renderer = null;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+} catch (err) {
+  root.classList.add('no-gl');
+  canvas.remove();
+}
+
+if (renderer) boot();
+
+function boot() {
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2));
+  renderer.setSize(innerWidth, innerHeight, false);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const scene = new THREE.Scene();
+  const CAM_Z = 10;
+  const camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 80);
+  camera.position.set(0, 0, CAM_Z);
+
+  // Soft studio reflections for the dough + warm key / turquoise rim
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  pmrem.dispose();
+  const key = new THREE.DirectionalLight(0xffd3a1, 2.6); key.position.set(4, 6, 7);
+  const rim = new THREE.DirectionalLight(0x3ccfd0, 2.2); rim.position.set(-7, 2.5, -5);
+  const fill = new THREE.DirectionalLight(0xffb98a, 0.5); fill.position.set(-4, -5, 6);
+  scene.add(key, rim, fill, new THREE.AmbientLight(0xd8e4ff, 0.12));
+
+  // ---------- Dough surface: procedural texture ----------
+  function doughCanvas() {
+    const s = 512, c = document.createElement('canvas'); c.width = c.height = s;
+    const g = c.getContext('2d');
+    g.fillStyle = '#efdcb8'; g.fillRect(0, 0, s, s);
+    const img = g.getImageData(0, 0, s, s), d = img.data;
+    for (let i = 0; i < d.length; i += 4) { const n = (Math.random() - 0.5) * 22; d[i] += n; d[i + 1] += n * 0.95; d[i + 2] += n * 0.8; }
+    g.putImageData(img, 0, 0);
+    for (let i = 0; i < 90; i++) {
+      const x = Math.random() * s, y = Math.random() * s, r = 18 + Math.random() * 70;
+      const rg = g.createRadialGradient(x, y, 0, x, y, r);
+      rg.addColorStop(0, Math.random() > 0.45 ? 'rgba(255,250,238,.20)' : 'rgba(196,160,112,.16)');
+      rg.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = rg; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
+    g.fillStyle = 'rgba(255,255,255,.35)';
+    for (let i = 0; i < 420; i++) g.fillRect(Math.random() * s, Math.random() * s, 1, 1);
+    return c;
+  }
+  const dc = doughCanvas();
+  const map = new THREE.CanvasTexture(dc);
+  map.colorSpace = THREE.SRGBColorSpace; map.wrapS = map.wrapT = THREE.RepeatWrapping; map.repeat.set(2, 1);
+  map.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  const bump = new THREE.CanvasTexture(dc);
+  bump.wrapS = bump.wrapT = THREE.RepeatWrapping; bump.repeat.set(2, 1);
+  const dough = new THREE.MeshPhysicalMaterial({
+    color: 0xf6e4c4, map, bumpMap: bump, bumpScale: 0.03,
+    roughness: 0.6, metalness: 0, clearcoat: 0.3, clearcoatRoughness: 0.55,
+    sheen: 0.55, sheenRoughness: 0.8, sheenColor: new THREE.Color(0xffe9cc), envMapIntensity: 0.8
+  });
+
+  // ---------- Parametric surface helper (u around, v along) ----------
+  function surface(fn, nu, nv) {
+    const cols = nu + 1, rows = nv + 1;
+    const pos = new Float32Array(cols * rows * 3), uv = new Float32Array(cols * rows * 2);
+    const idx = new Uint32Array(nu * nv * 6);
+    const p = new THREE.Vector3();
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+      fn(i / nu, j / nv, p);
+      const k = j * cols + i;
+      pos[k * 3] = p.x; pos[k * 3 + 1] = p.y; pos[k * 3 + 2] = p.z;
+      uv[k * 2] = i / nu; uv[k * 2 + 1] = j / nv;
+    }
+    let n = 0;
+    for (let j = 0; j < nv; j++) for (let i = 0; i < nu; i++) {
+      const a = j * cols + i, b = a + 1, c = a + cols, d = c + 1;
+      idx[n++] = a; idx[n++] = b; idx[n++] = c; idx[n++] = b; idx[n++] = d; idx[n++] = c;
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+    g.setIndex(new THREE.BufferAttribute(idx, 1));
+    g.computeVertexNormals();
+    const nr = g.attributes.normal; // stitch the seam so shading is continuous
+    for (let j = 0; j < rows; j++) {
+      const a = j * cols, b = a + nu;
+      const x = nr.getX(a) + nr.getX(b), y = nr.getY(a) + nr.getY(b), z = nr.getZ(a) + nr.getZ(b);
+      const l = Math.hypot(x, y, z) || 1;
+      nr.setXYZ(a, x / l, y / l, z / l); nr.setXYZ(b, x / l, y / l, z / l);
+    }
+    return g;
+  }
+  const sm = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+
+  // Manti: plump steamed pouch, six pleats twisting into a pinched top
+  function mantiGeometry() {
+    const prof = new THREE.SplineCurve([
+      new THREE.Vector2(0.00, 0.00), new THREE.Vector2(0.50, 0.005), new THREE.Vector2(0.86, 0.10),
+      new THREE.Vector2(1.00, 0.40), new THREE.Vector2(0.93, 0.72), new THREE.Vector2(0.70, 0.98),
+      new THREE.Vector2(0.40, 1.14), new THREE.Vector2(0.18, 1.22), new THREE.Vector2(0.00, 1.26)
+    ]);
+    const PLEATS = 6;
+    return surface((u, v, p) => {
+      const th = u * Math.PI * 2;
+      const pt = prof.getPointAt(v);
+      const env = sm(0.28, 0.70, v) * (1 - sm(0.94, 1.0, v));
+      const ridge = Math.pow(0.5 + 0.5 * Math.cos(PLEATS * th + 1.1 * v), 3.2);
+      const square = 1 + 0.035 * Math.cos(4 * th) * (1 - v);
+      const wobble = 1 + 0.012 * Math.sin(9 * th + 5 * v) * Math.sin(Math.PI * v);
+      const r = pt.x * square * wobble * (1 + 0.2 * env * (ridge - 0.28));
+      const lift = 0.09 * ridge * sm(0.55, 0.95, v) + 0.05 * sm(0.95, 1.0, v);
+      p.set(r * Math.cos(th), pt.y - 0.66 + lift, -r * Math.sin(th));
+    }, 220, 120);
+  }
+
+  // Pelmeni: ear-shaped ring with a thin crimped rim and a pinch where the ends meet
+  function pelmeniGeometry() {
+    const R = 0.52, r = 0.42;
+    return surface((u, v, p) => {
+      const ph = u * Math.PI * 2, ps = v * Math.PI * 2;
+      const cx = Math.cos(ps), cy = Math.sin(ps);
+      const o = Math.max(0, cx), o4 = o * o * o * o;
+      const pinch = 1 - 0.14 * Math.exp(-Math.pow(ph - Math.PI, 2) / 0.09);
+      const s = r * cx * (1 + 0.45 * o4) * pinch;
+      let h = r * cy * (1 - 0.92 * o4) * pinch;
+      h += 0.028 * Math.sin(ph * 24) * o4;
+      const rad = R * (1 + 0.07 * Math.cos(ph)) + s;
+      p.set(rad * Math.cos(ph), h * 0.92, -rad * Math.sin(ph));
+    }, 200, 72);
+  }
+
+  const mantiGeo = mantiGeometry();
+  const pelGeo = pelmeniGeometry();
+
+  // ---------- Steam (GPU particles, positions derived from seeds) ----------
+  function softSprite() {
+    const s = 128, c = document.createElement('canvas'); c.width = c.height = s;
+    const g = c.getContext('2d');
+    const rg = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+    rg.addColorStop(0, 'rgba(255,255,255,1)'); rg.addColorStop(0.35, 'rgba(255,255,255,.55)'); rg.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = rg; g.fillRect(0, 0, s, s);
+    return new THREE.CanvasTexture(c);
+  }
+  function makeSteam(count) {
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(count * 3), seed = new Float32Array(count * 4);
+    for (let i = 0; i < count; i++) {
+      seed[i * 4] = Math.random(); seed[i * 4 + 1] = Math.random() * Math.PI * 2;
+      seed[i * 4 + 2] = 0.08 + Math.random() * 0.3; seed[i * 4 + 3] = 0.6 + Math.random() * 0.8;
+    }
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    geo.setAttribute('aSeed', new THREE.BufferAttribute(seed, 4));
+    const mat = new THREE.ShaderMaterial({
+      transparent: true, depthWrite: false,
+      uniforms: { uTime: { value: 0 }, uTex: { value: softSprite() }, uScale: { value: 1 }, uPx: { value: innerHeight * renderer.getPixelRatio() } },
+      vertexShader: `
+        attribute vec4 aSeed; uniform float uTime; uniform float uPx; uniform float uScale; varying float vA;
+        void main(){
+          float life = fract(uTime * 0.16 * aSeed.w + aSeed.x);
+          float ang = aSeed.y + uTime * 0.25 * aSeed.w;
+          float rad = aSeed.z * (0.5 + life * 2.4);
+          vec3 p = vec3(cos(ang) * rad, 0.5 + life * 2.0, sin(ang) * rad);
+          p.x += sin(uTime * 0.9 + aSeed.y * 5.0) * 0.12 * life;
+          vec4 mv = modelViewMatrix * vec4(p, 1.0);
+          gl_Position = projectionMatrix * mv;
+          float sz = (0.3 + life * 1.1) * aSeed.w * uScale;
+          gl_PointSize = min(220.0, sz * uPx * 0.3 / -mv.z);
+          vA = smoothstep(0.0, 0.18, life) * (1.0 - smoothstep(0.4, 1.0, life));
+        }`,
+      fragmentShader: `
+        uniform sampler2D uTex; varying float vA;
+        void main(){ float a = texture2D(uTex, gl_PointCoord).a; gl_FragColor = vec4(0.96, 0.98, 1.0, a * vA * 0.2); }`
+    });
+    const pts = new THREE.Points(geo, mat); pts.frustumCulled = false;
+    return pts;
+  }
+
+  // ---------- Actors: 3D objects that follow DOM anchors while scrolling ----------
+  const metrics = { wpp: 1 };
+  function updateMetrics() {
+    const visH = 2 * CAM_Z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    metrics.wpp = visH / innerHeight;
+  }
+  class Actor {
+    constructor(name, fit, tilt) {
+      this.name = name; this.fit = fit; this.tilt = tilt;
+      this.anchors = Array.from(document.querySelectorAll('[data-actor="' + name + '"]'));
+      this.group = new THREE.Group(); this.body = new THREE.Group(); this.group.add(this.body);
+      this.pos = new THREE.Vector3(0, -6, 0); this.target = new THREE.Vector3(0, -6, 0);
+      this.scale = 0; this.targetScale = 0; this.phase = Math.random() * 6.28;
+      scene.add(this.group);
+    }
+    pick() {
+      const H = innerHeight; let best = null, bestD = Infinity;
+      for (const el of this.anchors) {
+        const r = el.getBoundingClientRect();
+        if (r.width < 2 || r.height < 2) continue;
+        if (r.bottom < -0.7 * H || r.top > 1.7 * H) continue;
+        const d = Math.abs(r.top + r.height / 2 - H / 2);
+        if (d < bestD) { bestD = d; best = r; }
+      }
+      return best;
+    }
+    update(dt, t, mouse, vel) {
+      const r = this.pick();
+      if (r) {
+        const w = metrics.wpp;
+        this.target.set((r.left + r.width / 2 - innerWidth / 2) * w, (innerHeight / 2 - r.top - r.height / 2) * w, 0);
+        this.targetScale = Math.min(r.width, r.height) * w * 0.5 * this.fit;
+      } else this.targetScale = 0;
+      // exponential smoothing: stable for any dt >= 0 (k stays within [0, 1))
+      const k = 1 - Math.exp(-dt * 4.5), ks = 1 - Math.exp(-dt * 3.5);
+      this.pos.lerp(this.target, k);
+      this.scale += (this.targetScale - this.scale) * ks;
+      const s = Math.max(1e-4, this.scale);
+      this.group.position.set(this.pos.x, this.pos.y + Math.sin(t * 1.1 + this.phase) * 0.06 * s * motion, 0);
+      this.group.scale.setScalar(s);
+      this.body.rotation.set(
+        this.tilt + mouse.y * 0.18 + vel * 0.35,
+        t * 0.22 * motion + scrollY * 0.001 + mouse.x * 0.4,
+        Math.sin(t * 0.5 + this.phase) * 0.05 * motion
+      );
+      this.group.visible = s > 0.002;
+    }
+  }
+
+  const manti = new Actor('manti', 0.8, 0.62);
+  manti.body.add(new THREE.Mesh(mantiGeo, dough));
+  const steam = makeSteam(48);
+  manti.group.add(steam);
+
+  const pelmeni = new Actor('pelmeni', 0.52, 0.75);
+  const layout = [[0, 0, 0, 1, 0.2], [-1.25, 0.6, -0.7, 0.7, 2.1], [1.05, -0.75, 0.5, 0.6, 4.0]];
+  const pelMeshes = layout.map(([x, y, z, s, ph]) => {
+    const m = new THREE.Mesh(pelGeo, dough);
+    m.position.set(x, y, z); m.scale.setScalar(s); m.rotation.set(ph * 0.3, ph, 0);
+    pelmeni.body.add(m); return m;
+  });
+
+  // ---------- Far field: ghost dumplings drifting behind the page ----------
+  const fieldMat = dough.clone();
+  fieldMat.transparent = true; fieldMat.opacity = 0.22; fieldMat.depthWrite = false;
+  fieldMat.envMapIntensity = 0.4; fieldMat.color.set(0xa89b86);
+  const field = new THREE.Group(); scene.add(field);
+  const dummy = new THREE.Object3D();
+  function makeField(geo, count, sMin, sMax) {
+    const im = new THREE.InstancedMesh(geo, fieldMat, count);
+    im.userData.items = [];
+    for (let i = 0; i < count; i++) im.userData.items.push({
+      x: (Math.random() - 0.5) * 34, y: -20 + Math.random() * 28, z: -24 + Math.random() * 10,
+      s: (sMin + Math.random() * (sMax - sMin)) * (coarse ? 0.75 : 1), rx: Math.random() * 6.28, ry: Math.random() * 6.28,
+      sx: (Math.random() - 0.5) * 0.4, sy: (Math.random() - 0.5) * 0.5
+    });
+    field.add(im); return im;
+  }
+  const fields = [makeField(pelGeo, 30, 0.3, 0.6), makeField(mantiGeo, 10, 0.35, 0.6)];
+  function updateField(t) {
+    for (const im of fields) {
+      im.userData.items.forEach((it, i) => {
+        dummy.position.set(it.x, it.y, it.z);
+        dummy.rotation.set(it.rx + t * it.sx * motion, it.ry + t * it.sy * motion, 0);
+        dummy.scale.setScalar(it.s); dummy.updateMatrix(); im.setMatrixAt(i, dummy.matrix);
+      });
+      im.instanceMatrix.needsUpdate = true;
+    }
+    field.position.y = scrollY * metrics.wpp * 0.25;
+  }
+
+  // ---------- Input + loop ----------
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  if (!coarse) addEventListener('pointermove', e => {
+    mouse.tx = (e.clientX / innerWidth) * 2 - 1; mouse.ty = -((e.clientY / innerHeight) * 2 - 1);
+  }, { passive: true });
+
+  function resize() {
+    renderer.setSize(innerWidth, innerHeight, false);
+    camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    updateMetrics();
+    steam.material.uniforms.uPx.value = innerHeight * renderer.getPixelRatio();
+  }
+  addEventListener('resize', resize); resize();
+
+  let last = performance.now(), prevY = scrollY, vel = 0, ready = false;
+  function frame() {
+    requestAnimationFrame(frame);
+    const now = performance.now();
+    const dt = Math.max(0, (now - last) / 1000); last = now;
+    const t = now / 1000;
+    const dy = scrollY - prevY; prevY = scrollY;
+    const target = THREE.MathUtils.clamp(dy / (Math.max(dt, 1 / 240) * 1000) * 0.9, -1.2, 1.2);
+    const kv = 1 - Math.exp(-dt * 5), km = 1 - Math.exp(-dt * 4);
+    vel += (target - vel) * kv;
+    mouse.x += (mouse.tx - mouse.x) * km;
+    mouse.y += (mouse.ty - mouse.y) * km;
+
+    manti.update(dt, t, mouse, vel);
+    pelmeni.update(dt, t, mouse, vel);
+    steam.material.uniforms.uTime.value = t * motion + 1.0;
+    steam.material.uniforms.uScale.value = manti.scale;
+    pelMeshes.forEach((m, i) => {
+      const [, y, , , ph] = layout[i];
+      m.rotation.set(ph * 0.3 + Math.sin(t * 0.7 + ph) * 0.25 * motion, ph + t * 0.35 * motion, 0);
+      m.position.y = y + Math.sin(t * 1.3 + ph) * 0.08 * motion;
+    });
+    updateField(t);
+    renderer.render(scene, camera);
+    if (!ready) { ready = true; root.classList.add('gl-ready'); }
+  }
+  requestAnimationFrame(frame);
+}
+</script>
+</body>
+</html>
