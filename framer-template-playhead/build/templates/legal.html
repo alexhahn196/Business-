@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker t-mono"><span class="playhead"></span>Legal</div>
+    <h1 class="appear">Privacy &amp; imprint.</h1>
+    <p class="t-lead max-60 appear appear-d1">Replace this page with your own legal text. If you operate from the EU, you need both an imprint and a privacy policy — generators such as e-recht24 or datenschutz-generator.de produce Framer-specific wording.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="doc">
+      <nav class="doc-nav"><a href="#imprint">Imprint</a><a href="#privacy">Privacy policy</a><a href="#cookies">Cookies</a></nav>
+      <div class="doc-body">
+        <div id="imprint" class="stack gap-2">
+          <h2>Imprint</h2>
+          <p><b>{{ site.persona }}</b><br>Sample Street 12<br>10115 Berlin, Germany</p>
+          <p>Email: <a class="link" href="mailto:{{ site.email }}">{{ site.email }}<span class="u"></span></a><br>Phone: {{ site.phone }}</p>
+          <p>VAT ID: DE000000000 (replace). Responsible for content under § 18 Abs. 2 MStV: {{ site.persona }}, address as above.</p>
+        </div>
+        <div id="privacy" class="stack gap-2">
+          <h2>Privacy policy</h2>
+          <h3>Hosting</h3>
+          <p>This website is hosted with Framer B.V., Rozengracht 207B, 1016 LZ Amsterdam, Netherlands. Framer processes server log data (IP address, browser, time of access) to deliver the site securely. Details: framer.com/legal/privacy-statement.</p>
+          <h3>Contact form</h3>
+          <p>When you send the contact form, the data you enter is used only to answer your request and is deleted once the enquiry is closed, unless a contract follows.</p>
+          <h3>Embedded content</h3>
+          <p>Video embeds (YouTube, Vimeo) and booking tools (Cal.com, Calendly) may set cookies and transfer data to the respective provider when you interact with them.</p>
+          <h3>Your rights</h3>
+          <p>You have the right to access, correct or delete your personal data and to object to processing. Contact {{ site.email }}.</p>
+        </div>
+        <div id="cookies" class="stack gap-2">
+          <h2>Cookies</h2>
+          <p>This site uses only technically necessary cookies. If you enable Framer Analytics or third-party embeds, add a consent banner (Framer: Site Settings → Cookie banner) and update this section.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

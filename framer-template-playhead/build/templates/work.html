@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker t-mono"><span class="playhead"></span>Work · {{ work|length }} projects</div>
+    <h1 class="appear">Every cut, one wall.</h1>
+    <p class="t-lead max-60 appear appear-d1">Short-form, long-form, ads and motion. Filter by format — in Framer these are two collection lists (16:9 and 9:16) with a native CMS filter, so new projects show up here automatically.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="row gap-1 wrap appear" style="margin-bottom:48px">
+      <button class="chip is-active" data-filter="all">All</button>
+      <button class="chip" data-filter="short">Short-form</button>
+      <button class="chip" data-filter="long">Long-form</button>
+      <button class="chip" data-filter="ads">Ads</button>
+      <button class="chip" data-filter="motion">Motion</button>
+      <button class="chip" data-filter="podcast">Podcast</button>
+    </div>
+
+    <div class="work-group" data-group="wide">
+      <div class="kicker t-mono" style="margin-bottom:20px"><span class="playhead"></span>Long-form, ads &amp; motion</div>
+      <div class="projects" style="margin-bottom:72px">
+        {% for w in work if not w.tall %}
+        <a class="project appear" data-format="{{ w.fmt }}" href="project.html">
+          <div class="frame frame-16x9"><img src="assets/img/{{ w.img }}" alt="{{ w.title }} — {{ w.client }}" width="1600" height="900"><span class="frame-corner tl"></span><span class="frame-corner br"></span></div>
+          <div class="project-meta">
+            <div><div class="project-title">{{ w.title }}</div><div class="project-sub">{{ w.client }} · {{ w.format }}</div></div>
+            <span class="project-result">{{ w.result }}</span>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="work-group" data-group="tall">
+      <div class="kicker t-mono" style="margin-bottom:20px"><span class="playhead"></span>Short-form</div>
+      <div class="reels reels-work">
+        {% for w in work if w.tall %}
+        <a class="reel appear" data-format="{{ w.fmt }}" href="project.html">
+          <img src="assets/img/{{ w.img }}" alt="{{ w.title }} — {{ w.client }}" width="1080" height="1920">
+        <span class="reel-scrim"></span>
+          <div class="reel-top"><span class="badge">{{ w.platform }}</span><span class="badge badge-accent">{{ w.views }}</span></div>
+          <span class="reel-play"><span class="tri"></span></span>
+          <div class="reel-bottom"><span class="reel-title">{{ w.title }}</span><span class="reel-meta">{{ w.client }} · {{ w.result }}</span><span class="reel-progress"><i></i></span></div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

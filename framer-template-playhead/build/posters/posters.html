@@ -1,0 +1,155 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../site/assets/css/fonts.css">
+<style>
+body{margin:0;background:#222;font-family:"Bricolage Grotesque",sans-serif;}
+.p{position:relative;overflow:hidden;color:#F4F1EA;display:block;margin:20px;isolation:isolate}
+.w{width:1600px;height:900px}.t{width:1080px;height:1920px}.sq{width:1200px;height:1500px}.og{width:1200px;height:630px}
+.grain{position:absolute;inset:0;opacity:.28;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.8}
+.mono{font-family:"JetBrains Mono",monospace;font-size:22px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.t .mono{font-size:26px}
+.title{position:absolute;left:80px;bottom:88px;font-weight:800;letter-spacing:-.04em;line-height:.9;font-size:150px;max-width:1300px}
+.t .title{left:64px;bottom:560px;font-size:118px;max-width:940px}
+.top{position:absolute;left:80px;top:64px;display:flex;gap:28px;align-items:center}
+.t .top{left:64px;top:72px}
+.tc{position:absolute;right:80px;top:64px}
+.t .tc{right:64px;top:72px}
+.bar{position:absolute;left:80px;right:80px;bottom:52px;height:4px;background:rgba(255,255,255,.25)}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:#FF4D1A}
+.t .bar{display:none}
+.corner{position:absolute;width:34px;height:34px;border:4px solid rgba(255,255,255,.75)}
+.tl{top:36px;left:36px;border-right:0;border-bottom:0}.tr{top:36px;right:36px;border-left:0;border-bottom:0}.bl{bottom:36px;left:36px;border-right:0;border-top:0}.br{bottom:36px;right:36px;border-left:0;border-top:0}
+.wave{position:absolute;left:80px;right:80px;bottom:120px;display:flex;align-items:flex-end;gap:6px;height:90px;opacity:.5}
+.wave i{flex:1;background:#F4F1EA;border-radius:2px}
+.pill{display:inline-block;padding:10px 18px;border:2px solid rgba(255,255,255,.5);border-radius:999px}
+.rec{display:flex;align-items:center;gap:12px}.rec b{width:18px;height:18px;border-radius:50%;background:#FF4D1A;display:inline-block}
+.stripes{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.06) 0 2px,transparent 2px 40px)}
+.big{position:absolute;right:-40px;bottom:-60px;font-size:520px;font-weight:800;letter-spacing:-.06em;line-height:1;opacity:.12}
+.ring{position:absolute;border-radius:50%;border:3px solid rgba(255,255,255,.35)}
+</style></head><body>
+
+<!-- 16:9 posters -->
+<div class="p w" id="poster-showreel" style="background:linear-gradient(120deg,#1a1210,#3a1d12 55%,#0c0c0d)">
+  <div class="glow" style="width:900px;height:900px;background:#FF4D1A;left:900px;top:-300px;opacity:.55"></div>
+  <div class="grain"></div><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  <div class="top"><span class="mono rec"><b></b>REC</span><span class="mono">NOA KELLER · REEL 2026</span></div><span class="mono tc">00:00:35:12</span>
+  <div class="title">SHOW<br>REEL</div>
+  <div class="wave"><i style="height:20%"></i><i style="height:60%"></i><i style="height:35%"></i><i style="height:90%"></i><i style="height:50%"></i><i style="height:75%"></i><i style="height:30%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:25%"></i><i style="height:55%"></i><i style="height:85%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:30%"></i><i style="height:80%"></i><i style="height:50%"></i><i style="height:20%"></i><i style="height:65%"></i><i style="height:40%"></i><i style="height:90%"></i><i style="height:35%"></i></div>
+  <div class="bar"><i style="width:38%"></i></div>
+</div>
+
+<div class="p w" id="poster-showreel-wide" style="background:linear-gradient(180deg,#0c0c0d,#1c1c20)">
+  <div class="stripes"></div><div class="glow" style="width:700px;height:700px;background:#FF4D1A;left:-200px;top:300px;opacity:.5"></div>
+  <div class="grain"></div>
+  <div class="top"><span class="mono">REEL_2026_FINAL.MP4</span><span class="mono pill">4K · 24 FPS</span></div><span class="mono tc">01:32:00</span>
+  <div class="title" style="font-size:132px">KEEP THEM<br><span style="color:#FF4D1A">WATCHING.</span></div>
+  <div class="bar"><i style="width:12%"></i></div>
+</div>
+
+<div class="p w" id="poster-4hour" style="background:linear-gradient(135deg,#0b1a2b,#123c5a 60%,#0b1a2b)">
+  <div class="glow" style="width:800px;height:800px;background:#2FB8FF;left:1000px;top:200px;opacity:.45"></div><div class="grain"></div>
+  <div class="ring" style="width:620px;height:620px;right:120px;top:140px"></div><div class="ring" style="width:420px;height:420px;right:220px;top:240px;opacity:.6"></div>
+  <div class="top"><span class="mono">ARDA FILMS × KESTREL LABS</span><span class="mono pill">DOCUMENTARY · 14:20</span></div><span class="mono tc">00:03:41:07</span>
+  <div class="title">THE 4-HOUR<br>CUT</div>
+  <div class="bar"><i style="width:58%"></i></div>
+</div>
+
+<div class="p w" id="poster-studio" style="background:linear-gradient(135deg,#1b0f2e,#4a1d6b 55%,#120a1c)">
+  <div class="glow" style="width:900px;height:900px;background:#C46BFF;left:-200px;top:-300px;opacity:.5"></div><div class="grain"></div>
+  <div class="big">02</div>
+  <div class="top"><span class="mono">LOOP RECORDS</span><span class="mono pill">BRAND FILM · SERIES</span></div><span class="mono tc">00:07:12:19</span>
+  <div class="title">INSIDE THE<br>STUDIO</div>
+  <div class="bar"><i style="width:71%"></i></div>
+</div>
+
+<div class="p w" id="poster-built" style="background:linear-gradient(135deg,#0e1f14,#1f5a34 60%,#0b160f)">
+  <div class="glow" style="width:800px;height:800px;background:#5CFF9D;left:900px;top:-250px;opacity:.35"></div><div class="grain"></div><div class="stripes"></div>
+  <div class="top"><span class="mono">KESTREL LABS · FOUNDER SERIES</span><span class="mono pill">EP. 07 / 12</span></div><span class="mono tc">00:11:04:02</span>
+  <div class="title">HOW WE<br>BUILT IT</div>
+  <div class="bar"><i style="width:44%"></i></div>
+</div>
+
+<div class="p w" id="poster-spring" style="background:linear-gradient(135deg,#F4E3D3,#FFB08A 55%,#FF7A45);color:#2A0F05">
+  <div class="glow" style="width:700px;height:700px;background:#fff;left:100px;top:-300px;opacity:.6"></div><div class="grain"></div>
+  <div class="ring" style="width:520px;height:520px;right:140px;top:190px;border-color:rgba(42,15,5,.35)"></div>
+  <div class="top"><span class="mono" style="opacity:.75">MONO SUPPLY · PAID SOCIAL</span><span class="mono pill" style="border-color:rgba(42,15,5,.4)">6 CUTS</span></div><span class="mono tc" style="opacity:.75">00:00:14:23</span>
+  <div class="title">SPRING<br>DROP</div>
+  <div class="bar" style="background:rgba(42,15,5,.2)"><i style="width:25%"></i></div>
+</div>
+
+<div class="p w" id="poster-launch" style="background:linear-gradient(135deg,#0c0c0d,#3b3b42 60%,#0c0c0d)">
+  <div class="glow" style="width:900px;height:400px;background:#ffffff;left:350px;top:250px;opacity:.25"></div><div class="grain"></div>
+  <div class="top"><span class="mono">HALO AUDIO</span><span class="mono pill">PRODUCT FILM · 90S</span></div><span class="mono tc">00:00:47:11</span>
+  <div class="title">LAUNCH<br>FILM</div>
+  <div class="bar"><i style="width:80%"></i></div>
+</div>
+
+<div class="p w" id="poster-titles" style="background:linear-gradient(135deg,#2a0b07,#b8321a 60%,#FF4D1A)">
+  <div class="grain"></div><div class="stripes"></div>
+  <div class="big" style="opacity:.18">S3</div>
+  <div class="top"><span class="mono">ROOFTOP SESSIONS</span><span class="mono pill">TITLE SEQUENCE</span></div><span class="mono tc">00:00:08:00</span>
+  <div class="title">ROOFTOP<br>SESSIONS</div>
+  <div class="bar"><i style="width:15%;background:#fff"></i></div>
+</div>
+
+<div class="p w" id="poster-podcast" style="background:linear-gradient(135deg,#F2D33C,#E8B400 60%,#1a1400);color:#141000">
+  <div class="grain"></div>
+  <div class="top"><span class="mono" style="opacity:.8">SALT &amp; SIGNAL · PODCAST</span><span class="mono pill" style="border-color:rgba(20,16,0,.4)">40 CLIPS / MO</span></div><span class="mono tc" style="opacity:.8">00:22:18:14</span>
+  <div class="wave" style="opacity:.35;bottom:300px"><i style="height:20%;background:#141000"></i><i style="height:60%;background:#141000"></i><i style="height:35%;background:#141000"></i><i style="height:90%;background:#141000"></i><i style="height:50%;background:#141000"></i><i style="height:75%;background:#141000"></i><i style="height:30%;background:#141000"></i><i style="height:65%;background:#141000"></i><i style="height:95%;background:#141000"></i><i style="height:40%;background:#141000"></i><i style="height:70%;background:#141000"></i><i style="height:25%;background:#141000"></i><i style="height:55%;background:#141000"></i><i style="height:85%;background:#141000"></i><i style="height:45%;background:#141000"></i><i style="height:60%;background:#141000"></i></div>
+  <div class="title">SIGNAL &amp;<br>NOISE</div>
+  <div class="bar" style="background:rgba(20,16,0,.2)"><i style="width:62%;background:#141000"></i></div>
+</div>
+
+<div class="p w" id="poster-still-1" style="background:linear-gradient(160deg,#101418,#23313d)"><div class="glow" style="width:700px;height:700px;background:#FFB35C;left:200px;top:100px;opacity:.5"></div><div class="grain"></div><span class="corner tl"></span><span class="corner br"></span><span class="mono tc">A-CAM · 00:41:12:03</span></div>
+<div class="p w" id="poster-still-2" style="background:linear-gradient(160deg,#1a1410,#4a2d18)"><div class="glow" style="width:900px;height:500px;background:#FF7A45;left:600px;top:350px;opacity:.5"></div><div class="grain"></div><span class="corner tl"></span><span class="corner br"></span><span class="mono tc">B-ROLL · 01:05:33:17</span></div>
+<div class="p w" id="poster-still-3" style="background:#0c0c0d"><div class="grain"></div><div class="title" style="font-size:96px;left:50%;bottom:auto;top:50%;transform:translate(-50%,-50%);text-align:center;max-width:none">the 4-hour cut</div><span class="mono tc">TITLE CARD · v7</span></div>
+
+<!-- 9:16 reels -->
+<div class="p t" id="reel-01" style="background:linear-gradient(170deg,#3a1d12,#FF7A45 70%,#FFC9B5)">
+  <div class="glow" style="width:800px;height:800px;background:#FF4D1A;left:300px;top:700px;opacity:.5"></div><div class="grain"></div>
+  <div class="top"><span class="mono rec"><b></b>REELS</span><span class="mono">NORTHWIND COFFEE</span></div><span class="mono tc">2.4M</span>
+  <div class="title">7 SECONDS<br>TO YES</div><div class="bar"><i style="width:61%"></i></div>
+</div>
+<div class="p t" id="reel-02" style="background:linear-gradient(170deg,#0c0c0d,#2a2a30 60%,#0c0c0d)">
+  <div class="stripes"></div><div class="glow" style="width:700px;height:700px;background:#2F5BFF;left:-200px;top:900px;opacity:.5"></div><div class="grain"></div>
+  <div class="top"><span class="mono rec"><b></b>TIKTOK</span><span class="mono">KESTREL LABS</span></div><span class="mono tc">1.8M</span>
+  <div class="title">HOOKS<br>THAT<br>HOLD</div><div class="bar"><i style="width:80%"></i></div>
+</div>
+<div class="p t" id="reel-03" style="background:linear-gradient(170deg,#F4F1EA,#E0DACB);color:#101010">
+  <div class="glow" style="width:600px;height:600px;background:#FF4D1A;left:500px;top:300px;opacity:.35"></div><div class="grain"></div>
+  <div class="ring" style="width:700px;height:700px;left:190px;top:520px;border-color:rgba(16,16,16,.25)"></div>
+  <div class="top"><span class="mono rec"><b></b>SHORTS</span><span class="mono">SALT &amp; SIGNAL</span></div><span class="mono tc">940K</span>
+  <div class="title">FOUNDER<br>POV</div><div class="bar" style="background:rgba(16,16,16,.15)"><i style="width:33%"></i></div>
+</div>
+<div class="p t" id="reel-04" style="background:linear-gradient(170deg,#0f1a12,#1f5a34 70%,#5CFF9D)">
+  <div class="grain"></div><div class="big" style="font-size:700px;right:-120px;bottom:-140px">04</div>
+  <div class="top"><span class="mono rec"><b></b>REELS</span><span class="mono">VOLT ATHLETICS</span></div><span class="mono tc">3.1M</span>
+  <div class="title">GYM<br>RESET</div><div class="bar"><i style="width:47%"></i></div>
+</div>
+<div class="p t" id="reel-05" style="background:linear-gradient(170deg,#1b0f2e,#C46BFF 75%,#FFC9B5)">
+  <div class="glow" style="width:800px;height:800px;background:#FF4D1A;left:200px;top:1200px;opacity:.45"></div><div class="grain"></div>
+  <div class="top"><span class="mono rec"><b></b>TIKTOK</span><span class="mono">WANDER</span></div><span class="mono tc">5.6M</span>
+  <div class="title">STREET<br>EATS:<br>TOKYO</div><div class="bar"><i style="width:90%"></i></div>
+</div>
+<div class="p t" id="reel-06" style="background:linear-gradient(170deg,#0c0c0d,#3b3b42)">
+  <div class="glow" style="width:900px;height:500px;background:#fff;left:100px;top:600px;opacity:.2"></div><div class="grain"></div><div class="stripes"></div>
+  <div class="top"><span class="mono rec"><b></b>SHORTS</span><span class="mono">MONO SUPPLY</span></div><span class="mono tc">1.2M</span>
+  <div class="title">DESK<br>SETUP<br>2026</div><div class="bar"><i style="width:22%"></i></div>
+</div>
+
+<!-- portrait placeholder 4:5 -->
+<div class="p sq" id="portrait" style="background:linear-gradient(160deg,#ECE7DC,#E0DACB);color:#101010">
+  <div class="glow" style="width:900px;height:900px;background:#FF4D1A;left:150px;top:500px;opacity:.28"></div><div class="grain"></div>
+  <div class="ring" style="width:760px;height:760px;left:220px;top:180px;border-color:rgba(16,16,16,.2)"></div>
+  <div class="ring" style="width:540px;height:540px;left:330px;top:290px;border-color:rgba(16,16,16,.25)"></div>
+  <div class="top" style="left:64px;top:64px"><span class="mono" style="opacity:.7">PORTRAIT · REPLACE WITH YOUR PHOTO</span></div>
+  <div class="title" style="left:64px;bottom:72px;font-size:230px">NK</div>
+</div>
+
+<!-- OG cover 1200x630 -->
+<div class="p og" id="og-cover" style="background:linear-gradient(120deg,#0c0c0d,#2a2a30)">
+  <div class="glow" style="width:700px;height:700px;background:#FF4D1A;left:700px;top:-200px;opacity:.5"></div><div class="grain"></div>
+  <div class="top" style="left:60px;top:48px"><span class="mono rec"><b></b>NOA KELLER · VIDEO EDITOR</span></div>
+  <div class="title" style="left:60px;bottom:56px;font-size:104px;max-width:1000px">EDITS THAT KEEP<br>PEOPLE <span style="color:#FF4D1A">WATCHING.</span></div>
+</div>
+</body></html>

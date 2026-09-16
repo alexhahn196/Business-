@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker t-mono"><span class="playhead"></span>About</div>
+    <h1 class="appear">Eight years in the timeline.</h1>
+    <p class="t-lead max-60 appear appear-d1">I started cutting skate videos on a borrowed laptop. Today I edit for creators with millions of subscribers and brands that want their films to feel like creator content. The tools changed; the job didn’t: make people feel something before they can scroll.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="about-grid">
+      <div class="stack gap-3 appear">
+        <div class="portrait"><img src="assets/img/portrait.jpg" alt="{{ site.persona }} in the edit suite" width="1200" height="1500"></div>
+        <div class="row between wrap gap-2">
+          <span class="pill"><span class="dot"></span>{{ site.location }}</span>
+          <span class="pill">Remote worldwide</span>
+        </div>
+      </div>
+      <div class="stack gap-5">
+        <div class="prose appear appear-d1">
+          <h3>How I work</h3>
+          <p>Story first, then pace, then polish. I read the retention graph of every video I ship and I will tell you when a hook isn’t working — even if it was your favorite line. Most clients stay for years because the second video is always better than the first.</p>
+          <p>I work remote from {{ site.location }}, on European and US hours, with a two-person crew for motion-heavy projects.</p>
+        </div>
+        <div class="stack gap-2 appear appear-d2">
+          <span class="t-mono muted">Tools</span>
+          <div class="tools">
+            {% for t in tools %}<span class="pill pill-solid">{{ t }}</span>{% endfor %}
+          </div>
+        </div>
+        <div class="proof appear appear-d3">
+          <div class="proof-tile"><span class="big">8</span><p>years editing full-time</p></div>
+          <div class="proof-tile"><span class="big">1,400<em>+</em></span><p>videos delivered</p></div>
+          <div class="proof-tile"><span class="big">4</span><p>channels grown past 1M subscribers</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section on-paper-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>Timeline</div>
+      <h2 class="t-h2 appear">The short version.</h2>
+    </div>
+    <div class="timeline appear">
+      {% for row in timeline %}
+      <div class="timeline-row"><span class="year">{{ row.year }}</span><b>{{ row.title }}</b><span>{{ row.text }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>Clients</div>
+      <div class="split">
+        <h2 class="t-h2 appear">People I’ve cut for.</h2>
+        <a class="link appear appear-d1" href="work.html">See the work {{ arrow }}<span class="u"></span></a>
+      </div>
+    </div>
+    <div class="grid grid-4 appear">
+      {% for c in clients %}<div class="testimonial" style="padding:24px"><span class="wordmark" style="color:var(--ink)"><i></i>{{ c }}</span></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section on-screen">
+  <div class="container">
+    <div class="testimonials">
+      {% for t in testimonials %}
+      <div class="testimonial appear appear-d{{ loop.index }}">
+        <div class="stars">{{ star }}{{ star }}{{ star }}{{ star }}{{ star }}</div>
+        <p class="quote">{{ t.quote }}”</p>
+        <div class="person"><span class="avatar" style="background:{{ t.color }}">{{ t.initials }}</span><div><b>{{ t.name }}</b><span>{{ t.role }}</span></div></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

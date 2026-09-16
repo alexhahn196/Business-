@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- PLAYHEAD LITE — free one-page version (funnel for the paid template). No CMS, five sections. -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="pill appear"><span class="dot"></span>{{ site.availability }}</span>
+        <h1 class="hero-title appear appear-d1">Edits that keep people <em>watching.</em></h1>
+        <p class="t-lead max-52 appear appear-d2">I’m {{ site.first_name }}, a video editor for creators and brands. Short-form that hooks in two seconds and long-form that holds to the end.</p>
+        <div class="hero-actions appear appear-d3">
+          <a class="btn btn-primary btn-lg" href="#contact">Book a call {{ arrow }}</a>
+          <a class="btn btn-ghost btn-lg" href="#reels">See the work</a>
+        </div>
+        <div class="hero-stats appear appear-d4">
+          <div class="stat"><b>120M+</b><span>views on client content</span></div>
+          <div class="stat"><b>60+</b><span>creators &amp; brands</span></div>
+          <div class="stat"><b>48h</b><span>turnaround on shorts</span></div>
+        </div>
+      </div>
+      <div class="hero-media appear appear-d2">
+        <div class="frame frame-16x9">
+          <img src="assets/img/poster-showreel.jpg" alt="Showreel 2026" width="1600" height="900">
+          <span class="frame-corner tl"></span><span class="frame-corner tr"></span><span class="frame-corner bl"></span><span class="frame-corner br"></span>
+          <span class="play-badge"><span class="tri"></span></span>
+          <div class="frame-ui"><span>SHOWREEL 2026</span><span class="bar"><i></i></span><span>00:35 / 01:32</span></div>
+        </div>
+        <div class="hero-reel"><img src="assets/img/reel-01.jpg" alt="Vertical reel" width="1080" height="1920"></div>
+        <div class="hero-tag"><b>+38%</b> retention · 2025 avg.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="marquee" aria-label="Clients"><div class="marquee-track">{% for c in clients %}<span class="wordmark"><i></i>{{ c }}</span>{% endfor %}</div></div>
+<section class="section on-screen" id="reels">
+  <div class="container">
+    <div class="section-head"><div class="kicker t-mono"><span class="playhead"></span>Short-form</div><div class="split"><h2 class="t-h2 appear">Built for the feed.</h2></div></div>
+    <div class="reels">
+      {% for r in reels %}
+      <div class="reel appear appear-d{{ loop.index0 % 4 + 1 }}">
+        <img src="assets/img/{{ r.img }}" alt="{{ r.title }} — {{ r.client }}" width="1080" height="1920">
+        <span class="reel-scrim"></span>
+        <div class="reel-top"><span class="badge">{{ r.platform }}</span><span class="badge badge-accent">{{ r.views }}</span></div>
+        <span class="reel-play"><span class="tri"></span></span>
+        <div class="reel-bottom"><span class="reel-title">{{ r.title }}</span><span class="reel-meta">{{ r.client }} · {{ r.meta }}</span><span class="reel-progress"><i></i></span></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section on-paper-2">
+  <div class="container">
+    <div class="section-head"><div class="kicker t-mono"><span class="playhead"></span>Services</div><div class="split"><h2 class="t-h2 appear">One editor. The whole pipeline.</h2></div></div>
+    <div class="services">
+      {% for s in services %}<div class="service appear appear-d{{ loop.index }}" style="background: var(--paper)"><span class="icon">{{ s.icon }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p><div class="from"><span>from</span><b>{{ s.from }}</b></div></div>{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="testimonials">
+      {% for t in testimonials %}
+      <div class="testimonial appear appear-d{{ loop.index }}"><div class="stars">{{ star }}{{ star }}{{ star }}{{ star }}{{ star }}</div><p class="quote">{{ t.quote }}”</p><div class="person"><span class="avatar" style="background:{{ t.color }}">{{ t.initials }}</span><div><b>{{ t.name }}</b><span>{{ t.role }}</span></div></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section on-paper-2" id="contact" style="padding-bottom:0">
+  <div class="container">
+    <div class="section-head"><div class="kicker t-mono"><span class="playhead"></span>Contact</div><div class="split"><h2 class="t-h2 appear">Tell me about the video.</h2><a class="btn btn-primary btn-lg" href="mailto:{{ site.email }}">{{ site.email }} {{ arrow }}</a></div></div>
+  </div>
+</section>
+{% endblock %}

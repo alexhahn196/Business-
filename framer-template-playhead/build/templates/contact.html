@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker t-mono"><span class="playhead"></span>Contact</div>
+    <h1 class="appear">Tell me about the video.</h1>
+    <p class="t-lead max-60 appear appear-d1">Send the brief, the deadline and a link to your channel. You’ll get a plan and a price within one working day — no discovery-call theater.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="contact-grid">
+      <form class="form appear" data-demo action="#" method="post">
+        <div class="form-row">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@company.com" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="type">Project type</label><select id="type" name="type"><option>Short-form editing</option><option>Long-form YouTube</option><option>Motion &amp; titles</option><option>Thumbnails &amp; packaging</option><option>Monthly package</option></select></div>
+          <div class="field"><label for="budget">Budget</label><select id="budget" name="budget"><option>Under $1,000</option><option>$1,000 – $3,000</option><option>$3,000 – $8,000</option><option>$8,000+</option></select></div>
+        </div>
+        <div class="field"><label for="link">Channel or reference link</label><input id="link" name="link" type="url" placeholder="https://youtube.com/@yourchannel"></div>
+        <div class="field"><label for="message">The brief</label><textarea id="message" name="message" placeholder="What’s the video, who is it for, and when does it need to be live?"></textarea></div>
+        <div class="row gap-2 wrap">
+          <button class="btn btn-primary btn-lg" type="submit">Send the brief {{ arrow }}</button>
+          <span class="t-small">Replies within one working day.</span>
+        </div>
+      </form>
+      <div class="stack gap-3 appear appear-d1">
+        <div class="contact-card">
+          <div class="stack gap-1"><span class="t-mono muted">Prefer to talk?</span><b class="t-h4">Book a 20-minute call.</b></div>
+          <div class="booking">
+            <span class="t-mono muted">Booking embed</span>
+            <b>Cal.com / Calendly slot</b>
+            <span class="t-small">In Framer, drop your booking embed here (Insert → Embed). Keep the button below as a fallback link.</span>
+            <a class="btn btn-ghost btn-sm" href="https://cal.com/" target="_blank" rel="noopener">Open calendar {{ arrow }}</a>
+          </div>
+          <div class="item"><span>Email</span><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+          <div class="item"><span>Phone / WhatsApp</span><a href="tel:{{ site.phone_raw }}">{{ site.phone }}</a></div>
+          <div class="item"><span>Based in</span><b>{{ site.location }} · CET</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section on-paper-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>What happens next</div>
+      <h2 class="t-h2 appear">Three steps, no surprises.</h2>
+    </div>
+    <div class="steps-inline">
+      <div class="s appear"><span>01</span><b>You send the brief</b><p>Footage link, references, deadline and the goal for the video.</p></div>
+      <div class="s appear appear-d1"><span>02</span><b>I send a plan &amp; price</b><p>Within one working day: format, timeline, fixed price or package.</p></div>
+      <div class="s appear appear-d2"><span>03</span><b>We start cutting</b><p>50% deposit, Frame.io review link, first cut on the agreed date.</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

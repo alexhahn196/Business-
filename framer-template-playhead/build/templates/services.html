@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker t-mono"><span class="playhead"></span>Services &amp; packages</div>
+    <h1 class="appear">Everything between raw footage and “posted”.</h1>
+    <p class="t-lead max-60 appear appear-d1">Book a single video or a monthly package. Pricing is public on purpose — you should know what things cost before the first call.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="services">
+      {% for s in services %}
+      <div class="service appear appear-d{{ loop.index }}">
+        <span class="icon">{{ s.icon }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+        <ul class="service-list">
+          {% for d in s.deliverables %}<li><span class="tick">{{ tick }}</span>{{ d }}</li>{% endfor %}
+        </ul>
+        <div class="from"><span>from</span><b>{{ s.from }}</b></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section on-paper-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>Monthly packages</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Pick a rhythm.</h2>
+        <p class="t-lead max-52 appear appear-d1">Retainers are how most clients work with me. Pause or cancel any month with seven days’ notice.</p>
+      </div>
+    </div>
+    <div class="pricing">
+      {% for pk in packages %}
+      <div class="price-card appear appear-d{{ loop.index }}{% if pk.featured %} is-featured{% endif %}">
+        {% if pk.featured %}<span class="ribbon pill pill-accent">Most booked</span>{% endif %}
+        <div class="tier"><span>{{ pk.name }}</span><span>{{ pk.tag }}</span></div>
+        <div class="amount">{{ pk.price }}<small> / month</small></div>
+        <p class="desc">{{ pk.desc }}</p>
+        <ul class="service-list">
+          {% for f in pk.features %}<li><span class="tick">{{ tick }}</span>{{ f }}</li>{% endfor %}
+        </ul>
+        <a class="btn btn-primary" href="contact.html">Start with {{ pk.name }} {{ arrow }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>Compare</div>
+      <h2 class="t-h2 appear">What’s in each package.</h2>
+    </div>
+    <div class="appear" style="overflow-x:auto">
+    <table class="table">
+      <thead><tr><th>Included</th><th>Starter</th><th>Retainer</th><th>Studio</th></tr></thead>
+      <tbody>
+        <tr><td><b>Short-form edits / month</b></td><td>8</td><td>16</td><td>Unlimited, one at a time</td></tr>
+        <tr><td><b>Long-form edits / month</b></td><td>—</td><td>2</td><td>4</td></tr>
+        <tr><td><b>Captions &amp; sound design</b></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td><b>Thumbnails &amp; titles</b></td><td>Add-on</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td><b>Motion graphics &amp; channel package</b></td><td>—</td><td>Add-on</td><td class="yes">✓</td></tr>
+        <tr><td><b>Turnaround (shorts)</b></td><td>48h</td><td>48h, priority</td><td>24h</td></tr>
+        <tr><td><b>Review</b></td><td>Frame.io</td><td>Frame.io + weekly call</td><td>Frame.io + Slack</td></tr>
+        <tr><td><b>Revision rounds</b></td><td>2</td><td>2</td><td>Unlimited</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="section on-screen">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>Add-ons</div>
+      <h2 class="t-h2 appear">À la carte.</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for a in addons %}
+      <div class="testimonial appear appear-d{{ loop.index }}"><div class="stack gap-1"><b class="t-h4">{{ a.title }}</b><span class="t-small">{{ a.text }}</span></div><div class="row between" style="margin-top:auto"><span class="t-mono" style="color:var(--on-screen-2)">{{ a.unit }}</span><b class="t-h4">{{ a.price }}</b></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="section-head" style="margin:0">
+        <div class="kicker t-mono"><span class="playhead"></span>FAQ</div>
+        <h2 class="t-h2 appear">Before you book.</h2>
+      </div>
+      <div class="faq">
+        {% for f in faq %}
+        <div class="faq-item{% if loop.first %} is-open{% endif %}">
+          <button class="faq-q" aria-expanded="{{ 'true' if loop.first else 'false' }}"><span>{{ f.q }}</span><span class="plus">{{ plus }}</span></button>
+          <div class="faq-a">{{ f.a }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

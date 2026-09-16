@@ -1,0 +1,25 @@
+/* Bricolage Grotesque 500 800 — SIL Open Font License, via Google Fonts */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('../fonts/BricolageGrotesque-500-800.woff2') format('woff2');
+}
+/* Inter 400 600 — SIL Open Font License, via Google Fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/Inter-400-600.woff2') format('woff2');
+}
+/* JetBrains Mono 400 500 — SIL Open Font License, via Google Fonts */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('../fonts/JetBrainsMono-400-500.woff2') format('woff2');
+}

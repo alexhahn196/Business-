@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="detail-head">
+      <div>
+        <div class="kicker t-mono"><span class="playhead"></span>Case study · Long-form</div>
+        <h1 class="appear">The 4-hour cut.</h1>
+        <p class="t-lead max-60 appear appear-d1">How a 4-hour founder interview became a 14-minute YouTube documentary that 1.1 million people watched — and 58% finished.</p>
+      </div>
+      <div class="detail-facts appear appear-d2">
+        <div class="fact"><span>Client</span><b>Arda Films for Kestrel Labs</b></div>
+        <div class="fact"><span>Format</span><b>YouTube documentary · 14:20</b></div>
+        <div class="fact"><span>Role</span><b>Edit, sound design, titles</b></div>
+        <div class="fact"><span>Year</span><b>2026</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:16px">
+  <div class="container">
+    <div class="frame frame-16x9 appear" style="border-radius: var(--radius-l)">
+      <img src="assets/img/poster-4hour.jpg" alt="The 4-hour cut — documentary frame" width="1600" height="900">
+      <span class="frame-corner tl"></span><span class="frame-corner tr"></span><span class="frame-corner bl"></span><span class="frame-corner br"></span>
+      <span class="play-badge" aria-hidden="true"><span class="tri"></span></span>
+      <div class="frame-ui"><span>THE_4HOUR_CUT_v7.MP4</span><span class="bar"><i></i></span><span>14:20</span></div>
+    </div>
+    <div class="metrics appear appear-d1" style="margin-top:20px">
+      <div class="metric"><b>1.1M</b><span>views in 90 days</span></div>
+      <div class="metric"><b>58%</b><span>average finished the video</span></div>
+      <div class="metric"><b>+21k</b><span>subscribers attributed</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="prose appear">
+        <h3>The brief</h3>
+        <p>Kestrel Labs had four hours of raw interview with their founder, a shot list of b-roll, and one goal: a video that new hires and customers would actually watch to the end. No script. No narrator.</p>
+        <h3>The approach</h3>
+        <p>I transcribed everything and cut the story on paper first — three acts, one question per act. Then I built the edit around the moments where the founder stops explaining and starts telling. Chapters every 2–3 minutes give viewers a reason to stay; the sound design is quiet on purpose so the room does the work.</p>
+        <p class="pullquote">“The best moments were the ones where he forgot the camera was there. The edit just had to get out of the way.”</p>
+        <h3>The result</h3>
+        <p>1.1 million views in 90 days, a 58% completion rate on a 14-minute video, and a series commission for six more episodes. The intro was re-cut twice after launch based on the retention graph — the version you see here is v7.</p>
+        <h3>Deliverables</h3>
+        <ul class="service-list">
+          <li><span class="tick">{{ tick }}</span>14:20 master, 4K, YouTube-optimized export</li>
+          <li><span class="tick">{{ tick }}</span>6 vertical cutdowns for Shorts and Reels</li>
+          <li><span class="tick">{{ tick }}</span>Animated title sequence and lower thirds (After Effects)</li>
+          <li><span class="tick">{{ tick }}</span>3 thumbnail concepts with title testing</li>
+        </ul>
+      </div>
+      <aside class="sticky stack gap-3 appear appear-d1">
+        <div class="contact-card">
+          <div class="stack gap-1"><span class="t-mono muted">Project details</span><b class="t-h4">In Framer, every field on this page is a CMS property.</b></div>
+          <div class="item"><span>Client</span><b>Kestrel Labs</b></div>
+          <div class="item"><span>Platform</span><b>YouTube</b></div>
+          <div class="item"><span>Tools</span><b>Premiere Pro · After Effects · DaVinci</b></div>
+          <div class="item"><span>Team</span><b>Directed by Arda Films</b></div>
+          <a class="btn btn-primary" href="contact.html">Book a similar project {{ arrow }}</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section on-screen">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>Stills</div>
+      <h2 class="t-h2 appear">Frames from the edit.</h2>
+    </div>
+    <div class="gallery">
+      <div class="frame frame-16x9 appear"><img src="assets/img/poster-still-1.jpg" alt="Still 1 — interview setup" width="1600" height="900"></div>
+      <div class="frame frame-16x9 appear appear-d1"><img src="assets/img/poster-still-2.jpg" alt="Still 2 — workshop b-roll" width="1600" height="900"></div>
+      <div class="frame frame-16x9 appear appear-d2"><img src="assets/img/poster-still-3.jpg" alt="Still 3 — title card" width="1600" height="900"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <a class="next-project appear" href="work.html">
+      <div class="stack gap-1"><span class="t-mono muted">Next case study</span><span class="t-h3">Inside the studio — Loop Records</span></div>
+      <span class="btn btn-ghost">Open {{ arrow }}</span>
+    </a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="pill appear"><span class="dot"></span>{{ site.availability }} · 2 slots left</span>
+        <h1 class="hero-title appear appear-d1">Edits that keep people <em>watching.</em></h1>
+        <p class="t-lead max-52 appear appear-d2">I’m {{ site.first_name }}, a video editor and motion designer for creators and brands. Short-form that hooks in two seconds, long-form that holds to the end, and titles that make it feel like a show.</p>
+        <div class="hero-actions appear appear-d3">
+          <a class="btn btn-primary btn-lg" href="contact.html">Book a call {{ arrow }}</a>
+          <a class="btn btn-ghost btn-lg" href="#showreel">Watch showreel</a>
+        </div>
+        <div class="hero-stats appear appear-d4">
+          <div class="stat"><b>120M+</b><span>views on client content</span></div>
+          <div class="stat"><b>60+</b><span>creators &amp; brands</span></div>
+          <div class="stat"><b>48h</b><span>turnaround on shorts</span></div>
+        </div>
+      </div>
+      <div class="hero-media appear appear-d2">
+        <div class="frame frame-16x9">
+          <img src="assets/img/poster-showreel.jpg" alt="Showreel 2026 — frame from a brand film with warm grading" width="1600" height="900">
+          <span class="frame-corner tl"></span><span class="frame-corner tr"></span><span class="frame-corner bl"></span><span class="frame-corner br"></span>
+          <a class="play-badge" href="#showreel" aria-label="Play showreel"><span class="tri"></span></a>
+          <div class="frame-ui"><span>SHOWREEL 2026</span><span class="bar"><i></i></span><span>00:35 / 01:32</span></div>
+        </div>
+        <div class="hero-reel"><img src="assets/img/reel-01.jpg" alt="Vertical reel: 7 seconds to yes — Northwind Coffee" width="1080" height="1920"></div>
+        <div class="hero-tag"><b>+38%</b> retention · 2025 avg.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT MARQUEE -->
+<div class="marquee" aria-label="Clients">
+  <div class="marquee-track">
+    {% for c in clients %}<span class="wordmark"><i></i>{{ c }}</span>{% endfor %}
+  </div>
+</div>
+
+<!-- SHOWREEL -->
+<section class="section on-screen showreel" id="showreel">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>01 — Showreel</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Ninety seconds of the good stuff.</h2>
+        <p class="t-lead max-52 appear appear-d1">Cuts from 2025–2026: founder stories, product films, podcast clips and the shorts that did numbers.</p>
+      </div>
+    </div>
+    <div class="frame frame-16x9 appear">
+      <img src="assets/img/poster-showreel-wide.jpg" alt="Showreel cover: monochrome studio shot with signal-orange title" width="1600" height="900">
+      <span class="frame-corner tl"></span><span class="frame-corner tr"></span><span class="frame-corner bl"></span><span class="frame-corner br"></span>
+      <a class="play-badge" href="work.html" aria-label="Play showreel"><span class="tri"></span></a>
+      <div class="frame-ui"><span>REEL_2026_FINAL.MP4</span><span class="bar"><i></i></span><span>01:32</span></div>
+    </div>
+    <div class="showreel-meta">
+      <span>2026 reel · 01:32 · sound on</span>
+      <span>Premiere Pro · After Effects · DaVinci Resolve</span>
+    </div>
+  </div>
+</section>
+
+<!-- REELS WALL -->
+<section class="section on-screen" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>02 — Short-form</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Built for the feed.</h2>
+        <a class="link appear appear-d1" href="work.html">See all work {{ arrow }}<span class="u"></span></a>
+      </div>
+    </div>
+    <div class="reels">
+      {% for r in reels %}
+      <a class="reel appear appear-d{{ loop.index0 % 4 + 1 }}" href="project.html">
+        <img src="assets/img/{{ r.img }}" alt="{{ r.title }} — {{ r.client }}" width="1080" height="1920">
+        <span class="reel-scrim"></span>
+        <div class="reel-top"><span class="badge">{{ r.platform }}</span><span class="badge badge-accent">{{ r.views }}</span></div>
+        <span class="reel-play"><span class="tri"></span></span>
+        <div class="reel-bottom">
+          <span class="reel-title">{{ r.title }}</span>
+          <span class="reel-meta">{{ r.client }} · {{ r.meta }}</span>
+          <span class="reel-progress"><i></i></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>03 — Selected work</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Long-form that holds.</h2>
+        <p class="t-lead max-52 appear appear-d1">Documentary-style YouTube, brand films and series. Each one connected to the Projects CMS, so adding a case study takes two minutes.</p>
+      </div>
+    </div>
+    <div class="projects">
+      {% for p in projects[:3] %}
+      <a class="project appear appear-d{{ loop.index }}" href="project.html">
+        <div class="frame frame-16x9"><img src="assets/img/{{ p.img }}" alt="{{ p.title }} — {{ p.client }}" width="1600" height="900"><span class="frame-corner tl"></span><span class="frame-corner br"></span></div>
+        <div class="project-meta">
+          <div><div class="project-title">{{ p.title }}</div><div class="project-sub">{{ p.client }} · {{ p.format }}</div></div>
+          <span class="project-result">{{ p.result }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section on-paper-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>04 — Services</div>
+      <div class="split">
+        <h2 class="t-h2 appear">One editor. The whole pipeline.</h2>
+        <a class="link appear appear-d1" href="services.html">Packages &amp; pricing {{ arrow }}<span class="u"></span></a>
+      </div>
+    </div>
+    <div class="services">
+      {% for s in services %}
+      <div class="service appear appear-d{{ loop.index }}" style="background: var(--paper)">
+        <span class="icon">{{ s.icon }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+        <div class="from"><span>from</span><b>{{ s.from }}</b></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section on-screen">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>05 — Process</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Brief on Monday. Live by Friday.</h2>
+        <p class="t-lead max-52 appear appear-d1">A fixed rhythm so you always know where your video is. Review happens on the timeline, not in email threads.</p>
+      </div>
+    </div>
+    <div class="process">
+      <div class="process-line"><i></i><span class="head"></span></div>
+      {% for st in process %}
+      <div class="step appear appear-d{{ loop.index }}">
+        <span class="num">0{{ loop.index }}</span>
+        <span class="dur">{{ st.when }}</span>
+        <h3>{{ st.title }}</h3>
+        <p>{{ st.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PROOF + TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>06 — Results</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Numbers first, adjectives second.</h2>
+      </div>
+    </div>
+    <div class="proof" style="margin-bottom:24px">
+      <div class="proof-tile appear"><span class="big"><em>+38%</em></span><p>Average retention lift across short-form clients in 2025, measured 30 days after switching to a hook-first structure.</p><span class="who">12 accounts · Reels, TikTok, Shorts</span></div>
+      <div class="proof-tile appear appear-d1"><span class="big">3.1×</span><p>Watch time on a long-form series after a story-first re-edit and chapter structure.</p><span class="who">Loop Records · YouTube</span></div>
+      <div class="proof-tile appear appear-d2"><span class="big">9<em>/10</em></span><p>Clients book a second project within 60 days. Most move to a monthly retainer.</p><span class="who">2024–2026 · all clients</span></div>
+    </div>
+    <div class="testimonials">
+      {% for t in testimonials %}
+      <div class="testimonial appear appear-d{{ loop.index }}">
+        <div class="stars">{{ star }}{{ star }}{{ star }}{{ star }}{{ star }}</div>
+        <p class="quote">{{ t.quote }}”</p>
+        <div class="person"><span class="avatar" style="background:{{ t.color }}">{{ t.initials }}</span><div><b>{{ t.name }}</b><span>{{ t.role }}</span></div></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section on-paper-2">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker t-mono"><span class="playhead"></span>07 — Packages</div>
+      <div class="split">
+        <h2 class="t-h2 appear">Monthly packages. No long contracts.</h2>
+        <p class="t-lead max-52 appear appear-d1">Pause or cancel any month. Every package includes captions, sound design and two revision rounds.</p>
+      </div>
+    </div>
+    <div class="pricing">
+      {% for pk in packages %}
+      <div class="price-card appear appear-d{{ loop.index }}{% if pk.featured %} is-featured{% endif %}">
+        {% if pk.featured %}<span class="ribbon pill pill-accent">Most booked</span>{% endif %}
+        <div class="tier"><span>{{ pk.name }}</span><span>{{ pk.tag }}</span></div>
+        <div class="amount">{{ pk.price }}<small> / month</small></div>
+        <p class="desc">{{ pk.desc }}</p>
+        <ul class="service-list">
+          {% for f in pk.features %}<li><span class="tick">{{ tick }}</span>{{ f }}</li>{% endfor %}
+        </ul>
+        <a class="btn btn-primary" href="contact.html">Start with {{ pk.name }} {{ arrow }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="section-head" style="margin:0">
+        <div class="kicker t-mono"><span class="playhead"></span>08 — FAQ</div>
+        <h2 class="t-h2 appear">Questions I get before every project.</h2>
+        <p class="t-lead appear appear-d1">Something missing? <a class="link" href="contact.html">Ask me directly<span class="u"></span></a>.</p>
+      </div>
+      <div class="faq">
+        {% for f in faq %}
+        <div class="faq-item{% if loop.first %} is-open{% endif %}">
+          <button class="faq-q" aria-expanded="{{ 'true' if loop.first else 'false' }}"><span>{{ f.q }}</span><span class="plus">{{ plus }}</span></button>
+          <div class="faq-a">{{ f.a }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

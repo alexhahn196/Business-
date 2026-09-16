@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <div class="kicker t-mono"><span class="playhead"></span>Start here · Playhead template guide</div>
+    <h1 class="appear">Make it yours in an afternoon.</h1>
+    <p class="t-lead max-60 appear appear-d1">This page ships inside the template (unpublished, so visitors never see it). It walks you through the customization order that works best, plus copy-paste prompts for the Framer Agent.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="doc">
+      <nav class="doc-nav">
+        <a href="#order">1. Order of work</a><a href="#styles">2. Colors &amp; fonts</a><a href="#cms">3. CMS collections</a><a href="#video">4. Adding video</a><a href="#pages">5. Pages</a><a href="#seo">6. SEO &amp; publish</a><a href="#agent">7. Agent prompts</a><a href="#support">Support</a>
+      </nav>
+      <div class="doc-body">
+        <div id="order" class="stack gap-2">
+          <h2>1. Order of work</h2>
+          <ol>
+            <li><b>Site Settings → General:</b> site name, favicon, social image (assets folder has an OG cover you can adapt).</li>
+            <li><b>Colors &amp; text styles:</b> swap the six color styles first; everything updates.</li>
+            <li><b>CMS → Projects:</b> replace the 12 demo projects with your own (video URL + poster + client + result).</li>
+            <li><b>CMS → Testimonials:</b> three to six quotes. Initials avatars are automatic.</li>
+            <li><b>Home:</b> hero copy, stats, packages, FAQ. Then Services, About, Contact.</li>
+            <li><b>Contact:</b> connect the form (Framer Forms) and paste your Cal.com / Calendly embed.</li>
+            <li><b>Publish</b> on a custom domain and run the Framer performance check.</li>
+          </ol>
+        </div>
+        <div id="styles" class="stack gap-2">
+          <h2>2. Colors &amp; fonts</h2>
+          <p>Six color styles drive the whole template: <code>Paper</code>, <code>Paper 2</code>, <code>Ink</code>, <code>Screen</code>, <code>On Screen</code>, <code>Accent</code>. Change <code>Accent</code> (default signal orange #FF4D1A) to your brand color and keep the paper/ink contrast for readability.</p>
+          <p>Fonts: <b>Bricolage Grotesque</b> (display), <b>Inter</b> (body), <b>JetBrains Mono</b> (labels &amp; timecodes). All three are in Framer’s font library — pick them from the text-style panel, no upload needed.</p>
+        </div>
+        <div id="cms" class="stack gap-2">
+          <h2>3. CMS collections</h2>
+          <p>Playhead uses exactly <b>two collections</b>, so it runs on the Framer Basic plan.</p>
+          <h3>Projects</h3>
+          <ul>
+            <li><code>Title</code> (title) · <code>Slug</code> · <code>Client</code> (text) · <code>Format</code> (option: Short-form, Long-form, Ads, Motion, Podcast)</li>
+            <li><code>Platform</code> (option: YouTube, TikTok, Reels, Shorts, Web) · <code>Orientation</code> (option: 16:9, 9:16)</li>
+            <li><code>Poster</code> (image) · <code>Video URL</code> (link: YouTube/Vimeo/MP4) · <code>Result</code> (text, e.g. “2.4M views”)</li>
+            <li><code>Summary</code> (text) · <code>Brief</code>, <code>Approach</code>, <code>Outcome</code> (formatted text) · <code>Metrics 1–3</code> (text) · <code>Stills</code> (gallery) · <code>Featured</code> (toggle) · <code>Date</code></li>
+          </ul>
+          <h3>Testimonials</h3>
+          <ul><li><code>Quote</code> (text) · <code>Name</code> · <code>Role</code> · <code>Initials</code> · <code>Color</code> (color) · <code>Featured</code> (toggle)</li></ul>
+        </div>
+        <div id="video" class="stack gap-2">
+          <h2>4. Adding video</h2>
+          <ul>
+            <li><b>Showreel:</b> replace the poster in the Showreel component with a Framer Video layer (upload MP4, muted autoplay off) or a YouTube/Vimeo embed.</li>
+            <li><b>Reels wall:</b> each Reel card has a Poster image and a Video layer set to <i>play on hover</i>. Use 9:16 MP4s under 8 MB for smooth hover-play.</li>
+            <li><b>Project pages:</b> the Video URL field feeds an embed component; posters keep the page fast until play.</li>
+          </ul>
+        </div>
+        <div id="pages" class="stack gap-2">
+          <h2>5. Pages</h2>
+          <p>Home · Work · Project (CMS detail) · Services · About · Contact · 404 · Legal · Start here (this page). Delete what you don’t need; the nav and footer are components, so links update everywhere.</p>
+        </div>
+        <div id="seo" class="stack gap-2">
+          <h2>6. SEO &amp; publish</h2>
+          <ul>
+            <li>Every page has a title and description field pre-filled — rewrite them with your name and city (“Video editor in Berlin”).</li>
+            <li>Alt text is set on all demo images; keep the habit for your posters.</li>
+            <li>Run Site Settings → Performance before publishing; keep videos under 8 MB or embed them.</li>
+          </ul>
+        </div>
+        <div id="agent" class="stack gap-2">
+          <h2>7. Framer Agent prompts</h2>
+          <p>Open the Agent panel in Framer and paste one of these:</p>
+          <div class="prompt">Replace every mention of “Noa Keller” with “[Your name]” and “Berlin” with “[Your city]” across all pages, then update the email and phone in the footer and contact page.</div>
+          <div class="prompt">Change the Accent color style to #2F5BFF and check contrast on all buttons and the CTA band. Keep Paper and Ink unchanged.</div>
+          <div class="prompt">Import my projects into the Projects collection from this list: [paste CSV with Title, Client, Format, Platform, Video URL, Result]. Set Orientation to 9:16 for TikTok/Reels/Shorts and 16:9 for YouTube.</div>
+          <div class="prompt">Rewrite the three packages on Home and Services for a monthly retainer of 12 short-form videos at $1,200, 20 videos at $1,900 and unlimited at $3,400. Keep the feature lists to five items.</div>
+        </div>
+        <div id="support" class="stack gap-2">
+          <h2>Support</h2>
+          <p>Questions about the template: email the creator address on the marketplace listing. Updates are free for buyers — re-open the remix link to get the latest version.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
