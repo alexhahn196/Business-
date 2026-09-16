@@ -132,7 +132,7 @@ Icons: 4 Service-Icons, Arrow, Tick, Plus, Star liegen als Inline-SVG in `build/
 
 **Home** (Stack, vertical): Hero (Grid 1.05fr/0.95fr; rechts Media-Frame 16:9 + schwebende Reel-Karte 34 % Breite, 3° rotiert, + Tag „+38 % retention") → Marquee → Showreel (Theme Screen, Frame 16:9, Meta-Zeile) → Reels-Wall (Theme Screen, Grid 6 → 3 → 2 Spalten, Collection List `Orientation = 9:16`, Featured) → Selected Work (Grid 3 → 2 → 1, Collection List `Orientation = 16:9`, Featured, Limit 3) → Services (Theme Paper 2, Grid 4 → 2 → 1) → Process (Theme Screen, Grid 4 → 2 → 1, Linie nur Desktop) → Results (3 Proof-Tiles + 3 Testimonials aus CMS) → Packages (Theme Paper 2, Grid 3 → 2 → 1) → FAQ (Grid 0.8fr/1.2fr → 1 Spalte) → CTA Band → Footer.
 
-**Work:** Page-Hero → Filter-Chips (Framer-CMS-Filter nach `Format`) → Grid 3 → 2 → 1 mit gemischten 16:9/9:16-Karten (Variante per `Orientation`).
+**Work:** Page-Hero → Filter-Chips (Framer-CMS-Filter nach `Format`) → Gruppe „Long-form, ads & motion“ (Collection List `Orientation = 16:9`, Grid 3 → 2 → 1) → Gruppe „Short-form“ (Collection List `Orientation = 9:16`, Grid 3 → 3 → 2). Eine Gruppe ohne Treffer wird ausgeblendet.
 
 **Project (CMS-Detail):** Detail-Head (Grid 1.3fr/0.7fr; rechts 4 Fakten) → Frame 16:9 mit Video-Embed (Video URL) → 3 Metrik-Kacheln → Text (Brief/Approach/Outcome mit Pullquote) + Sticky-Sidebar (Fakten, Button) → Stills-Galerie (Theme Screen, 3 → 2 → 1) → Next-Project-Karte.
 

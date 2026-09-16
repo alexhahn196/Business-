@@ -84,7 +84,7 @@ Lesart: **Agency, SaaS, Portfolio, Services = 43 % aller Neu-Uploads** — dort 
 
 | Nische | Zweckgebaute Templates | davon bezahlt | Median-Preis | Nachfrage-Signal | Käufer Framer-neu? (→ Abo-Provision) | Urteil |
 |---|---|---|---|---|---|---|
-| **Video-Editor / Videograf / Short-Form-Creator** | ~80 (62 davon aus 2026) | 47 | 59 $ | sehr stark (Autocomplete #2; 7,3 Mio. Freelance-Editoren weltweit; „AI video editing" laut Upwork 2026 schnellst wachsender Freelance-Skill) · Likes-Median 24 vs. 9 marktweit | **ja** (Editoren sind keine Framer-Nutzer) | **Gewinner** — aber Differenzierung nötig |
+| **Video-Editor / Videograf / Short-Form-Creator** | ≥ 80 in den Top-50-Treffern von 10 Suchbegriffen (62 davon aus 2026; Gesamtzahl eher 100–150) | 47 | 59 $ | sehr stark (Autocomplete #2; 7,3 Mio. Freelance-Editoren weltweit; „AI video editing" laut Upwork 2026 schnellst wachsender Freelance-Skill) · Likes-Median 24 vs. 9 marktweit | **ja** (Editoren sind keine Framer-Nutzer) | **Gewinner** — aber Differenzierung nötig |
 | UGC-/Content-Creator-Portfolio | ~35 | ~14 | 49 $ | stark auf Canva/Etsy/Notion, auf Framer noch jung | ja | in Playhead integriert (gleiche Struktur) |
 | Kurs-/Coaching-Seiten | 184 / 268 | 92 / 99 | 69 $ / 49 $ | mittel; MaestroClass (125 $) beweist Zahlungsbereitschaft | ja | Kandidat für Template #2 |
 | Zahnarzt / Klinik | 141 (Dental) · 332 (Medical) | 56 / 120 | 79 $ / 69 $ | mittel („framer template dentist") | nein (Agenturen kaufen) | zu voll, keine Abo-Provision |
